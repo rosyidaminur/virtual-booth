@@ -1,3 +1,4 @@
+var magnificPopup = null;
 $(document).ready(function () {
   $(".iframe-popup").magnificPopup({
     type: "iframe",
@@ -6,6 +7,12 @@ $(document).ready(function () {
     callbacks: {
       beforeOpen: function () {
         this.st.mainClass = this.st.el.attr("data-effect");
+      },
+      open: function () {
+        magnificPopup = this;
+      },
+      close: function () {
+        magnificPopup = null;
       },
     },
     zoom: {
@@ -37,5 +44,11 @@ function showHotspots() {
   document.getElementById("sikuen").classList.add("hide");
   document.getElementById("sikuen2").classList.remove("hide");
   document.getElementById("sikuen2").classList.add("show");
-  
+}
+
+function getPopup() {
+  return magnificPopup;
+}
+function closePopup() {
+  if (magnificPopup != null) magnificPopup.close();
 }

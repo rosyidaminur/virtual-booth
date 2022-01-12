@@ -7,13 +7,13 @@ import { useRouter } from "next/router";
 
 export default function MainHall(props) {
   const router = useRouter();
-  const from = router.query.from;
-
+  const from = router.query.fromH;
+  
   const clickBooth = (e, nama) => {
     e.preventDefault();
     router.push({
       pathname: "/booth",
-      query: { namaSponsor: nama },
+      query: { sponsor: nama },
     });
   };
   const toWebinar = (e) => {

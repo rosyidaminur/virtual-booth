@@ -20,29 +20,34 @@ export default function Booth(props) {
     router.push("/");
   };
 
-  const namaSponsor =
-    router.query.namaSponsor !== undefined
-      ? `${router.query.namaSponsor || " - Virtual Booth"}`
-      : "Sponsor - Virtual Booth";
+  const Sponsor =
+    router.query.sponsor !== undefined
+      ? router.query.sponsor
+      : "Sponsor";
 
-      useEffect(() => {
-        router.beforePopState(({ as }) => {
-          if (as === '/vbooth/main-hall') {
-            router.replace({
-              pathname: '/main-hall',
-              query: { from: 'booth' }
-            }, '/main-hall',)
-            return false
-          }
-    
-          return true
-        })
-      }, [router])
+  useEffect(() => {
+    router.beforePopState(({ as }) => {
+      if (window.getPopup() !== null) window.closePopup()
+
+      if (as === `${publicRuntimeConfig.base}main-hall`) {
+        router.replace(
+          {
+            pathname: "/main-hall",
+            query: { fromH: "booth" },
+          },
+          "/main-hall"
+        );
+        return false;
+      }
+
+      return true;
+    });
+  }, [router]);
 
   return (
     <>
       <Head>
-        <title>{namaSponsor}</title>
+        <title>{Sponsor} - Virtual Booth</title>
         <meta name="description" content="PKBKULIT - FKUWKS" />
       </Head>
 

@@ -1,6 +1,7 @@
 html,
 body {
-  background-color: black;
+  /* background-color: black; */
+  background: center / contain no-repeat url('/vbooth/images/hall.jpeg'), black;
   max-height: 100vh;
   padding: 0;
   margin: 0;

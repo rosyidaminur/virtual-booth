@@ -22,17 +22,20 @@ export default function Webinar(props) {
 
   useEffect(() => {
     router.beforePopState(({ as }) => {
-      if (as === '/vbooth/main-hall') {
-        router.replace({
-          pathname: '/main-hall',
-          query: { from: 'webinar' }
-        }, '/main-hall',)
-        return false
+      if (as === `${publicRuntimeConfig.base}main-hall`) {
+        router.replace(
+          {
+            pathname: "/main-hall",
+            query: { fromH: "webinar" },
+          },
+          "/main-hall"
+        );
+        return false;
       }
 
-      return true
-    })
-  }, [router])
+      return true;
+    });
+  }, [router]);
 
   return (
     <>
