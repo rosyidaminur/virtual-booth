@@ -2,13 +2,19 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Hotspot from "components/hotspot";
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
+import { protectPage } from "../services/withAuth";
 
-export default function Home(props) {
+
+function Home(props) {
+  const [profile, setProfile] = useState([]);
   const router = useRouter();
   const handleOnClick = (e) => {
     e.preventDefault();
     router.push("/main-hall");
   };
+
 
   return (
     <div>
@@ -46,3 +52,7 @@ export default function Home(props) {
     </div>
   );
 }
+
+
+export const getServerSideProps = async (context) => protectPage(context);
+export default Home;
