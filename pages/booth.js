@@ -115,7 +115,7 @@ function Booth(props) {
 
 export const getServerSideProps = async (ctx) => {
   //const params= ctx.params; //baca parameter perspnsor
-//  const query= ctx.query; //baca parameter perspnsor
+//  const query= ctx.query; //baca query perspnsor
 
   const token = cookies(ctx).token;
   if (token) {
