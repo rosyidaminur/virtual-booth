@@ -5,10 +5,9 @@ export async function protectPage(ctx) {
   const token = cookies(ctx).token;
   if (token) {
     const data = await fetch(process.env.BASE_URL+'/me', {
-     method: "GET",
+      method: "GET",
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: "application/json","Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     });
@@ -36,7 +35,7 @@ export async function protectPage(ctx) {
     };
   }
 }
-/////////////////////////
+
 export async function checkAuthWithRedirect(ctx, url) {
   const token = cookies(ctx).token;
   if (token) {
