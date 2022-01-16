@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import Head from "next/head";
 // import NextNProgress from "nextjs-progressbar";
-import { PageTransition } from "next-page-transitions";
+// import { PageTransition } from "next-page-transitions";
 import getConfig from "next/config";
 
 const { publicRuntimeConfig } = getConfig();
@@ -27,10 +27,10 @@ function MyApp({ Component, pageProps }) {
         height={3}
         showOnShallow={true}
       /> */}
-      <PageTransition timeout={300} classNames="page-transition">
+      {/* <PageTransition timeout={300} classNames="page-transition"> */}
         <Component {...pageProps} base={publicRuntimeConfig.base} />
-      </PageTransition>
-      <style jsx global>{`
+      {/* </PageTransition> */}
+      {/* <style jsx global>{`
         .page-transition-exit {
           opacity: 0.8;
         }
@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }) {
           opacity: 0.8;
           transition: opacity 100ms;
         }
-      `}</style>
+      `}</style> */}
     </>
   );
 }

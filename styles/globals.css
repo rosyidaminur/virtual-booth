@@ -1,7 +1,7 @@
 html,
 body {
   /* background-color: black; */
-  background: center / contain no-repeat url('/vbooth/images/hall.jpeg'), black;
+  background: center / contain no-repeat url("/vbooth/images/hall.jpeg"), black;
   max-height: 100vh;
   padding: 0;
   margin: 0;
@@ -23,10 +23,11 @@ a {
 }
 
 .hide {
-  transition: opacity 0.5s ease-out;
+  /* transition: opacity 0.5s ease-out;
   opacity: 0;
   height: 0 !important;
-  overflow: hidden;
+  overflow: hidden; */
+  display: none;
 }
 
 .show {
@@ -102,6 +103,8 @@ a {
   font-weight: bold;
   font-family: sans-serif;
   color: #555;
+  box-sizing: unset !important;
+  line-height: normal;
 }
 
 .hotspot span {
@@ -140,6 +143,7 @@ a {
   text-decoration: none;
   font-weight: bold;
   font-family: sans-serif;
+  box-sizing: unset !important;
 }
 
 .hotspot-img span {
@@ -175,6 +179,55 @@ a {
 
 .no-icon {
   display: none;
+}
+
+.btn-ori {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #120f4e;
+  text-transform: uppercase;
+  background: #ffbd33;
+  border-color: transparent;
+  height: 50px;
+  padding: 0 15px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -ms-border-radius: 3px;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-ori:focus {
+  outline: none;
+}
+.btn-ori:hover {
+  color: #fff;
+  background: #ffac00;
+  box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.15);
+  border-color: transparent;
+}
+.btn-ori.fill {
+  background: transparent;
+  padding: 0 25px;
+  color: #fff;
+  margin-left: 20px;
+  border: 2px solid #fff;
+}
+.btn-ori.fill:hover {
+  background: #ffbd33;
+  border-color: #ffbd33;
+}
+.btn-ori.btn-round {
+  border-radius: 36px;
+  -webkit-border-radius: 36px;
+  -ms-border-radius: 36px;
 }
 
 @media (max-width: 991px) {

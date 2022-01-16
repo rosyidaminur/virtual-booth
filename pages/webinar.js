@@ -6,6 +6,7 @@ import importScript from "components/importScript";
 import getConfig from "next/config";
 import Head from "next/head";
 import Hotspot from "components/hotspot";
+import HotspotBtn from "components/hotspotBtn";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -65,17 +66,12 @@ export default function Webinar(props) {
         />
         <div id="hotspots">
           <Hotspot
-            popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
-            iconName="no-icon"
-            top="42%"
-            right="28%"
+            onClick={(e) => toWebinar(e)}
+            iconName="bi-play-circle"
+            top="50%"
+            left="50%"
           />
-          <Hotspot
-            popup="images/poster5.jpg"
-            iconName="no-icon"
-            top="42%"
-            right="36%"
-          />
+          <HotspotBtn text="Lihat Rekaman" bottom="1%" right="1%" />
         </div>
       </div>
     </>
