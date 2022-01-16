@@ -9,40 +9,16 @@ import Hotspot from "components/hotspot";
 import cookies from "next-cookies";
 import { protectPage } from "../services/withAuth";
 import axios from "axios";
-
-
 const { publicRuntimeConfig } = getConfig();
-
-// export async function getServerSideProps = async (context) =>{
-//   protectPage(context);
-// } 
-// export const getServerSideProps = withIronSessionSsr(async function (ctx) {
-//   const { req, resolvedUrl } = ctx
-//   const { user } = req.session
-
-//   const nexturi = resolvedUrl ? `${route('login')}?next=${resolvedUrl}` : route('login')
-//   if (!user) {
-//       return {
-//           redirect : {
-//               destination: nexturi,
-//               permanent: false
-//           }
-//       }
-//   }
-//   return {
-//       props : {}
-//   }
-// }, sessionOptions)
 
 function Booth(props) {
   const {base,name,sponsorfile,token} =props
-  // const allowedState =sponsorfile
   importScript(`${publicRuntimeConfig.base}/js/jquery.magnific-popup.min.js`);
   importScript(`${publicRuntimeConfig.base}/js/main.js`);
 
   const [sponsor, setSponsor] = useState("Sponsor");
   const [filesponsor, setFileSponsor] = useState(sponsorfile);
-  // console.log(filesponsor[1].File);
+
   
   const [files, setFiles] = useState([]);
   const router = useRouter();
@@ -65,8 +41,6 @@ function Booth(props) {
 
   useEffect(() => {
     let fillle = JSON.parse(localStorage.getItem("files"))
-  
-
     router.beforePopState(({ as }) => {
       if (window.getPopup() !== null) window.closePopup();
 
