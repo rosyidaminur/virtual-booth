@@ -6,18 +6,45 @@ import importScript from "components/importScript";
 import getConfig from "next/config";
 import Head from "next/head";
 import Hotspot from "components/hotspot";
+import cookies from "next-cookies";
 import { protectPage } from "../services/withAuth";
+import axios from "axios";
+
 
 const { publicRuntimeConfig } = getConfig();
 
-export const getServerSideProps = async (context) => protectPage(context);
-export default function Booth(props) {
+// export async function getServerSideProps = async (context) =>{
+//   protectPage(context);
+// } 
+// export const getServerSideProps = withIronSessionSsr(async function (ctx) {
+//   const { req, resolvedUrl } = ctx
+//   const { user } = req.session
+
+//   const nexturi = resolvedUrl ? `${route('login')}?next=${resolvedUrl}` : route('login')
+//   if (!user) {
+//       return {
+//           redirect : {
+//               destination: nexturi,
+//               permanent: false
+//           }
+//       }
+//   }
+//   return {
+//       props : {}
+//   }
+// }, sessionOptions)
+
+function Booth(props) {
+  const {base,name,sponsorfile,token} =props
+  // const allowedState =sponsorfile
   importScript(`${publicRuntimeConfig.base}/js/jquery.magnific-popup.min.js`);
   importScript(`${publicRuntimeConfig.base}/js/main.js`);
 
   const [sponsor, setSponsor] = useState("Sponsor");
+  const [filesponsor, setFileSponsor] = useState(sponsorfile);
+  // console.log(filesponsor[1].File);
+  
   const [files, setFiles] = useState([]);
-
   const router = useRouter();
   const handleOnClick = (e) => {
     e.preventDefault();
@@ -37,11 +64,8 @@ export default function Booth(props) {
   };
 
   useEffect(() => {
-    // setSponsor(localStorage.getItem("sponsor"));
-    // setFiles(JSON.parse(localStorage.getItem("files")));
-
     let fillle = JSON.parse(localStorage.getItem("files"))
-    console.log(fillle)
+  
 
     router.beforePopState(({ as }) => {
       if (window.getPopup() !== null) window.closePopup();
@@ -90,19 +114,21 @@ export default function Booth(props) {
         <div id="hotspots">
           <Hotspot
             // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
-            popup={files[2]['File']} //undefined files
+            popup={filesponsor[0].File} //undefined files
             iconName="no-icon"
             top="42%"
             right="28%"
           />
           <Hotspot
-            popup={files[1]['File']}
+            popup={filesponsor[1].File}
+            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
             iconName="no-icon"
             top="42%"
             right="36%"
           />
           <Hotspot
-            popup={files[0]['File']}
+            popup={filesponsor[2].File}
+            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
             iconName="no-icon"
             top="42%"
             right="43%"
@@ -112,3 +138,45 @@ export default function Booth(props) {
     </>
   );
 }
+
+export const getServerSideProps = async (ctx) => {
+  //const params= ctx.params; //baca parameter perspnsor
+//  const query= ctx.query; //baca parameter perspnsor
+
+  const token = cookies(ctx).token;
+  if (token) {
+    try {
+      const res = await axios.get(process.env.BASE_URL + "/me", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const datasponsor = await axios.get(process.env.BASE_URL + "/get-by-sponsorid/"+'SP-4', {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      return {
+        props: {
+          token,
+          name: res.data.data.name,
+          sponsorfile:datasponsor.data.data,
+
+        },
+      };
+    } catch (err) {
+      console.log(err)
+      return {
+        redirect: {
+          destination: process.env.REDIRECT_LOGIN,
+          permanent: false,
+        },
+      };
+    }
+  } else {
+    return {
+      redirect: {
+        destination: process.env.REDIRECT_LOGIN,
+        permanent: false,
+      },
+    };
+  }
+};
+
+export default Booth;
