@@ -32,7 +32,7 @@ export async function protectPage(ctx) {
     };
   }
 }
-/////////////////////////
+
 export async function checkAuthWithRedirect(ctx, url) {
   const token = cookies(ctx).token;
   if (token) {
