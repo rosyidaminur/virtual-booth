@@ -52,7 +52,7 @@ function Home(props) {
           />
           <Popup
             width="40%"
-            height="30%"
+            height="25%"
             onClose={popupCloseHandler}
             show={visibility}
             title="Virtual Booth FKUWKS - PKB Kulit"

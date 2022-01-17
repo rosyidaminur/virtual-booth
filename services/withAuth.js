@@ -9,7 +9,6 @@ export async function protectPage(ctx) {
       const res = await axios.get(process.env.BASE_URL + "/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log(1);
       return {
         props: {
           token,
