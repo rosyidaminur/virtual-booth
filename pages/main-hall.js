@@ -8,48 +8,89 @@ import HotspotImg from "components/hotspotImg";
 import Popup from "components/Popup/popup";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Accordion } from "react-bootstrap";
+import { Accordion, Button } from "react-bootstrap";
 import { protectPage } from "../services/withAuth";
 
 export const getServerSideProps = async (context) => protectPage(context);
 export default function MainHall(props) {
   const router = useRouter();
-  const from = router.query.fromH;
-  const [visibility, setVisibility] = useState(false);
+  const from = router.query.fromB;
+  const [showSertif, setShowSertif] = useState(false);
+  const [showRecord, setShowRecord] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
   const popupCloseHandler = () => {
-    setVisibility(false);
+    setShowSertif(false);
+    setShowRecord(false);
     setErrorMsg("");
   };
 
   const clickBooth = (e, nama) => {
+    console.log(nama);
     e.preventDefault();
     axios
       .get(process.env.BASE_URL + "/display-by-sponsor", {
         headers: { Authorization: `Bearer ${props.token}` },
       })
       .then((res) => {
-        console.log(res.data)
+        console.log(res.data);
         if (res.data.status == "success") {
-          localStorage.setItem("sponsor", nama)
-          localStorage.setItem("files", JSON.stringify(res.data.data))
-          router.push("/booth");
+          localStorage.setItem("sponsor", nama);
+          localStorage.setItem("files", JSON.stringify(res.data.data));
+          if (nama == "Bioderma") {
+            router.push("/booth_bioderma");
+          } else if (nama == "Derma XP") {
+            router.push("/booth_dermaxp");
+          } else if (nama == "Galaderma") {
+            router.push("/booth_galaderma");
+          } else if (nama == "Hyphens") {
+            router.push("/booth_hyphens");
+          } else if (nama == "Surya Dermato Medica") {
+            router.push("/booth_sdm");
+          } else {
+            router.push("/booth");
+          }
         } else {
-          console.log(res.data)
-          setErrorMsg(res.data.message)
+          console.log(res.data);
+          setErrorMsg(res.data.message);
         }
-      }).catch((err) => {
-        console.log(err)
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
   const toWebinar = (e) => {
     e.preventDefault();
-    router.push("/webinar");
+    // router.push("/webinar");
+    setErrorMsg("Simposium & Workshop sedang dipersiapkan");
   };
 
   let video;
-  if (from === "webinar") {
+  if (from === "bioderma") {
+    video = (
+      <video
+        className="latar"
+        id="sikuen"
+        autoPlay
+        muted
+        onEnded={() => window.showHotspots()}
+      >
+        <source src={`${props.base}/booth/bioderma_out.mp4`} type="video/mp4" />
+      </video>
+    );
+  } else if (from === "dermaxp") {
+    video = (
+      <video
+        className="latar"
+        id="sikuen"
+        autoPlay
+        muted
+        onEnded={() => window.showHotspots()}
+      >
+        <source src={`${props.base}/booth/dermaxp_out.mp4`} type="video/mp4" />
+      </video>
+    );
+  } else if (from === "galaderma") {
     video = (
       <video
         className="latar"
@@ -59,9 +100,33 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/videos/06 - sikuen workshop reverse.mp4`}
+          src={`${props.base}/booth/galaderma_out.mp4`}
           type="video/mp4"
         />
+      </video>
+    );
+  } else if (from === "hyphens") {
+    video = (
+      <video
+        className="latar"
+        id="sikuen"
+        autoPlay
+        muted
+        onEnded={() => window.showHotspots()}
+      >
+        <source src={`${props.base}/booth/hyphens_out.mp4`} type="video/mp4" />
+      </video>
+    );
+  } else if (from === "sdm") {
+    video = (
+      <video
+        className="latar"
+        id="sikuen"
+        autoPlay
+        muted
+        onEnded={() => window.showHotspots()}
+      >
+        <source src={`${props.base}/booth/sdm_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "booth") {
@@ -74,7 +139,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/videos/04 - sikuen booth reverse.mp4`}
+          src={`${props.base}/booth/booth_silver_out.mp4`}
           type="video/mp4"
         />
       </video>
@@ -88,10 +153,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source
-          src={`${props.base}/videos/02 - sikuen hall.mp4`}
-          type="video/mp4"
-        />
+        <source src={`${props.base}/booth/hall.mp4`} type="video/mp4" />
       </video>
     );
   }
@@ -106,138 +168,186 @@ export default function MainHall(props) {
       {video}
 
       <div id="sikuen2" className="hide">
-        <img
+        {/* <img
           id="latar"
           className="latar"
-          src={`${props.base}/images/hall.jpeg`}
-        />
+          src={`${props.base}/booth/hall.png`}
+        /> */}
         <div id="hotspots">
           <HotspotImg
             onClick={(e) => clickBooth(e, "Bernofarm")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-bernofarm.png"
-            top="17%"
-            left="20%"
+            top="7%"
+            right="26%"
+            small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "Ikapharma")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-ikapharma.png"
-            top="15%"
-            left="33%"
+            top="9%"
+            right="37%"
+            small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "Ferron")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-ferron.png"
-            top="12%"
-            right="45%"
+            top="10%"
+            right="47%"
+            small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "Interbat")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-interbat.png"
-            top="10%"
-            right="30%"
+            top="12%"
+            left="34%"
+            small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "Proderma")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-proderma.png"
-            top="34%"
-            left="25%"
+            top="14%"
+            left="23%"
+            small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "Roi Surya Prima")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-roi.png"
-            top="31%"
-            left="43%"
+            top="17%"
+            left="11%"
+            small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "Surya Dermato Medica")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-sdm.png"
-            top="29%"
-            right="35%"
+            top="36%"
+            right="4%"
           />
           <HotspotImg
-            onClick={(e) => clickBooth(e, "Hypens")}
+            onClick={(e) => clickBooth(e, "Hyphens")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-hyphens.png"
             top="25%"
-            right="20%"
+            right="25%"
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "Derma XP")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-dermaxp.png"
-            top="60%"
-            left="42%"
+            top="33%"
+            left="17%"
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "Galaderma")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-galaderma.png"
-            top="54%"
-            right="28%"
+            top="43%"
+            right="22%"
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "Bioderma")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-bioderma.png"
-            top="50%"
-            right="8%"
+            top="32%"
+            right="46%"
+          />
+          <HotspotImg
+            onClick={(e) => clickBooth(e, "Laroche")}
+            imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-laroche.png"
+            top="60%"
+            right="78%"
           />
           <Hotspot
             onClick={(e) => toWebinar(e)}
             iconName="bi-person-video2"
-            top="76%"
-            left="16%"
+            top="60%"
+            left="45%"
           />
-          <HotspotBtn
-            onClick={(e) => setVisibility(true)}
-            text="Lihat Sertifikat"
+          {/* <HotspotBtn
+            onClick={(e) => setShowSertif(true)}
+            text="Sertifikat"
             bottom="1%"
             right="1%"
           />
+          <HotspotBtn
+            onClick={(e) => setShowRecord(true)}
+            text="Rekaman"
+            bottom="1%"
+            right="17%"
+          /> */}
+          <div style={{position: 'absolute', bottom: '0', right: '0'}}>
+            <a className="btn-hall" onClick={(e) => setShowSertif(true)}>Sertifikat</a>
+            <a className="btn-hall" onClick={(e) => setShowRecord(true)}>Rekaman</a>
+          </div>
           <Popup
             onClose={popupCloseHandler}
-            show={visibility}
+            show={showSertif}
             title="Daftar Sertifikat Simposium"
           >
             <Accordion>
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Sertifikat Hari ke 1</Accordion.Header>
                 <Accordion.Body>
-                  <iframe src="teknis_lomba.pdf" allowFullScreen />
+                  {/* <iframe src="teknis_lomba.pdf" allowFullScreen /> */}
+                  <Button>Unduh Sertifikat</Button>
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Sertifikat Hari ke 2</Accordion.Header>
-                <Accordion.Body>
-                  <iframe src="teknis_lomba.pdf" allowFullScreen />
-                </Accordion.Body>
+                <Accordion.Body>Sertifikat belum tersedia</Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Sertifikat Hari ke 3</Accordion.Header>
-                <Accordion.Body>
-                  <iframe src="teknis_lomba.pdf" allowFullScreen />
-                </Accordion.Body>
+                <Accordion.Body>Sertifikat belum tersedia</Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
                 <Accordion.Header>Sertifikat Hari ke 4</Accordion.Header>
-                <Accordion.Body>
-                  <iframe src="teknis_lomba.pdf" allowFullScreen />
-                </Accordion.Body>
+                <Accordion.Body>Sertifikat belum tersedia</Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="4">
                 <Accordion.Header>Sertifikat Hari ke 5</Accordion.Header>
-                <Accordion.Body>
-                  <iframe src="teknis_lomba.pdf" allowFullScreen />
-                </Accordion.Body>
+                <Accordion.Body>Sertifikat belum tersedia</Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="5">
                 <Accordion.Header>Sertifikat Hari ke 6</Accordion.Header>
+                <Accordion.Body>Sertifikat belum tersedia</Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          </Popup>
+          <Popup
+            onClose={popupCloseHandler}
+            show={showRecord}
+            title="Daftar Rekaman"
+          >
+            <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Rekaman Hari ke 1</Accordion.Header>
                 <Accordion.Body>
-                  <iframe src="teknis_lomba.pdf" allowFullScreen />
+                  {/* <iframe src="videos/pkbkulit-intro.mp4" allowFullScreen /> */}
+                  <Button>Lihat Rekaman</Button>
                 </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="1">
+                <Accordion.Header>Rekaman Hari ke 2</Accordion.Header>
+                <Accordion.Body>Rekaman belum tersedia</Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="2">
+                <Accordion.Header>Rekaman Hari ke 3</Accordion.Header>
+                <Accordion.Body>Rekaman belum tersedia</Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="3">
+                <Accordion.Header>Rekaman Hari ke 4</Accordion.Header>
+                <Accordion.Body>Rekaman belum tersedia</Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="4">
+                <Accordion.Header>Rekaman Hari ke 5</Accordion.Header>
+                <Accordion.Body>Rekaman belum tersedia</Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="5">
+                <Accordion.Header>Rekaman Hari ke 6</Accordion.Header>
+                <Accordion.Body>Rekaman belum tersedia</Accordion.Body>
               </Accordion.Item>
             </Accordion>
           </Popup>
           <Popup
             onClose={popupCloseHandler}
             show={errorMsg !== ""}
-            title="Error"
+            title="Perhatian"
           >
             <p>{errorMsg}</p>
           </Popup>

@@ -27,7 +27,7 @@ export default function Webinar(props) {
         router.replace(
           {
             pathname: "/main-hall",
-            query: { fromH: "webinar" },
+            query: { fromB: "webinar" },
           },
           "/main-hall"
         );
@@ -53,7 +53,7 @@ export default function Webinar(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/videos/05 - sikuen workshop.mp4`}
+          src={`${props.base}/booth/webinar_in.mp4`}
           type="video/mp4"
         />
       </video>
@@ -62,7 +62,7 @@ export default function Webinar(props) {
         <img
           id="latar"
           className="latar"
-          src={`${props.base}/images/webinar.jpg`}
+          src={`${props.base}/booth/webinar.jpg`}
         />
         <div id="hotspots">
           <Hotspot

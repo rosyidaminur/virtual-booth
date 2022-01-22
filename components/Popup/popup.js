@@ -20,14 +20,17 @@ const Popup = (props) => {
     <div
       style={{
         visibility: show ? "visible" : "hidden",
-        opacity: show ? "1" : "0"
+        opacity: show ? "1" : "0",
       }}
       className={popupStyles.overlay}
     >
-      <div className={popupStyles.popup} style={{width: width, height: height}}>
+      <div
+        className={popupStyles.popup}
+        style={{ width: width, height: height }}
+      >
         <h3>{props.title}</h3>
         <span className={popupStyles.close} onClick={closeHandler}>
-        <i className="bi bi-x-circle"></i>
+          <i className="bi bi-x-circle"></i>
         </span>
         <div className={popupStyles.content}>{props.children}</div>
       </div>
@@ -38,7 +41,7 @@ const Popup = (props) => {
 Popup.propTypes = {
   title: PropTypes.string.isRequired,
   show: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
 };
 
 export default Popup;

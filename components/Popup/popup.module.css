@@ -42,15 +42,15 @@
   color: #3b1d82;
 }
 
-.popup .close:hover {
-  cursor: pointer;
-  color: #ffac00;
-}
-
 .popup .close i {
   background: white;
   padding: 2px 4px;
   border-radius: 50%;
+}
+
+.popup .close i:hover {
+  cursor: pointer;
+  color: #ffac00;
 }
 
 .popup .content {
@@ -76,9 +76,28 @@
   height: 50vh;
 }
 
-@media screen and (max-width: 768px) {
+/*==========================
+small device /mobile sm and large
+===========================*/
+@media screen and (max-width: 767px) {
   .popup {
     width: 78% !important;
     height: 70% !important;
+  }
+}
+
+/*==========================
+tab rotate 
+===========================*/
+@media (min-width: 992px) and (max-width: 1200px) {}
+
+/*==========================
+tab device 
+===========================*/
+
+@media(min-width: 768px) and (max-width: 991px) {
+  .popup {
+    width: 40% !important;
+    height: 64% !important;
   }
 }

@@ -34,14 +34,14 @@ function Home(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/videos/01 - sikuen lobby.mp4`}
+          src={`${props.base}/booth/lobby.mp4`}
           type="video/mp4"
         />
       </video>
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
-          <source src={`${props.base}/videos/lobby.mp4`} type="video/mp4" />
+          <source src={`${props.base}/booth/lobby_loop.mp4`} type="video/mp4" />
         </video>
         <div id="hotspots">
           <Hotspot
@@ -52,13 +52,13 @@ function Home(props) {
           />
           <Popup
             width="40%"
-            height="25%"
+            height="30%"
             onClose={popupCloseHandler}
             show={visibility}
             title="Virtual Booth FKUWKS - PKB Kulit"
           >
-            <p>{`Selamat datang di Lobby, ${props.name}`}</p>
-            <p>Silahkan klik pintu sebelah kiri untuk masuk ke Pameran</p>
+            <p>{`Selamat datang di lobby, ${props.name}`}</p>
+            <p>Silahkan klik pintu sebelah kiri untuk masuk ke Hall Pameran, Simposium dan Workshop</p>
             <a onClick={(e) => popupCloseHandler()} className="btn-ori">
               OK, Siap
             </a>

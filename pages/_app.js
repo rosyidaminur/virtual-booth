@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import Head from "next/head";
-// import NextNProgress from "nextjs-progressbar";
+import NextNProgress from "nextjs-progressbar";
 // import { PageTransition } from "next-page-transitions";
 import getConfig from "next/config";
 
@@ -19,14 +19,14 @@ function MyApp({ Component, pageProps }) {
           content="width=device-width, initial-scale=1.0, user-scalable=0"
         />
       </Head>
-      {/* <Component {...pageProps} base={`https://cdn.fkuwks.com/`} /> */}
-      {/* <NextNProgress
+      {/* <Component {...pageProps} base={`https://cdn.fkuwks.com/booth`} /> */}
+      <NextNProgress
         color="#FFBD33"
         startPosition={0.08}
         stopDelayMs={300}
         height={3}
         showOnShallow={true}
-      /> */}
+      />
       {/* <PageTransition timeout={300} classNames="page-transition"> */}
         <Component {...pageProps} base={publicRuntimeConfig.base} />
       {/* </PageTransition> */}

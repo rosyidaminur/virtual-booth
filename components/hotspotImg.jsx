@@ -10,12 +10,13 @@ const HotspotImg = (props) => {
   const bottom = props.bottom !== undefined ? `${props.bottom}` : "unset";
   const right = props.right !== undefined ? `${props.right}` : "unset";
   const left = props.left !== undefined ? `${props.left}` : "unset";
+  const small = props.small === undefined ? '' : "small";
 
   return (
     <>
       <a
         onClick={onClick}
-        className="hotspot-img"
+        className={`hotspot-img ${small}`}
         style={{ top: top, bottom: bottom, right: right, left: left }}
       >
         <span>
