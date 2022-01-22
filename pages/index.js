@@ -13,6 +13,7 @@ function Home(props) {
     setVisibility(false);
   };
 
+  
   const router = useRouter();
   const handleOnClick = (e) => {
     e.preventDefault();
