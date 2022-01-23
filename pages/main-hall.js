@@ -365,8 +365,8 @@ export default function MainHall(props) {
                 <Accordion.Body>
                   {showRecord ? (
                     <Video
-                      // videoSrc={`https://iframe.mediadelivery.net/embed/20390/0c423cce-4162-42f7-bd7d-685b498d4e07?autoplay=false`}
-                      videoSrc="videos/pkbkulit-intro.mp4"
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/0c423cce-4162-42f7-bd7d-685b498d4e07?autoplay=false`}
+                      // videoSrc="videos/pkbkulit-intro.mp4"
                     />
                   ) : (
                     ""
