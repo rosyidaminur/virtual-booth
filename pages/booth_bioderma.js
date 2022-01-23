@@ -94,68 +94,68 @@ function BoothBioderma(props) {
           <Dot
             popup={filesponsor[0] === undefined ? '' : filesponsor[0].File}
             iconName="bi-record-circle"
-            top="63.5%"
-            left="21.3%"
+            top="62%"
+            left="25.3%"
           />
           <Dot
             popup={filesponsor[1] === undefined ? '' : filesponsor[1].File}
             iconName="bi-play-circle"
-            top="37%"
-            left="26%"
+            top="47%"
+            left="28%"
           />
           <Dot
             popup={filesponsor[2] === undefined ? '' : filesponsor[2].File}
             iconName="bi-record-circle"
-            top="44%"
-            left="33.2%"
+            top="50%"
+            left="35%"
           />
           <Dot
             popup={filesponsor[3] === undefined ? '' : filesponsor[3].File}
             iconName="bi-record-circle"
-            top="37%"
-            left="39.5%"
+            top="43%"
+            left="42.7%"
           />
           <Dot
             popup={filesponsor[4] === undefined ? '' : filesponsor[4].File}
             iconName="bi-record-circle"
             top="53%"
-            left="39.5%"
+            left="40.8%"
           />
           <Dot
             popup={filesponsor[5] === undefined ? '' : filesponsor[5].File}
             iconName="bi-record-circle"
-            top="37%"
-            left="45%"
+            top="43%"
+            left="48%"
           />
           <Dot
             popup={filesponsor[6] === undefined ? '' : filesponsor[6].File}
             iconName="bi-record-circle"
             top="53%"
-            left="45%"
+            left="47.3%"
           />
           <Dot
             popup={filesponsor[7] === undefined ? '' : filesponsor[7].File}
             iconName="bi-record-circle"
-            top="37%"
-            left="50.5%"
+            top="43%"
+            left="53.5%"
           />
           <Dot
             popup={filesponsor[8] === undefined ? '' : filesponsor[8].File}
             iconName="bi-record-circle"
             top="53%"
-            left="50.5%"
+            left="53.2%"
           />
           <Dot
             popup={filesponsor[9] === undefined ? '' : filesponsor[9].File}
             iconName="bi-play-circle"
-            top="42%"
+            top="49%"
             right="34%"
           />
           <Dot
             popup={filesponsor[10] === undefined ? '' : filesponsor[10].File}
             iconName="bi-record-circle"
-            top="42%"
-            right="19%"
+            top="56%"
+            right="20.5%"
           />
           <div style={{ position: "absolute", bottom: "0", left: "0" }}>
             <a className="btn-hall" onClick={(e) => toMainHall(true)}>
