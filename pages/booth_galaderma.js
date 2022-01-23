@@ -16,7 +16,7 @@ function BoothBioderma(props) {
   importScript(`${publicRuntimeConfig.base}/js/jquery.magnific-popup.min.js`);
   importScript(`${publicRuntimeConfig.base}/js/main.js`);
 
-  const [sponsor, setSponsor] = useState("Galaderma");
+  const [sponsor, setSponsor] = useState("Galderma");
   const [filesponsor, setFileSponsor] = useState(sponsorfile);
 
   
@@ -48,7 +48,7 @@ function BoothBioderma(props) {
         router.replace(
           {
             pathname: "/main-hall",
-            query: { fromB: "galaderma" },
+            query: { fromB: "galderma" },
           },
           "/main-hall"
         );
@@ -87,25 +87,52 @@ function BoothBioderma(props) {
         /> */}
         <div id="hotspots">
           <Hotspot
-            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
-            popup={filesponsor[0].File} //undefined files
+            popup={filesponsor[0] === undefined ? '' : filesponsor[0].File}
             iconName="no-icon"
             top="42%"
-            right="26%"
+            left="16%"
           />
           <Hotspot
-            popup={filesponsor[1].File}
-            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
+            popup={filesponsor[1] === undefined ? '' : filesponsor[1].File}
             iconName="no-icon"
             top="42%"
-            right="36%"
+            left="29%"
           />
           <Hotspot
-            popup={filesponsor[2].File}
-            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
+            popup={filesponsor[2] === undefined ? '' : filesponsor[2].File}
+            iconName="no-icon"
+            top="46%"
+            left="35.3%"
+          />
+          <Hotspot
+            popup={filesponsor[3] === undefined ? '' : filesponsor[3].File}
             iconName="no-icon"
             top="42%"
-            right="47.5%"
+            left="41.8%"
+          />
+          <Hotspot
+            popup={filesponsor[4] === undefined ? '' : filesponsor[4].File}
+            iconName="no-icon"
+            top="46%"
+            left="47.8%"
+          />
+          <Hotspot
+            popup={filesponsor[5] === undefined ? '' : filesponsor[5].File}
+            iconName="no-icon"
+            top="44%"
+            right="35.8%"
+          />
+          <Hotspot
+            popup={filesponsor[6] === undefined ? '' : filesponsor[6].File}
+            iconName="no-icon"
+            top="46%"
+            right="25.8%"
+          />
+          <Hotspot
+            popup={filesponsor[7] === undefined ? '' : filesponsor[7].File}
+            iconName="no-icon"
+            top="45%"
+            right="16.8%"
           />
         </div>
       </div>
@@ -123,7 +150,7 @@ export const getServerSideProps = async (ctx) => {
       const res = await axios.get(process.env.BASE_URL + "/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      const datasponsor = await axios.get(process.env.BASE_URL + '/get-by-sponsorid/SP-4', {
+      const datasponsor = await axios.get(process.env.BASE_URL + '/get-by-sponsorid/SP-3', {
         headers: { Authorization: `Bearer ${token}` },
       });
       return {

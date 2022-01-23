@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }) {
         <meta charSet="utf-8" />
         {/* Mobile Specific Metas ================================================== */}
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=0"
