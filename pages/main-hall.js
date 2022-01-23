@@ -12,9 +12,7 @@ import { Accordion, Button } from "react-bootstrap";
 import { protectPage } from "../services/withAuth";
 import { jsPDF, HTMLOptionImage } from "jspdf";
 
-// import VideoIntro from "components/VideoIntro";
-
-{/* <VideoIntro videoSrc={`https://iframe.mediadelivery.net/embed/20390/0c423cce-4162-42f7-bd7d-685b498d4e07?autoplay=false`} /> */}
+import VideoIntro from "components/VideoIntro";
 
 export const getServerSideProps = async (context) => protectPage(context);
 export default function MainHall(props) {
@@ -29,7 +27,6 @@ export default function MainHall(props) {
     setShowRecord(false);
     setErrorMsg("");
   };
-  
 
   const clickBooth = (e, nama) => {
     console.log(nama);
@@ -163,37 +160,37 @@ export default function MainHall(props) {
       </video>
     );
   }
-  async function generatePdf(e,h) {
-        const noser='';
-        if(h==1){
-          noser='No. 930/PKB/IDI-WJ/2021'
-        } else if(h==2){
-          noser='No. 931/PKB/IDI-WJ/2021'
-        }else if(h==3){
-          noser='No. 932/PKB/IDI-WJ/2021'
-        }else if(h==4){
-          noser='No. 933/PKB/IDI-WJ/2021'
-        }else if(h==5){
-          noser='No. 934/PKB/IDI-WJ/2021'
-        }else if(h==6){
-          noser='No. 930/PKB/IDI-WJ/2021'
-        }
-        console.log(noser);
+  async function generatePdf(e, h) {
+    const noser = "";
+    if (h == 1) {
+      noser = "No. 930/PKB/IDI-WJ/2021";
+    } else if (h == 2) {
+      noser = "No. 931/PKB/IDI-WJ/2021";
+    } else if (h == 3) {
+      noser = "No. 932/PKB/IDI-WJ/2021";
+    } else if (h == 4) {
+      noser = "No. 933/PKB/IDI-WJ/2021";
+    } else if (h == 5) {
+      noser = "No. 934/PKB/IDI-WJ/2021";
+    } else if (h == 6) {
+      noser = "No. 930/PKB/IDI-WJ/2021";
+    }
+    console.log(noser);
 
-        const doc = new jsPDF('l');
-        var width = doc.internal.pageSize.getWidth();
-        var height = doc.internal.pageSize.getHeight();
-        doc.setFontSize(40);
-        const imgData = props.base+'/sertifikat/sertifikat.jpeg'
-        doc.addImage(imgData, 'JPEG', 0, 0, width, height);
-        doc.setFont("Time-Roman", "italic")
-        doc.setFontSize(35);
-        doc.setTextColor('#474745');
-        doc.text(props.name, 153, 90, 'center');
-        doc.setFontSize(14);
-        doc.text(noser, 147, 205, 'center');
-        doc.output('save', 'Sertifikat '+props.name+'/'+noser+'.pdf');
-}
+    const doc = new jsPDF("l");
+    var width = doc.internal.pageSize.getWidth();
+    var height = doc.internal.pageSize.getHeight();
+    doc.setFontSize(40);
+    const imgData = props.base + "/sertifikat/sertifikat.jpeg";
+    doc.addImage(imgData, "JPEG", 0, 0, width, height);
+    doc.setFont("Time-Roman", "italic");
+    doc.setFontSize(35);
+    doc.setTextColor("#474745");
+    doc.text(props.name, 153, 90, "center");
+    doc.setFontSize(14);
+    doc.text(noser, 147, 205, "center");
+    doc.output("save", "Sertifikat " + props.name + "/" + noser + ".pdf");
+  }
 
   return (
     <>
@@ -307,9 +304,13 @@ export default function MainHall(props) {
             bottom="1%"
             right="17%"
           /> */}
-          <div style={{position: 'absolute', bottom: '0', right: '0'}}>
-            <a className="btn-hall" onClick={(e) => setShowSertif(true)}>Sertifikat</a>
-            <a className="btn-hall" onClick={(e) => setShowRecord(true)}>Rekaman</a>
+          <div style={{ position: "absolute", bottom: "0", right: "0" }}>
+            <a className="btn-hall" onClick={(e) => setShowSertif(true)}>
+              Sertifikat
+            </a>
+            <a className="btn-hall" onClick={(e) => setShowRecord(true)}>
+              Rekaman
+            </a>
           </div>
           <Popup
             onClose={popupCloseHandler}
@@ -320,19 +321,25 @@ export default function MainHall(props) {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Sertifikat Hari ke 1</Accordion.Header>
                 <Accordion.Body>
-                  <Button  onClick={(e) => generatePdf(e, 1)}>Unduh Sertifikat</Button>
+                  <Button onClick={(e) => generatePdf(e, 1)}>
+                    Unduh Sertifikat
+                  </Button>
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Sertifikat Hari ke 2</Accordion.Header>
                 <Accordion.Body>
-                  <Button  onClick={(e) => generatePdf(e, 2)}>Unduh Sertifikat</Button>
+                  <Button onClick={(e) => generatePdf(e, 2)}>
+                    Unduh Sertifikat
+                  </Button>
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Sertifikat Hari ke 3</Accordion.Header>
                 <Accordion.Body>
-                  <Button  onClick={(e) => generatePdf(e, 3)}>Unduh Sertifikat</Button>
+                  <Button onClick={(e) => generatePdf(e, 3)}>
+                    Unduh Sertifikat
+                  </Button>
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
@@ -358,27 +365,15 @@ export default function MainHall(props) {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Rekaman Hari ke 1</Accordion.Header>
                 <Accordion.Body>
-                  <iframe src="videos/pkbkulit-intro.mp4" allowFullScreen />
-                  {/* <div> */}
-                    <div className="video-responsive">
-                      {/* <iframe
-                        src='https://iframe.mediadelivery.net/embed/20390/0c423cce-4162-42f7-bd7d-685b498d4e07?autoplay=false'
-                        loading="lazy" 
-                        style={{border: 'none', position: 'absolute', top: '0', height: '100%', width: '100%'}}
-                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" 
-                        allowFullScreen={true}
-                        title="Intro PKB Kulit"
-                      />
-                  </div> */}
-                </div> 
-                  {/* <Button onClick={generatePdf}>Lihat Rekaman</Button> */}
+                  <VideoIntro
+                    // videoSrc={`https://iframe.mediadelivery.net/embed/20390/0c423cce-4162-42f7-bd7d-685b498d4e07?autoplay=false`}
+                    videoSrc="videos/pkbkulit-intro.mp4"
+                  />
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Rekaman Hari ke 2</Accordion.Header>
-                <Accordion.Body>
-                <iframe src="videos/pkbkulit-intro.mp4" allowFullScreen />
-                </Accordion.Body>
+                <Accordion.Body>Rekaman belum tersedia</Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Rekaman Hari ke 3</Accordion.Header>
