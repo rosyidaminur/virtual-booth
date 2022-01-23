@@ -15,7 +15,7 @@ const VideoIntro = ({ videoSrc }) => (
 );
 
 VideoIntro.propTypes = {
-    videoSrc: PropTypes.string.isRequired
+  videoSrc: PropTypes.string.isRequired
 };
 
 export default VideoIntro;
