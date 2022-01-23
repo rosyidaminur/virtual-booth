@@ -5,7 +5,7 @@
 const Hotspot = (props) => {
   const iconName = props.iconName;
   const onClick = props.onClick;
-  const popup = props.popup;
+  const popup = props.popup == "" ? 'notfound.png' : props.popup;
   const top = props.top !== undefined ? `${props.top}` : "unset";
   const bottom = props.bottom !== undefined ? `${props.bottom}` : "unset";
   const right = props.right !== undefined ? `${props.right}` : "unset";

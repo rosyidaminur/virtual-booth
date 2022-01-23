@@ -87,25 +87,40 @@ function BoothBioderma(props) {
         /> */}
         <div id="hotspots">
           <Hotspot
-            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
-            popup={filesponsor[0].File} //undefined files
+            popup={filesponsor[0] === undefined ? '' : filesponsor[0].File}
             iconName="no-icon"
             top="42%"
-            right="22%"
+            left="26%"
           />
           <Hotspot
-            popup={filesponsor[1].File}
-            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
+            popup={filesponsor[1] === undefined ? '' : filesponsor[1].File}
             iconName="no-icon"
             top="42%"
-            right="34%"
+            left="35%"
           />
           <Hotspot
-            popup={filesponsor[2].File}
-            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
+            popup={filesponsor[2] === undefined ? '' : filesponsor[2].File}
             iconName="no-icon"
             top="42%"
-            right="43%"
+            left="43.8%"
+          />
+          <Hotspot
+            popup={filesponsor[3] === undefined ? '' : filesponsor[3].File}
+            iconName="no-icon"
+            top="42%"
+            left="52.4%"
+          />
+          <Hotspot
+            popup={filesponsor[4] === undefined ? '' : filesponsor[4].File}
+            iconName="no-icon"
+            top="42%"
+            left="61%"
+          />
+          <Hotspot
+            popup={filesponsor[5] === undefined ? '' : filesponsor[5].File}
+            iconName="no-icon"
+            top="42%"
+            left="73.7%"
           />
         </div>
       </div>
@@ -123,7 +138,7 @@ export const getServerSideProps = async (ctx) => {
       const res = await axios.get(process.env.BASE_URL + "/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      const datasponsor = await axios.get(process.env.BASE_URL + '/get-by-sponsorid/SP-4', {
+      const datasponsor = await axios.get(process.env.BASE_URL + '/get-by-sponsorid/SP-7', {
         headers: { Authorization: `Bearer ${token}` },
       });
       return {

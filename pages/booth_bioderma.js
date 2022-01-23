@@ -87,25 +87,70 @@ function BoothBioderma(props) {
         /> */}
         <div id="hotspots">
           <Hotspot
-            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
-            popup={filesponsor[0].File} //undefined files
+            popup={filesponsor[0] === undefined ? '' : filesponsor[0].File}
             iconName="no-icon"
-            top="37%"
-            right="44.6%"
+            top="63.5%"
+            left="21.3%"
           />
           <Hotspot
-            popup={filesponsor[1].File}
-            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
+            popup={filesponsor[1] === undefined ? '' : filesponsor[1].File}
             iconName="no-icon"
             top="37%"
-            right="50%"
+            left="26%"
           />
           <Hotspot
-            popup={filesponsor[2].File}
-            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
+            popup={filesponsor[2] === undefined ? '' : filesponsor[2].File}
+            iconName="no-icon"
+            top="44%"
+            left="33.2%"
+          />
+          <Hotspot
+            popup={filesponsor[3] === undefined ? '' : filesponsor[3].File}
             iconName="no-icon"
             top="37%"
-            left="40%"
+            left="39.5%"
+          />
+          <Hotspot
+            popup={filesponsor[4] === undefined ? '' : filesponsor[4].File}
+            iconName="no-icon"
+            top="53%"
+            left="39.5%"
+          />
+          <Hotspot
+            popup={filesponsor[5] === undefined ? '' : filesponsor[5].File}
+            iconName="no-icon"
+            top="37%"
+            left="45%"
+          />
+          <Hotspot
+            popup={filesponsor[6] === undefined ? '' : filesponsor[6].File}
+            iconName="no-icon"
+            top="53%"
+            left="45%"
+          />
+          <Hotspot
+            popup={filesponsor[7] === undefined ? '' : filesponsor[7].File}
+            iconName="no-icon"
+            top="37%"
+            left="50.5%"
+          />
+          <Hotspot
+            popup={filesponsor[8] === undefined ? '' : filesponsor[8].File}
+            iconName="no-icon"
+            top="53%"
+            left="50.5%"
+          />
+          <Hotspot
+            popup={filesponsor[9] === undefined ? '' : filesponsor[9].File}
+            iconName="no-icon"
+            top="42%"
+            right="34%"
+          />
+          <Hotspot
+            popup={filesponsor[10] === undefined ? '' : filesponsor[10].File}
+            iconName="no-icon"
+            top="42%"
+            right="19%"
           />
         </div>
       </div>

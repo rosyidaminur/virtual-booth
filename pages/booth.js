@@ -12,12 +12,12 @@ import axios from "axios";
 const { publicRuntimeConfig } = getConfig();
 
 function Booth(props) {
-  const {base,name,sponsorfile,token} =props
+  // const {base,name,sponsorfile,token} =props
   importScript(`${publicRuntimeConfig.base}/js/jquery.magnific-popup.min.js`);
   importScript(`${publicRuntimeConfig.base}/js/main.js`);
 
   const [sponsor, setSponsor] = useState("Sponsor");
-  const [filesponsor, setFileSponsor] = useState(sponsorfile);
+  const [filesponsor, setFileSponsor] = useState(props.sponsorfile);
 
   
   const [files, setFiles] = useState([]);
@@ -41,7 +41,8 @@ function Booth(props) {
 
   useEffect(() => {
     setSponsor(localStorage.getItem("sponsor"))
-    let fillle = JSON.parse(localStorage.getItem("files"))
+    setFileSponsor(JSON.parse(localStorage.getItem("files")))
+
     router.beforePopState(({ as }) => {
       if (window.getPopup() !== null) window.closePopup();
 
@@ -88,25 +89,22 @@ function Booth(props) {
         />
         <div id="hotspots">
           <Hotspot
-            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
-            popup={filesponsor[0].File} //undefined files
+            popup={filesponsor[0] === undefined ? '' : filesponsor[0].File}
             iconName="no-icon"
             top="42%"
-            right="37%"
+            left="41.5%"
           />
           <Hotspot
-            popup={filesponsor[1].File}
-            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
+            popup={filesponsor[1] === undefined ? '' : filesponsor[1].File}
             iconName="no-icon"
             top="42%"
-            right="46%"
+            left="49.5%"
           />
           <Hotspot
-            popup={filesponsor[2].File}
-            // popup="https://www.youtube.com/watch?v=OeGpf1MyM2M"
+            popup={filesponsor[2] === undefined ? '' : filesponsor[2].File}
             iconName="no-icon"
             top="42%"
-            right="54%"
+            left="58%"
           />
         </div>
       </div>
@@ -117,16 +115,16 @@ function Booth(props) {
 export const getServerSideProps = async (ctx) => {
   //const params= ctx.params; //baca parameter perspnsor
 //  const query= ctx.query; //baca query perspnsor
-
   const token = cookies(ctx).token;
   if (token) {
     try {
       const res = await axios.get(process.env.BASE_URL + "/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      const datasponsor = await axios.get(process.env.BASE_URL + '/get-by-sponsorid/SP-4', {
+      const datasponsor = await axios.get(process.env.BASE_URL + '/get-by-sponsorid/' + 'SP-8', {
         headers: { Authorization: `Bearer ${token}` },
       });
+      console.log(datasponsor.data.data)
       return {
         props: {
           token,
