@@ -1,8 +1,8 @@
 /**
- * This component for marking the hotspot.
+ * This component for marking the DOT hotspot.
  * property iconName, onClick, top, bottom, right, left
  */
-const Hotspot = (props) => {
+const Dot = (props) => {
   const iconName = props.iconName; //use https://icons.getbootstrap.com/
   const onClick = props.onClick;
   const popup = props.popup == "" ? 'notfound.png' : props.popup;
@@ -16,15 +16,13 @@ const Hotspot = (props) => {
       <a
         onClick={onClick}
         href={popup}
-        className={popup ? "iframe-popup hotspot" : "hotspot"}
+        className={popup ? "iframe-popup dot" : "dot"}
         style={{ top: top, bottom: bottom, right: right, left: left }}
       >
-        <span>
-          <i className={iconName}></i>
-        </span>
+        <i className={iconName}></i>
       </a>
     </>
   );
 };
 
-export default Hotspot;
+export default Dot;

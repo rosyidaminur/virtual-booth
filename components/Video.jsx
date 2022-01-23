@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const VideoIntro = ({ videoSrc }) => (
+const Video = ({ videoSrc }) => (
   <div className="video-responsive">
     <iframe
       src={`${videoSrc}`}
@@ -14,8 +14,8 @@ const VideoIntro = ({ videoSrc }) => (
   </div>
 );
 
-VideoIntro.propTypes = {
+Video.propTypes = {
   videoSrc: PropTypes.string.isRequired
 };
 
-export default VideoIntro;
+export default Video;

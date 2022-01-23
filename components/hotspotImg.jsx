@@ -10,7 +10,7 @@ const HotspotImg = (props) => {
   const bottom = props.bottom !== undefined ? `${props.bottom}` : "unset";
   const right = props.right !== undefined ? `${props.right}` : "unset";
   const left = props.left !== undefined ? `${props.left}` : "unset";
-  const small = props.small === undefined ? '' : "small";
+  const small = props.small ? 'small' : '';
 
   return (
     <>

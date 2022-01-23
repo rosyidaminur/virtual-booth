@@ -12,13 +12,13 @@ import axios from "axios";
 import Dot from "components/dot";
 const { publicRuntimeConfig } = getConfig();
 
-function Booth(props) {
-  // const {base,name,sponsorfile,token} =props
+function BoothLaroche(props) {
+  const {base,name,sponsorfile,token} =props
   importScript(`${publicRuntimeConfig.base}/js/jquery.magnific-popup.min.js`);
   importScript(`${publicRuntimeConfig.base}/js/main.js`);
 
-  const [sponsor, setSponsor] = useState("Sponsor");
-  const [filesponsor, setFileSponsor] = useState(props.sponsorfile);
+  const [sponsor, setSponsor] = useState("Bioderma");
+  const [filesponsor, setFileSponsor] = useState(sponsorfile);
 
   
   const [files, setFiles] = useState([]);
@@ -27,7 +27,7 @@ function Booth(props) {
     router.replace(
       {
         pathname: "/main-hall",
-        query: { fromB: "booth" },
+        query: { fromB: "bioderma" },
       },
       "/main-hall"
     );
@@ -45,9 +45,7 @@ function Booth(props) {
   };
 
   useEffect(() => {
-    setSponsor(localStorage.getItem("sponsor"))
-    setFileSponsor(JSON.parse(localStorage.getItem("files")))
-
+    let fillle = JSON.parse(localStorage.getItem("files"))
     router.beforePopState(({ as }) => {
       if (window.getPopup() !== null) window.closePopup();
 
@@ -55,7 +53,7 @@ function Booth(props) {
         router.replace(
           {
             pathname: "/main-hall",
-            query: { fromB: "booth" },
+            query: { fromB: "bioderma" },
           },
           "/main-hall"
         );
@@ -81,35 +79,83 @@ function Booth(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth/booth_silver_in.mp4`}
+          src={`${props.base}/booth/bioderma_in.mp4`}
           type="video/mp4"
         />
       </video>
 
       <div id="sikuen2" className="hide">
-        <img
+        {/* <img
           id="latar"
           className="latar"
-          src={`${props.base}/booth/booth_silver.jpeg`}
-        />
+          src={`${props.base}/images/booth_platinum.jpg`}
+        /> */}
         <div id="hotspots">
           <Dot
             popup={filesponsor[0] === undefined ? '' : filesponsor[0].File}
             iconName="bi-record-circle"
-            top="42%"
-            left="41.5%"
+            top="63.5%"
+            left="21.3%"
           />
           <Dot
             popup={filesponsor[1] === undefined ? '' : filesponsor[1].File}
-            iconName="bi-record-circle"
-            top="42%"
-            left="49.5%"
+            iconName="bi-play-circle"
+            top="37%"
+            left="26%"
           />
           <Dot
             popup={filesponsor[2] === undefined ? '' : filesponsor[2].File}
             iconName="bi-record-circle"
+            top="44%"
+            left="33.2%"
+          />
+          <Dot
+            popup={filesponsor[3] === undefined ? '' : filesponsor[3].File}
+            iconName="bi-record-circle"
+            top="37%"
+            left="39.5%"
+          />
+          <Dot
+            popup={filesponsor[4] === undefined ? '' : filesponsor[4].File}
+            iconName="bi-record-circle"
+            top="53%"
+            left="39.5%"
+          />
+          <Dot
+            popup={filesponsor[5] === undefined ? '' : filesponsor[5].File}
+            iconName="bi-record-circle"
+            top="37%"
+            left="45%"
+          />
+          <Dot
+            popup={filesponsor[6] === undefined ? '' : filesponsor[6].File}
+            iconName="bi-record-circle"
+            top="53%"
+            left="45%"
+          />
+          <Dot
+            popup={filesponsor[7] === undefined ? '' : filesponsor[7].File}
+            iconName="bi-record-circle"
+            top="37%"
+            left="50.5%"
+          />
+          <Dot
+            popup={filesponsor[8] === undefined ? '' : filesponsor[8].File}
+            iconName="bi-record-circle"
+            top="53%"
+            left="50.5%"
+          />
+          <Dot
+            popup={filesponsor[9] === undefined ? '' : filesponsor[9].File}
+            iconName="bi-play-circle"
             top="42%"
-            left="58%"
+            right="34%"
+          />
+          <Dot
+            popup={filesponsor[10] === undefined ? '' : filesponsor[10].File}
+            iconName="bi-record-circle"
+            top="42%"
+            right="19%"
           />
           <div style={{ position: "absolute", bottom: "0", left: "0" }}>
             <a className="btn-hall" onClick={(e) => toMainHall(true)}>
@@ -125,16 +171,16 @@ function Booth(props) {
 export const getServerSideProps = async (ctx) => {
   //const params= ctx.params; //baca parameter perspnsor
 //  const query= ctx.query; //baca query perspnsor
+
   const token = cookies(ctx).token;
   if (token) {
     try {
       const res = await axios.get(process.env.BASE_URL + "/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      const datasponsor = await axios.get(process.env.BASE_URL + '/get-by-sponsorid/' + 'SP-8', {
+      const datasponsor = await axios.get(process.env.BASE_URL + '/get-by-sponsorid/SP-4', {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log(datasponsor.data.data)
       return {
         props: {
           token,
@@ -162,4 +208,4 @@ export const getServerSideProps = async (ctx) => {
   }
 };
 
-export default Booth;
+export default BoothLaroche;

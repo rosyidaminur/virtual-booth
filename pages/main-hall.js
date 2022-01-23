@@ -12,7 +12,7 @@ import { Accordion, Button } from "react-bootstrap";
 import { protectPage } from "../services/withAuth";
 import { jsPDF, HTMLOptionImage } from "jspdf";
 
-import VideoIntro from "components/VideoIntro";
+import Video from "components/Video";
 
 export const getServerSideProps = async (context) => protectPage(context);
 export default function MainHall(props) {
@@ -29,20 +29,20 @@ export default function MainHall(props) {
   };
 
   const clickBooth = (e, nama, sponsorId) => {
-    console.log(nama);
+    // console.log(nama);
     e.preventDefault();
     axios
       .get(process.env.BASE_URL + "/get-by-sponsorid/" + sponsorId, {
         headers: { Authorization: `Bearer ${props.token}` },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.status == "success") {
           localStorage.setItem("sponsor", nama);
           localStorage.setItem("sponsorId", sponsorId);
           localStorage.setItem("files", JSON.stringify(res.data.data));
           if (nama == "Laroche") {
-            setErrorMsg("Booth sedang dipersiapkan");
+            setErrorMsg("Booth sedang disiapkan");
           } else if (nama == "Bioderma") {
             router.push("/booth_bioderma");
           } else if (nama == "Derma XP") {
@@ -57,7 +57,7 @@ export default function MainHall(props) {
             router.push("/booth");
           }
         } else {
-          console.log(res.data);
+          // console.log(res.data);
           setErrorMsg(res.data.message);
         }
       })
@@ -65,6 +65,7 @@ export default function MainHall(props) {
         console.log(err);
       });
   };
+
   const toWebinar = (e) => {
     e.preventDefault();
     // router.push("/webinar");
@@ -163,6 +164,7 @@ export default function MainHall(props) {
       </video>
     );
   }
+
   async function generatePdf(e, h) {
     const noser = "";
     if (h == 1) {
@@ -178,7 +180,6 @@ export default function MainHall(props) {
     } else if (h == 6) {
       noser = "No. 930/PKB/IDI-WJ/2021";
     }
-    console.log(noser);
 
     const doc = new jsPDF("l");
     var width = doc.internal.pageSize.getWidth();
@@ -289,30 +290,24 @@ export default function MainHall(props) {
             top="60%"
             right="78%"
           />
-          <Hotspot
+          <HotspotImg
             onClick={(e) => toWebinar(e)}
-            iconName="bi-person-video2"
+            imgSrc="zoom-logo.png"
             top="60%"
             left="45%"
           />
-          {/* <HotspotBtn
-            onClick={(e) => setShowSertif(true)}
-            text="Sertifikat"
-            bottom="1%"
-            right="1%"
-          />
-          <HotspotBtn
-            onClick={(e) => setShowRecord(true)}
-            text="Rekaman"
-            bottom="1%"
-            right="17%"
-          /> */}
           <div style={{ position: "absolute", bottom: "0", right: "0" }}>
             <a className="btn-hall" onClick={(e) => setShowSertif(true)}>
               Sertifikat
             </a>
             <a className="btn-hall" onClick={(e) => setShowRecord(true)}>
               Rekaman
+            </a>
+            <a className="btn-hall" onClick={(e) => setErrorMsg("Informasi Pemenang Door Prize sedang disiapkan")}>
+              Pemenang Door Prize
+            </a>
+            <a className="btn-hall" onClick={(e) => setErrorMsg("Informasi Q & A sedang disiapkan")}>
+              Q &amp; A
             </a>
           </div>
           <Popup
@@ -368,10 +363,14 @@ export default function MainHall(props) {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Rekaman Hari ke 1</Accordion.Header>
                 <Accordion.Body>
-                  <VideoIntro
-                    // videoSrc={`https://iframe.mediadelivery.net/embed/20390/0c423cce-4162-42f7-bd7d-685b498d4e07?autoplay=false`}
-                    videoSrc="videos/pkbkulit-intro.mp4"
-                  />
+                  {showRecord ? (
+                    <Video
+                      // videoSrc={`https://iframe.mediadelivery.net/embed/20390/0c423cce-4162-42f7-bd7d-685b498d4e07?autoplay=false`}
+                      videoSrc="videos/pkbkulit-intro.mp4"
+                    />
+                  ) : (
+                    ""
+                  )}
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">

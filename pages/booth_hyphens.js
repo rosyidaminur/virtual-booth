@@ -9,6 +9,7 @@ import Hotspot from "components/hotspot";
 import cookies from "next-cookies";
 import { protectPage } from "../services/withAuth";
 import axios from "axios";
+import Dot from "components/dot";
 const { publicRuntimeConfig } = getConfig();
 
 function BoothBioderma(props) {
@@ -22,10 +23,14 @@ function BoothBioderma(props) {
   
   const [files, setFiles] = useState([]);
   const router = useRouter();
-  const handleOnClick = (e) => {
-    e.preventDefault();
-    console.log("Kembali ke home");
-    router.push("/");
+  const toMainHall = (e) => {
+    router.replace(
+      {
+        pathname: "/main-hall",
+        query: { fromB: "hyphens" },
+      },
+      "/main-hall"
+    );
   };
 
   const sortFiles = (prop) => {
@@ -86,42 +91,47 @@ function BoothBioderma(props) {
           src={`${props.base}/images/booth_platinum.jpg`}
         /> */}
         <div id="hotspots">
-          <Hotspot
+          <Dot
             popup={filesponsor[0] === undefined ? '' : filesponsor[0].File}
-            iconName="no-icon"
+            iconName="bi-record-circle"
             top="42%"
             left="26%"
           />
-          <Hotspot
+          <Dot
             popup={filesponsor[1] === undefined ? '' : filesponsor[1].File}
-            iconName="no-icon"
+            iconName="bi-record-circle"
             top="42%"
             left="35%"
           />
-          <Hotspot
+          <Dot
             popup={filesponsor[2] === undefined ? '' : filesponsor[2].File}
-            iconName="no-icon"
+            iconName="bi-record-circle"
             top="42%"
             left="43.8%"
           />
-          <Hotspot
+          <Dot
             popup={filesponsor[3] === undefined ? '' : filesponsor[3].File}
-            iconName="no-icon"
+            iconName="bi-record-circle"
             top="42%"
             left="52.4%"
           />
-          <Hotspot
+          <Dot
             popup={filesponsor[4] === undefined ? '' : filesponsor[4].File}
-            iconName="no-icon"
+            iconName="bi-record-circle"
             top="42%"
             left="61%"
           />
-          <Hotspot
+          <Dot
             popup={filesponsor[5] === undefined ? '' : filesponsor[5].File}
-            iconName="no-icon"
+            iconName="bi-play-circle"
             top="42%"
             left="73.7%"
           />
+          <div style={{ position: "absolute", bottom: "0", left: "0" }}>
+            <a className="btn-hall" onClick={(e) => toMainHall(true)}>
+              Kembali Ke Main Hall
+            </a>
+          </div>
         </div>
       </div>
     </>
