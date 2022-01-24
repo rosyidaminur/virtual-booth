@@ -90,8 +90,8 @@ a {
 .dot {
   cursor: pointer;
   position: absolute;
-  width: 21px;
-  height: 21px;
+  width: 20px;
+  height: 20px;
   border: 3px solid rgb(255, 255, 255, 0.8);
   border-radius: 50%;
   animation: fader 2s ease infinite;

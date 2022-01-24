@@ -1,33 +1,27 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import importScript from "components/importScript";
 import getConfig from "next/config";
 import Head from "next/head";
-import Hotspot from "components/hotspot";
 import cookies from "next-cookies";
-import { protectPage } from "../services/withAuth";
 import axios from "axios";
 import Dot from "components/dot";
 const { publicRuntimeConfig } = getConfig();
 
-function BoothBioderma(props) {
-  const {base,name,sponsorfile,token} =props
+function BoothIkapharmindo(props) {
   importScript(`${publicRuntimeConfig.base}/js/jquery.magnific-popup.min.js`);
   importScript(`${publicRuntimeConfig.base}/js/main.js`);
 
-  const [sponsor, setSponsor] = useState("Galderma");
-  const [filesponsor, setFileSponsor] = useState(sponsorfile);
-
-  
-  const [files, setFiles] = useState([]);
+  const sponsor = "Ikapharmindo";
+  const filesponsor = props.sponsorfile;
   const router = useRouter();
   const toMainHall = (e) => {
     router.replace(
       {
         pathname: "/main-hall",
-        query: { fromB: "galderma" },
+        query: { fromB: "booth" },
       },
       "/main-hall"
     );
@@ -45,7 +39,6 @@ function BoothBioderma(props) {
   };
 
   useEffect(() => {
-    let fillle = JSON.parse(localStorage.getItem("files"))
     router.beforePopState(({ as }) => {
       if (window.getPopup() !== null) window.closePopup();
 
@@ -53,7 +46,7 @@ function BoothBioderma(props) {
         router.replace(
           {
             pathname: "/main-hall",
-            query: { fromB: "galderma" },
+            query: { fromB: "booth" },
           },
           "/main-hall"
         );
@@ -79,65 +72,35 @@ function BoothBioderma(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth/galaderma_in.mp4`}
+          src={`${props.base}/booth/booth_silver_in.mp4`}
           type="video/mp4"
         />
       </video>
 
       <div id="sikuen2" className="hide">
-        {/* <img
+        <img
           id="latar"
           className="latar"
-          src={`${props.base}/images/booth_platinum.jpg`}
-        /> */}
+          src={`${props.base}/booth/booth_silver.jpeg`}
+        />
         <div id="hotspots">
           <Dot
-            popup={filesponsor[0] === undefined ? '' : filesponsor[0].File}
-            iconName="bi-play-circle"
-            top="42%"
-            left="16%"
-          />
-          <Dot
-            popup={filesponsor[1] === undefined ? '' : filesponsor[1].File}
+            popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-record-circle"
             top="42%"
-            left="29%"
+            left="41.5%"
           />
           <Dot
-            popup={filesponsor[2] === undefined ? '' : filesponsor[2].File}
-            iconName="bi-record-circle"
-            top="46%"
-            left="35.3%"
-          />
-          <Dot
-            popup={filesponsor[3] === undefined ? '' : filesponsor[3].File}
+            popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-record-circle"
             top="42%"
-            left="41.8%"
+            left="49.5%"
           />
           <Dot
-            popup={filesponsor[4] === undefined ? '' : filesponsor[4].File}
+            popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
             iconName="bi-record-circle"
-            top="46%"
-            left="47.8%"
-          />
-          <Dot
-            popup={filesponsor[5] === undefined ? '' : filesponsor[5].File}
-            iconName="bi-record-circle"
-            top="44%"
-            right="35.8%"
-          />
-          <Dot
-            popup={filesponsor[6] === undefined ? '' : filesponsor[6].File}
-            iconName="bi-record-circle"
-            top="46%"
-            right="25.8%"
-          />
-          <Dot
-            popup={filesponsor[7] === undefined ? '' : filesponsor[7].File}
-            iconName="bi-record-circle"
-            top="45%"
-            right="16.8%"
+            top="42%"
+            left="58%"
           />
           <div style={{ position: "absolute", bottom: "0", left: "0" }}>
             <a className="btn-hall" onClick={(e) => toMainHall(true)}>
@@ -151,28 +114,28 @@ function BoothBioderma(props) {
 }
 
 export const getServerSideProps = async (ctx) => {
-  //const params= ctx.params; //baca parameter perspnsor
-//  const query= ctx.query; //baca query perspnsor
-
   const token = cookies(ctx).token;
   if (token) {
     try {
       const res = await axios.get(process.env.BASE_URL + "/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      const datasponsor = await axios.get(process.env.BASE_URL + '/get-by-sponsorid/SP-3', {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const datasponsor = await axios.get(
+        process.env.BASE_URL + "/get-by-sponsorid/" + "SP-8",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      console.log(datasponsor.data.data);
       return {
         props: {
           token,
           name: res.data.data.name,
-          sponsorfile:datasponsor.data.data,
-
+          sponsorfile: datasponsor.data.data,
         },
       };
     } catch (err) {
-      console.log(err)
+      console.log(err);
       return {
         redirect: {
           destination: process.env.REDIRECT_LOGIN,
@@ -190,4 +153,4 @@ export const getServerSideProps = async (ctx) => {
   }
 };
 
-export default BoothBioderma;
+export default BoothIkapharmindo;

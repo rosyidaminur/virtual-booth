@@ -1,27 +1,22 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import importScript from "components/importScript";
 import getConfig from "next/config";
 import Head from "next/head";
-import Hotspot from "components/hotspot";
 import cookies from "next-cookies";
-import { protectPage } from "../services/withAuth";
 import axios from "axios";
 import Dot from "components/dot";
 const { publicRuntimeConfig } = getConfig();
 
-function Booth(props) {
-  // const {base,name,sponsorfile,token} =props
+function BoothInterbat(props) {
   importScript(`${publicRuntimeConfig.base}/js/jquery.magnific-popup.min.js`);
   importScript(`${publicRuntimeConfig.base}/js/main.js`);
 
-  const [sponsor, setSponsor] = useState("Sponsor");
-  const [filesponsor, setFileSponsor] = useState(props.sponsorfile);
+  const sponsor = "Interbat";
+  const filesponsor = props.sponsorfile;
 
-  
-  const [files, setFiles] = useState([]);
   const router = useRouter();
   const toMainHall = (e) => {
     router.replace(
@@ -45,9 +40,6 @@ function Booth(props) {
   };
 
   useEffect(() => {
-    setSponsor(localStorage.getItem("sponsor"))
-    setFileSponsor(JSON.parse(localStorage.getItem("files")))
-
     router.beforePopState(({ as }) => {
       if (window.getPopup() !== null) window.closePopup();
 
@@ -94,19 +86,19 @@ function Booth(props) {
         />
         <div id="hotspots">
           <Dot
-            popup={filesponsor[0] === undefined ? '' : filesponsor[0].File}
+            popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-record-circle"
             top="42%"
             left="41.5%"
           />
           <Dot
-            popup={filesponsor[1] === undefined ? '' : filesponsor[1].File}
+            popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-record-circle"
             top="42%"
             left="49.5%"
           />
           <Dot
-            popup={filesponsor[2] === undefined ? '' : filesponsor[2].File}
+            popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
             iconName="bi-record-circle"
             top="42%"
             left="58%"
@@ -123,28 +115,28 @@ function Booth(props) {
 }
 
 export const getServerSideProps = async (ctx) => {
-  //const params= ctx.params; //baca parameter perspnsor
-//  const query= ctx.query; //baca query perspnsor
   const token = cookies(ctx).token;
   if (token) {
     try {
       const res = await axios.get(process.env.BASE_URL + "/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      const datasponsor = await axios.get(process.env.BASE_URL + '/get-by-sponsorid/' + 'SP-8', {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      console.log(datasponsor.data.data)
+      const datasponsor = await axios.get(
+        process.env.BASE_URL + "/get-by-sponsorid/" + "SP-8",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      console.log(datasponsor.data.data);
       return {
         props: {
           token,
           name: res.data.data.name,
-          sponsorfile:datasponsor.data.data,
-
+          sponsorfile: datasponsor.data.data,
         },
       };
     } catch (err) {
-      console.log(err)
+      console.log(err);
       return {
         redirect: {
           destination: process.env.REDIRECT_LOGIN,
@@ -162,4 +154,4 @@ export const getServerSideProps = async (ctx) => {
   }
 };
 
-export default Booth;
+export default BoothInterbat;

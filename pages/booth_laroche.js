@@ -1,27 +1,21 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import importScript from "components/importScript";
 import getConfig from "next/config";
 import Head from "next/head";
-import Hotspot from "components/hotspot";
 import cookies from "next-cookies";
-import { protectPage } from "../services/withAuth";
 import axios from "axios";
 import Dot from "components/dot";
 const { publicRuntimeConfig } = getConfig();
 
 function BoothLaroche(props) {
-  const {base,name,sponsorfile,token} =props
   importScript(`${publicRuntimeConfig.base}/js/jquery.magnific-popup.min.js`);
   importScript(`${publicRuntimeConfig.base}/js/main.js`);
 
-  const [sponsor, setSponsor] = useState("Bioderma");
-  const [filesponsor, setFileSponsor] = useState(sponsorfile);
-
-  
-  const [files, setFiles] = useState([]);
+  const sponsor = "La Roche Posay";
+  const filesponsor = props.sponsorfile;
   const router = useRouter();
   const toMainHall = (e) => {
     router.replace(
@@ -45,7 +39,6 @@ function BoothLaroche(props) {
   };
 
   useEffect(() => {
-    let fillle = JSON.parse(localStorage.getItem("files"))
     router.beforePopState(({ as }) => {
       if (window.getPopup() !== null) window.closePopup();
 
@@ -169,9 +162,6 @@ function BoothLaroche(props) {
 }
 
 export const getServerSideProps = async (ctx) => {
-  //const params= ctx.params; //baca parameter perspnsor
-//  const query= ctx.query; //baca query perspnsor
-
   const token = cookies(ctx).token;
   if (token) {
     try {
