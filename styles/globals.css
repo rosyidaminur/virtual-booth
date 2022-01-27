@@ -317,6 +317,45 @@ a {
   border-color: #ffbd33;
 }
 
+.btn-logout {
+  display: inline-grid;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #120f4e;
+  text-transform: uppercase;
+  background: #ff4800;
+  border-color: transparent;
+  height: 36px;
+  padding: 0 15px;
+  border-radius: 3px;
+  transition: all 0.4s ease;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 5px;
+}
+.btn-logout:focus {
+  outline: none;
+}
+.btn-logout:hover {
+  color: #fff;
+  background: #bb3a07;
+  box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.15);
+  border-color: transparent;
+}
+.btn-logout.fill {
+  background: transparent;
+  padding: 0 25px;
+  color: #fff;
+  margin-left: 20px;
+  border: 2px solid #fff;
+}
+.btn-logout.fill:hover {
+  background: #ffbd33;
+  border-color: #ffbd33;
+}
+
 @media (max-width: 991px) {
   .hotspot {
     width: 34px;

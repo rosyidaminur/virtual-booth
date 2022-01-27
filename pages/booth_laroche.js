@@ -46,7 +46,7 @@ function BoothLaroche(props) {
         router.replace(
           {
             pathname: "/main-hall",
-            query: { fromB: "bioderma" },
+            query: { fromB: "laroche" },
           },
           "/main-hall"
         );
@@ -72,7 +72,7 @@ function BoothLaroche(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth/bioderma_in.mp4`}
+          src={`${props.base}/booth/laroche_in.mp4`}
           type="video/mp4"
         />
       </video>
@@ -87,68 +87,74 @@ function BoothLaroche(props) {
           <Dot
             popup={filesponsor[0] === undefined ? '' : filesponsor[0].File}
             iconName="bi-record-circle"
-            top="63.5%"
-            left="21.3%"
+            top="43.5%"
+            left="17.3%"
           />
           <Dot
             popup={filesponsor[1] === undefined ? '' : filesponsor[1].File}
-            iconName="bi-play-circle"
-            top="37%"
-            left="26%"
+            iconName="bi-record-circle"
+            top="41%"
+            left="29.5%"
           />
           <Dot
             popup={filesponsor[2] === undefined ? '' : filesponsor[2].File}
             iconName="bi-record-circle"
-            top="44%"
-            left="33.2%"
+            top="54.5%"
+            left="27.5%"
           />
           <Dot
             popup={filesponsor[3] === undefined ? '' : filesponsor[3].File}
             iconName="bi-record-circle"
-            top="37%"
-            left="39.5%"
+            top="43.5%"
+            left="37%"
           />
           <Dot
             popup={filesponsor[4] === undefined ? '' : filesponsor[4].File}
             iconName="bi-record-circle"
-            top="53%"
-            left="39.5%"
+            top="54.5%"
+            left="37%"
           />
           <Dot
             popup={filesponsor[5] === undefined ? '' : filesponsor[5].File}
-            iconName="bi-record-circle"
-            top="37%"
-            left="45%"
+            iconName="bi-play-circle"
+            top="41%"
+            left="52%"
           />
           <Dot
             popup={filesponsor[6] === undefined ? '' : filesponsor[6].File}
             iconName="bi-record-circle"
-            top="53%"
-            left="45%"
-          />
-          <Dot
-            popup={filesponsor[7] === undefined ? '' : filesponsor[7].File}
-            iconName="bi-record-circle"
-            top="37%"
-            left="50.5%"
+            top="59%"
+            left="48.5%"
           />
           <Dot
             popup={filesponsor[8] === undefined ? '' : filesponsor[8].File}
             iconName="bi-record-circle"
-            top="53%"
-            left="50.5%"
+            top="59%"
+            left="53.5%"
           />
           <Dot
             popup={filesponsor[9] === undefined ? '' : filesponsor[9].File}
-            iconName="bi-play-circle"
+            iconName="bi-record-circle"
             top="42%"
-            right="34%"
+            right="40%"
           />
           <Dot
             popup={filesponsor[10] === undefined ? '' : filesponsor[10].File}
             iconName="bi-record-circle"
-            top="42%"
-            right="19%"
+            top="51%"
+            right="38.4%"
+          />
+          <Dot
+            popup={filesponsor[9] === undefined ? '' : filesponsor[9].File}
+            iconName="bi-play-circle"
+            top="44%"
+            right="26%"
+          />
+          <Dot
+            popup={filesponsor[10] === undefined ? '' : filesponsor[10].File}
+            iconName="bi-record-circle"
+            top="51%"
+            right="29.2%"
           />
           <div style={{ position: "absolute", bottom: "0", left: "0" }}>
             <a className="btn-hall" onClick={(e) => toMainHall(true)}>

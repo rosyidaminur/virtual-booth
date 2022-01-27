@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import { Accordion, Button } from "react-bootstrap";
 import { protectPage } from "../services/withAuth";
 import { jsPDF, HTMLOptionImage } from "jspdf";
+import Cookie from "js-cookie";
 
 import Video from "components/Video";
 
@@ -20,12 +21,20 @@ export default function MainHall(props) {
   const from = router.query.fromB;
   const [showSertif, setShowSertif] = useState(false);
   const [showRecord, setShowRecord] = useState(false);
+  const [showLogout, setShowLogout] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
   const popupCloseHandler = () => {
     setShowSertif(false);
     setShowRecord(false);
+    setShowLogout(false);
     setErrorMsg("");
+  };
+
+  const logout = () => {
+    localStorage.clear();
+    Cookie.remove("token");
+    router.reload();
   };
 
   const clickBooth = (e, nama, sponsorId) => {
@@ -42,7 +51,7 @@ export default function MainHall(props) {
           localStorage.setItem("sponsorId", sponsorId);
           localStorage.setItem("files", JSON.stringify(res.data.data));
           if (nama == "Laroche") {
-            setErrorMsg("Booth sedang disiapkan");
+            router.push("/booth_laroche");
           } else if (nama == "Bioderma") {
             router.push("/booth_bioderma");
           } else if (nama == "Derma XP") {
@@ -83,6 +92,18 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source src={`${props.base}/booth/bioderma_out.mp4`} type="video/mp4" />
+      </video>
+    );
+  } else if (from === "laroche") {
+    video = (
+      <video
+        className="latar"
+        id="sikuen"
+        autoPlay
+        muted
+        onEnded={() => window.showHotspots()}
+      >
+        <source src={`${props.base}/booth/laroche_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "dermaxp") {
@@ -303,11 +324,24 @@ export default function MainHall(props) {
             <a className="btn-hall" onClick={(e) => setShowRecord(true)}>
               Rekaman
             </a>
-            <a className="btn-hall" onClick={(e) => setErrorMsg("Informasi Pemenang Door Prize sedang disiapkan")}>
+            <a
+              className="btn-hall"
+              onClick={(e) =>
+                setErrorMsg("Informasi Pemenang Door Prize sedang disiapkan")
+              }
+            >
               Pemenang Door Prize
             </a>
-            <a className="btn-hall" onClick={(e) => setErrorMsg("Informasi Q & A sedang disiapkan")}>
+            <a
+              className="btn-hall"
+              onClick={(e) => setErrorMsg("Informasi Q & A sedang disiapkan")}
+            >
               Q &amp; A
+            </a>
+          </div>
+          <div style={{ position: "absolute", top: "0", left: "0" }}>
+            <a className="btn-logout" onClick={(e) => setShowLogout(true)}>
+              Keluar
             </a>
           </div>
           <Popup
@@ -401,6 +435,23 @@ export default function MainHall(props) {
             title="Perhatian"
           >
             <p>{errorMsg}</p>
+          </Popup>
+          <Popup
+            width="40%"
+            height="30%"
+            onClose={popupCloseHandler}
+            show={showLogout}
+            title="Keluar"
+          >
+            <p>Apakah Anda yakin akan meninggalkan Main Hall?</p>
+            <div style={{}}>
+              <a className="btn-hall" onClick={(e) => popupCloseHandler()}>
+                Tidak
+              </a>
+              <a className="btn-logout" onClick={(e) => logout()}>
+                Ya
+              </a>
+            </div>
           </Popup>
         </div>
       </div>
