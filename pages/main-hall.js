@@ -50,21 +50,7 @@ export default function MainHall(props) {
           localStorage.setItem("sponsor", nama);
           localStorage.setItem("sponsorId", sponsorId);
           localStorage.setItem("files", JSON.stringify(res.data.data));
-          if (nama == "Laroche") {
-            router.push("/booth_laroche");
-          } else if (nama == "Bioderma") {
-            router.push("/booth_bioderma");
-          } else if (nama == "Derma XP") {
-            router.push("/booth_dermaxp");
-          } else if (nama == "Galderma") {
-            router.push("/booth_galaderma");
-          } else if (nama == "Hyphens") {
-            router.push("/booth_hyphens");
-          } else if (nama == "Surya Dermato Medica") {
-            router.push("/booth_sdm");
-          } else {
-            router.push("/booth");
-          }
+          router.push("/booth_" + nama);
         } else {
           // console.log(res.data);
           setErrorMsg(res.data.message);
@@ -234,79 +220,79 @@ export default function MainHall(props) {
         /> */}
         <div id="hotspots">
           <HotspotImg
-            onClick={(e) => clickBooth(e, "Bernofarm", "SP-2")}
+            onClick={(e) => clickBooth(e, "bernofarm", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-bernofarm.png"
             top="7%"
             right="26%"
             small
           />
           <HotspotImg
-            onClick={(e) => clickBooth(e, "Ikapharma", "SP-2")}
+            onClick={(e) => clickBooth(e, "ikapharmindo", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-ikapharma.png"
             top="9%"
             right="37%"
             small
           />
           <HotspotImg
-            onClick={(e) => clickBooth(e, "Ferron", "SP-2")}
+            onClick={(e) => clickBooth(e, "ferron", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-ferron.png"
             top="10%"
             right="47%"
             small
           />
           <HotspotImg
-            onClick={(e) => clickBooth(e, "Interbat", "SP-8")}
+            onClick={(e) => clickBooth(e, "interbat", "SP-8")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-interbat.png"
             top="12%"
             left="34%"
             small
           />
           <HotspotImg
-            onClick={(e) => clickBooth(e, "Proderma", "SP-2")}
+            onClick={(e) => clickBooth(e, "whoto", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-proderma.png"
             top="14%"
             left="23%"
             small
           />
           <HotspotImg
-            onClick={(e) => clickBooth(e, "Roi Surya Prima", "SP-2")}
+            onClick={(e) => clickBooth(e, "roysurya", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-roi.png"
             top="17%"
             left="11%"
             small
           />
           <HotspotImg
-            onClick={(e) => clickBooth(e, "Surya Dermato Medica", "SP-5")}
+            onClick={(e) => clickBooth(e, "sdm", "SP-5")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-sdm.png"
             top="36%"
             right="4%"
           />
           <HotspotImg
-            onClick={(e) => clickBooth(e, "Hyphens", "SP-7")}
+            onClick={(e) => clickBooth(e, "hyphens", "SP-7")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-hyphens.png"
             top="25%"
             right="25%"
           />
           <HotspotImg
-            onClick={(e) => clickBooth(e, "Derma XP", "SP-1")}
+            onClick={(e) => clickBooth(e, "dermaxp", "SP-1")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-dermaxp.png"
             top="33%"
             left="17%"
           />
           <HotspotImg
-            onClick={(e) => clickBooth(e, "Galderma", "SP-3")}
+            onClick={(e) => clickBooth(e, "galderma", "SP-3")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-galaderma.png"
             top="43%"
             right="22%"
           />
           <HotspotImg
-            onClick={(e) => clickBooth(e, "Bioderma", "SP-4")}
+            onClick={(e) => clickBooth(e, "bioderma", "SP-4")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-bioderma.png"
             top="32%"
             right="46%"
           />
           <HotspotImg
-            onClick={(e) => clickBooth(e, "Laroche", "SP-6")}
+            onClick={(e) => clickBooth(e, "laroche", "SP-6")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-laroche.png"
             top="60%"
             right="78%"

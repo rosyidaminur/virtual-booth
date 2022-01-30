@@ -125,7 +125,7 @@ export const getServerSideProps = async (ctx) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       const datasponsor = await axios.get(
-        process.env.BASE_URL + "/get-by-sponsorid/" + "SP-8",
+        process.env.BASE_URL + "/get-by-sponsorid/" + "SP-10",
         {
           headers: { Authorization: `Bearer ${token}` },
         }

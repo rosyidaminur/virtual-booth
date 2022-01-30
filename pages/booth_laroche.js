@@ -71,10 +71,7 @@ function BoothLaroche(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source
-          src={`${props.base}/booth/laroche_in.mp4`}
-          type="video/mp4"
-        />
+        <source src={`${props.base}/booth/laroche_in.mp4`} type="video/mp4" />
       </video>
 
       <div id="sikuen2" className="hide">
@@ -85,73 +82,73 @@ function BoothLaroche(props) {
         /> */}
         <div id="hotspots">
           <Dot
-            popup={filesponsor[0] === undefined ? '' : filesponsor[0].File}
+            popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-record-circle"
             top="43.5%"
             left="17.3%"
           />
           <Dot
-            popup={filesponsor[1] === undefined ? '' : filesponsor[1].File}
+            popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-record-circle"
             top="41%"
             left="29.5%"
           />
           <Dot
-            popup={filesponsor[2] === undefined ? '' : filesponsor[2].File}
+            popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
             iconName="bi-record-circle"
             top="54.5%"
             left="27.5%"
           />
           <Dot
-            popup={filesponsor[3] === undefined ? '' : filesponsor[3].File}
+            popup={filesponsor[3] === undefined ? "" : filesponsor[3].File}
             iconName="bi-record-circle"
             top="43.5%"
             left="37%"
           />
           <Dot
-            popup={filesponsor[4] === undefined ? '' : filesponsor[4].File}
+            popup={filesponsor[4] === undefined ? "" : filesponsor[4].File}
             iconName="bi-record-circle"
             top="54.5%"
             left="37%"
           />
           <Dot
-            popup={filesponsor[5] === undefined ? '' : filesponsor[5].File}
+            popup={filesponsor[5] === undefined ? "" : filesponsor[5].File}
             iconName="bi-play-circle"
             top="41%"
             left="52%"
           />
           <Dot
-            popup={filesponsor[6] === undefined ? '' : filesponsor[6].File}
+            popup={filesponsor[6] === undefined ? "" : filesponsor[6].File}
             iconName="bi-record-circle"
             top="59%"
             left="48.5%"
           />
           <Dot
-            popup={filesponsor[8] === undefined ? '' : filesponsor[8].File}
+            popup={filesponsor[8] === undefined ? "" : filesponsor[8].File}
             iconName="bi-record-circle"
             top="59%"
             left="53.5%"
           />
           <Dot
-            popup={filesponsor[9] === undefined ? '' : filesponsor[9].File}
+            popup={filesponsor[9] === undefined ? "" : filesponsor[9].File}
             iconName="bi-record-circle"
             top="42%"
             right="40%"
           />
           <Dot
-            popup={filesponsor[10] === undefined ? '' : filesponsor[10].File}
+            popup={filesponsor[10] === undefined ? "" : filesponsor[10].File}
             iconName="bi-record-circle"
             top="51%"
             right="38.4%"
           />
           <Dot
-            popup={filesponsor[9] === undefined ? '' : filesponsor[9].File}
+            popup={filesponsor[9] === undefined ? "" : filesponsor[9].File}
             iconName="bi-play-circle"
             top="44%"
             right="26%"
           />
           <Dot
-            popup={filesponsor[10] === undefined ? '' : filesponsor[10].File}
+            popup={filesponsor[10] === undefined ? "" : filesponsor[10].File}
             iconName="bi-record-circle"
             top="51%"
             right="29.2%"
@@ -174,19 +171,21 @@ export const getServerSideProps = async (ctx) => {
       const res = await axios.get(process.env.BASE_URL + "/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      const datasponsor = await axios.get(process.env.BASE_URL + '/get-by-sponsorid/SP-4', {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const datasponsor = await axios.get(
+        process.env.BASE_URL + "/get-by-sponsorid/SP-6",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       return {
         props: {
           token,
           name: res.data.data.name,
-          sponsorfile:datasponsor.data.data,
-
+          sponsorfile: datasponsor.data.data,
         },
       };
     } catch (err) {
-      console.log(err)
+      console.log(err);
       return {
         redirect: {
           destination: process.env.REDIRECT_LOGIN,
