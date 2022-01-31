@@ -11,11 +11,15 @@ import Dot from "components/dot";
 const { publicRuntimeConfig } = getConfig();
 
 function BoothInterbat(props) {
+  
+  // console.log();
   importScript(`${publicRuntimeConfig.base}/js/jquery.magnific-popup.min.js`);
   importScript(`${publicRuntimeConfig.base}/js/main.js`);
 
   const sponsor = "Interbat";
   const filesponsor = props.sponsorfile;
+  const sponsorcode = props.sponsorcode;
+  
 
   const router = useRouter();
   const toMainHall = (e) => {
@@ -86,18 +90,27 @@ function BoothInterbat(props) {
         />
         <div id="hotspots">
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-record-circle"
             top="42%"
             left="41.5%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-record-circle"
             top="42%"
             left="49.5%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[2].Nourut}
             popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
             iconName="bi-record-circle"
             top="42%"
@@ -115,6 +128,7 @@ function BoothInterbat(props) {
 }
 
 export const getServerSideProps = async (ctx) => {
+  const sponsorcode="SP-8";
   const token = cookies(ctx).token;
   if (token) {
     try {
@@ -122,7 +136,7 @@ export const getServerSideProps = async (ctx) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       const datasponsor = await axios.get(
-        process.env.BASE_URL + "/get-by-sponsorid/" + "SP-8",
+        process.env.BASE_URL + "/get-by-sponsorid/" + sponsorcode,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -133,6 +147,7 @@ export const getServerSideProps = async (ctx) => {
           token,
           name: res.data.data.name,
           sponsorfile: datasponsor.data.data,
+          sponsorcode,
         },
       };
     } catch (err) {

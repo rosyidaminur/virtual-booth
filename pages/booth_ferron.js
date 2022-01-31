@@ -6,7 +6,7 @@ import importScript from "components/importScript";
 import getConfig from "next/config";
 import Head from "next/head";
 import cookies from "next-cookies";
-import axios from "axi]os";
+import axios from "axios";
 import Dot from "components/dot";
 const { publicRuntimeConfig } = getConfig();
 
@@ -40,8 +40,6 @@ function BoothFerron(props) {
   };
 
   useEffect(() => {
-    setSponsor(localStorage.getItem("sponsor"));
-    setFileSponsor(JSON.parse(localStorage.getItem("files")));
 
     router.beforePopState(({ as }) => {
       if (window.getPopup() !== null) window.closePopup();

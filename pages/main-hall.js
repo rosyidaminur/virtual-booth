@@ -63,8 +63,21 @@ export default function MainHall(props) {
 
   const toWebinar = (e) => {
     e.preventDefault();
-    // router.push("/webinar");
-    setErrorMsg("Simposium & Workshop sedang dipersiapkan");
+    axios.get(process.env.BASE_URL + "/zoom/join-zoom", {
+      headers: { Authorization: `Bearer ${props.token}` },
+    })
+    .then((res) => {
+      console.log(res.data);
+      if (res.data.status == "success") {
+     
+      } else {
+        // console.log(res.data);
+        setErrorMsg(res.data.message);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   };
 
   let video;
