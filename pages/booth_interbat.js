@@ -141,7 +141,6 @@ export const getServerSideProps = async (ctx) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      console.log(datasponsor.data.data);
       return {
         props: {
           token,
@@ -151,7 +150,6 @@ export const getServerSideProps = async (ctx) => {
         },
       };
     } catch (err) {
-      console.log(err);
       return {
         redirect: {
           destination: process.env.REDIRECT_LOGIN,

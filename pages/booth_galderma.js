@@ -16,6 +16,7 @@ function BoothGalderma(props) {
 
   const sponsor = "Galderma";
   const filesponsor = props.sponsorfile;
+  const sponsorcode = props.sponsorcode;
 
   const router = useRouter();
   const toMainHall = (e) => {
@@ -83,48 +84,72 @@ function BoothGalderma(props) {
         /> */}
         <div id="hotspots">
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-play-circle"
             top="42%"
             left="16%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-record-circle"
             top="42%"
             left="29%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[2].Nourut}
             popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
             iconName="bi-record-circle"
             top="46%"
             left="35.3%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[3].Nourut}
             popup={filesponsor[3] === undefined ? "" : filesponsor[3].File}
             iconName="bi-record-circle"
             top="42%"
             left="41.8%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[4].Nourut}
             popup={filesponsor[4] === undefined ? "" : filesponsor[4].File}
             iconName="bi-record-circle"
             top="46%"
             left="47.8%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[5].Nourut}
             popup={filesponsor[5] === undefined ? "" : filesponsor[5].File}
             iconName="bi-record-circle"
             top="44%"
             right="35.8%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[6].Nourut}
             popup={filesponsor[6] === undefined ? "" : filesponsor[6].File}
             iconName="bi-record-circle"
             top="46%"
             right="25.8%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[7].Nourut}
             popup={filesponsor[7] === undefined ? "" : filesponsor[7].File}
             iconName="bi-record-circle"
             top="45%"
@@ -143,13 +168,14 @@ function BoothGalderma(props) {
 
 export const getServerSideProps = async (ctx) => {
   const token = cookies(ctx).token;
+  const sponsorcode="SP-3";
   if (token) {
     try {
       const res = await axios.get(process.env.BASE_URL + "/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const datasponsor = await axios.get(
-        process.env.BASE_URL + "/get-by-sponsorid/SP-3",
+        process.env.BASE_URL + "/get-by-sponsorid/"+sponsorcode,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -159,6 +185,7 @@ export const getServerSideProps = async (ctx) => {
           token,
           name: res.data.data.name,
           sponsorfile: datasponsor.data.data,
+          sponsorcode
         },
       };
     } catch (err) {

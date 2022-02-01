@@ -23,6 +23,9 @@ export default function MainHall(props) {
   const [showRecord, setShowRecord] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [zoomStatus, setZoomStatus] = useState(false);
+  const [Urlzoom, setUrlzoom] = useState("");
+ 
 
   const popupCloseHandler = () => {
     setShowSertif(false);
@@ -38,14 +41,12 @@ export default function MainHall(props) {
   };
 
   const clickBooth = (e, nama, sponsorId) => {
-    // console.log(nama);
     e.preventDefault();
     axios
       .get(process.env.BASE_URL + "/get-by-sponsorid/" + sponsorId, {
         headers: { Authorization: `Bearer ${props.token}` },
       })
       .then((res) => {
-        // console.log(res.data);
         if (res.data.status == "success") {
           localStorage.setItem("sponsor", nama);
           localStorage.setItem("sponsorId", sponsorId);
@@ -67,11 +68,11 @@ export default function MainHall(props) {
       headers: { Authorization: `Bearer ${props.token}` },
     })
     .then((res) => {
-      console.log(res.data);
       if (res.data.status == "success") {
-     
+        setZoomStatus(true);
+        setUrlzoom(res.data.data.Zoom_joinurl)
+        setErrorMsg(res.data.message);
       } else {
-        // console.log(res.data);
         setErrorMsg(res.data.message);
       }
     })
@@ -432,8 +433,9 @@ export default function MainHall(props) {
             onClose={popupCloseHandler}
             show={errorMsg !== ""}
             title="Perhatian"
-          >
-            <p>{errorMsg}</p>
+          >{zoomStatus?( <a href={Urlzoom} target='_blank' rel="noopener noreferrer"><Button >Join Zoom </Button></a>):(<p >{errorMsg}</p>)}
+           {/* {Urlzoom?"":(<p >{errorMsg}</p>)} */}
+          
           </Popup>
           <Popup
             width="40%"

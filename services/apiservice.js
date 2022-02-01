@@ -6,7 +6,6 @@ import { protectPage } from "./withAuth";
 export const getServerSideProps = async (context) => getFileSponsor(context);
 export async function getFileSponsor(ctx) {
      protectPage(ctx);
-    // console.log(data);
     const token = cookies(ctx).token;
     // console.log(data);
 

@@ -16,6 +16,8 @@ function BoothLaroche(props) {
 
   const sponsor = "La Roche Posay";
   const filesponsor = props.sponsorfile;
+  const sponsorcode = props.sponsorcode;
+
   const router = useRouter();
   const toMainHall = (e) => {
     router.replace(
@@ -82,73 +84,109 @@ function BoothLaroche(props) {
         /> */}
         <div id="hotspots">
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-record-circle"
             top="43.5%"
             left="17.3%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-record-circle"
             top="41%"
             left="29.5%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[2].Nourut}
             popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
             iconName="bi-record-circle"
             top="54.5%"
             left="27.5%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[3].Nourut}
             popup={filesponsor[3] === undefined ? "" : filesponsor[3].File}
             iconName="bi-record-circle"
             top="43.5%"
             left="37%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[4].Nourut}
             popup={filesponsor[4] === undefined ? "" : filesponsor[4].File}
             iconName="bi-record-circle"
             top="54.5%"
             left="37%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[5].Nourut}
             popup={filesponsor[5] === undefined ? "" : filesponsor[5].File}
             iconName="bi-play-circle"
             top="41%"
             left="52%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[6].Nourut}
             popup={filesponsor[6] === undefined ? "" : filesponsor[6].File}
             iconName="bi-record-circle"
             top="59%"
             left="48.5%"
           />
           <Dot
-            popup={filesponsor[8] === undefined ? "" : filesponsor[8].File}
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[7].Nourut}
+            popup={filesponsor[7] === undefined ? "" : filesponsor[7].File}
             iconName="bi-record-circle"
             top="59%"
             left="53.5%"
           />
           <Dot
-            popup={filesponsor[9] === undefined ? "" : filesponsor[9].File}
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[8].Nourut}
+            popup={filesponsor[8] === undefined ? "" : filesponsor[8].File}
             iconName="bi-record-circle"
             top="42%"
             right="40%"
           />
           <Dot
-            popup={filesponsor[10] === undefined ? "" : filesponsor[10].File}
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[9].Nourut}
+            popup={filesponsor[9] === undefined ? "" : filesponsor[9].File}
             iconName="bi-record-circle"
             top="51%"
             right="38.4%"
           />
           <Dot
-            popup={filesponsor[9] === undefined ? "" : filesponsor[9].File}
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[10].Nourut}
+            popup={filesponsor[10] === undefined ? "" : filesponsor[10].File}
             iconName="bi-play-circle"
             top="44%"
             right="26%"
           />
           <Dot
-            popup={filesponsor[10] === undefined ? "" : filesponsor[10].File}
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[11].Nourut}
+            popup={filesponsor[11] === undefined ? "" : filesponsor[11].File}
             iconName="bi-record-circle"
             top="51%"
             right="29.2%"
@@ -165,6 +203,7 @@ function BoothLaroche(props) {
 }
 
 export const getServerSideProps = async (ctx) => {
+  const sponsorcode="SP-6";
   const token = cookies(ctx).token;
   if (token) {
     try {
@@ -172,7 +211,7 @@ export const getServerSideProps = async (ctx) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       const datasponsor = await axios.get(
-        process.env.BASE_URL + "/get-by-sponsorid/SP-6",
+        process.env.BASE_URL + "/get-by-sponsorid/"+sponsorcode,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -182,6 +221,7 @@ export const getServerSideProps = async (ctx) => {
           token,
           name: res.data.data.name,
           sponsorfile: datasponsor.data.data,
+          sponsorcode,
         },
       };
     } catch (err) {

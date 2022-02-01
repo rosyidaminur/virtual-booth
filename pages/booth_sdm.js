@@ -16,6 +16,8 @@ function BoothSdm(props) {
 
   const sponsor = "Surya Dermato Medica";
   const filesponsor = props.sponsorfile;
+  const sponsorcode = props.sponsorcode;
+
   const router = useRouter();
   const toMainHall = (e) => {
     router.replace(
@@ -82,30 +84,45 @@ function BoothSdm(props) {
         /> */}
         <div id="hotspots">
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-record-circle"
             top="42%"
             left="28%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-record-circle"
             top="42%"
             left="35.4%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[2].Nourut}
             popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
             iconName="bi-record-circle"
             top="42%"
             left="44%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[3].Nourut}
             popup={filesponsor[3] === undefined ? "" : filesponsor[3].File}
             iconName="bi-record-circle"
             top="42%"
             left="52.4%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[4].Nourut}
             popup={filesponsor[4] === undefined ? "" : filesponsor[4].File}
             iconName="bi-play-circle"
             top="40%"
@@ -124,13 +141,15 @@ function BoothSdm(props) {
 
 export const getServerSideProps = async (ctx) => {
   const token = cookies(ctx).token;
+  const sponsorcode="SP-5";
+
   if (token) {
     try {
       const res = await axios.get(process.env.BASE_URL + "/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const datasponsor = await axios.get(
-        process.env.BASE_URL + "/get-by-sponsorid/SP-5",
+        process.env.BASE_URL + "/get-by-sponsorid/"+sponsorcode,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

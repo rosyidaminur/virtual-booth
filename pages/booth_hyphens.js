@@ -16,6 +16,7 @@ function BoothHyphens(props) {
 
   const sponsor = "Hyphens";
   const filesponsor = props.sponsorfile;
+  const sponsorcode = props.sponsorcode;
 
   const router = useRouter();
   const toMainHall = (e) => {
@@ -83,36 +84,54 @@ function BoothHyphens(props) {
         /> */}
         <div id="hotspots">
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-record-circle"
             top="42%"
             left="26%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-record-circle"
             top="42%"
             left="35%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[2].Nourut}
             popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
             iconName="bi-record-circle"
             top="42%"
             left="43.8%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[3].Nourut}
             popup={filesponsor[3] === undefined ? "" : filesponsor[3].File}
             iconName="bi-record-circle"
             top="42%"
             left="52.4%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[4].Nourut}
             popup={filesponsor[4] === undefined ? "" : filesponsor[4].File}
             iconName="bi-record-circle"
             top="42%"
             left="61%"
           />
           <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={props.sponsorfile[4].Nourut}
             popup={filesponsor[5] === undefined ? "" : filesponsor[5].File}
             iconName="bi-play-circle"
             top="42%"
@@ -130,6 +149,7 @@ function BoothHyphens(props) {
 }
 
 export const getServerSideProps = async (ctx) => {
+  const sponsorcode="SP-7";
   const token = cookies(ctx).token;
   if (token) {
     try {
@@ -137,7 +157,7 @@ export const getServerSideProps = async (ctx) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       const datasponsor = await axios.get(
-        process.env.BASE_URL + "/get-by-sponsorid/SP-7",
+        process.env.BASE_URL + "/get-by-sponsorid/"+sponsorcode,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -147,6 +167,7 @@ export const getServerSideProps = async (ctx) => {
           token,
           name: res.data.data.name,
           sponsorfile: datasponsor.data.data,
+          sponsorcode
         },
       };
     } catch (err) {

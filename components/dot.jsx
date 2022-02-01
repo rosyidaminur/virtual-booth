@@ -4,7 +4,6 @@ import axios from "axios";
  * property iconName, onClick, top, bottom, right, left
  */
 const Dot = (props) => {
-  console.log(props);
   const iconName = props.iconName; //use https://icons.getbootstrap.com/
   // const token =
   const onClick = props.onClick;
@@ -22,7 +21,6 @@ const Dot = (props) => {
         process.env.BASE_URL + "/view-file",data,
       { headers: { Authorization: `Bearer ${props.token}` } }
       ).then(function (response) {
-        console.log(response);
       })
       .catch(function (error) {
         console.log(error);
