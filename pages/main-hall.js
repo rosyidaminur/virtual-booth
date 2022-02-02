@@ -25,7 +25,6 @@ export default function MainHall(props) {
   const [errorMsg, setErrorMsg] = useState("");
   const [zoomStatus, setZoomStatus] = useState(false);
   const [Urlzoom, setUrlzoom] = useState("");
- 
 
   const popupCloseHandler = () => {
     setShowSertif(false);
@@ -64,21 +63,22 @@ export default function MainHall(props) {
 
   const toWebinar = (e) => {
     e.preventDefault();
-    axios.get(process.env.BASE_URL + "/zoom/join-zoom", {
-      headers: { Authorization: `Bearer ${props.token}` },
-    })
-    .then((res) => {
-      if (res.data.status == "success") {
-        setZoomStatus(true);
-        setUrlzoom(res.data.data.Zoom_joinurl)
-        setErrorMsg(res.data.message);
-      } else {
-        setErrorMsg(res.data.message);
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    axios
+      .get(process.env.BASE_URL + "/zoom/join-zoom", {
+        headers: { Authorization: `Bearer ${props.token}` },
+      })
+      .then((res) => {
+        if (res.data.status == "success") {
+          setZoomStatus(true);
+          setUrlzoom(res.data.data.Zoom_joinurl);
+          setErrorMsg(res.data.message);
+        } else {
+          setErrorMsg(res.data.message);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   let video;
@@ -227,17 +227,15 @@ export default function MainHall(props) {
       {video}
 
       <div id="sikuen2" className="hide">
-        {/* <img
-          id="latar"
-          className="latar"
-          src={`${props.base}/booth/hall.png`}
-        /> */}
+        <video id="latar" className="latar" autoPlay muted loop>
+          <source src={`${props.base}/booth/hall_loop.mp4`} type="video/mp4" />
+        </video>
         <div id="hotspots">
           <HotspotImg
             onClick={(e) => clickBooth(e, "bernofarm", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-bernofarm.png"
-            top="7%"
-            right="26%"
+            top="8%"
+            right="27%"
             small
           />
           <HotspotImg
@@ -250,66 +248,66 @@ export default function MainHall(props) {
           <HotspotImg
             onClick={(e) => clickBooth(e, "ferron", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-ferron.png"
-            top="10%"
-            right="47%"
+            top="11%"
+            right="46%"
             small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "interbat", "SP-8")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-interbat.png"
             top="12%"
-            left="34%"
+            left="40.5%"
             small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "whoto", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-proderma.png"
             top="14%"
-            left="23%"
+            left="31%"
             small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "roysurya", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-roi.png"
-            top="17%"
-            left="11%"
+            top="15%"
+            left="21%"
             small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "sdm", "SP-5")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-sdm.png"
             top="36%"
-            right="4%"
+            right="11%"
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "hyphens", "SP-7")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-hyphens.png"
-            top="25%"
-            right="25%"
+            top="22%"
+            right="27%"
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "dermaxp", "SP-1")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-dermaxp.png"
-            top="33%"
-            left="17%"
+            top="30%"
+            left="24%"
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "galderma", "SP-3")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-galaderma.png"
             top="43%"
-            right="22%"
+            right="24%"
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "bioderma", "SP-4")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-bioderma.png"
-            top="32%"
+            top="25%"
             right="46%"
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "laroche", "SP-6")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-laroche.png"
-            top="60%"
-            right="78%"
+            top="49%"
+            right="71%"
           />
           <HotspotImg
             onClick={(e) => toWebinar(e)}
@@ -433,9 +431,15 @@ export default function MainHall(props) {
             onClose={popupCloseHandler}
             show={errorMsg !== ""}
             title="Perhatian"
-          >{zoomStatus?( <a href={Urlzoom} target='_blank' rel="noopener noreferrer"><Button >Join Zoom </Button></a>):(<p >{errorMsg}</p>)}
-           {/* {Urlzoom?"":(<p >{errorMsg}</p>)} */}
-          
+          >
+            {zoomStatus ? (
+              <a href={Urlzoom} target="_blank" rel="noopener noreferrer">
+                <Button>Join Zoom </Button>
+              </a>
+            ) : (
+              <p>{errorMsg}</p>
+            )}
+            {/* {Urlzoom?"":(<p >{errorMsg}</p>)} */}
           </Popup>
           <Popup
             width="40%"

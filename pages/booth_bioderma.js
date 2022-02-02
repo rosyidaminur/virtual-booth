@@ -77,11 +77,9 @@ function BoothBioderma(props) {
       </video>
 
       <div id="sikuen2" className="hide">
-        {/* <img
-          id="latar"
-          className="latar"
-          src={`${props.base}/images/booth_platinum.jpg`}
-        /> */}
+        <video id="latar" className="latar" autoPlay muted loop>
+          <source src={`${props.base}/booth/bioderma_loop.mp4`} type="video/mp4" />
+        </video>
         <div id="hotspots">
           <Dot
             sponsorcode={sponsorcode}

@@ -83,11 +83,9 @@ function BoothInterbat(props) {
       </video>
 
       <div id="sikuen2" className="hide">
-        <img
-          id="latar"
-          className="latar"
-          src={`${props.base}/booth/booth_silver.jpeg`}
-        />
+        <video id="latar" className="latar" autoPlay muted loop>
+          <source src={`${props.base}/booth/interbat_loop.mp4`} type="video/mp4" />
+        </video>
         <div id="hotspots">
           <Dot
             sponsorcode={sponsorcode}
