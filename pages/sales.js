@@ -22,7 +22,8 @@ export default function sales() {
                 <Image rounded src={data.Foto} alt=''/>
                 <Card.Body>
                 <Card.Title>{data.Nama}</Card.Title>
-                <Button variant="primary">{data.Wa}</Button>
+                {/* <Button variant="primary">{data.Wa}</Button> */}
+                <a href={`https://wa.me/62` + data.Wa.substring(1)} target="_blank" className="btn-hall" rel="noreferrer">{data.Wa}</a>
                 </Card.Body>
               </Card>
             </Col>
