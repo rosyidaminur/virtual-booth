@@ -358,26 +358,19 @@ export default function MainHall(props) {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Sertifikat Hari ke 1</Accordion.Header>
                 <Accordion.Body>
-                  <Button onClick={(e) => generatePdf(e, 1)}>
+                  {/* <Button onClick={(e) => generatePdf(e, 1)}>
                     Unduh Sertifikat
-                  </Button>
+                  </Button> */}
+                  Sertifikat belum tersedia
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Sertifikat Hari ke 2</Accordion.Header>
-                <Accordion.Body>
-                  <Button onClick={(e) => generatePdf(e, 2)}>
-                    Unduh Sertifikat
-                  </Button>
-                </Accordion.Body>
+                <Accordion.Body>Sertifikat belum tersedia</Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Sertifikat Hari ke 3</Accordion.Header>
-                <Accordion.Body>
-                  <Button onClick={(e) => generatePdf(e, 3)}>
-                    Unduh Sertifikat
-                  </Button>
-                </Accordion.Body>
+                <Accordion.Body>Sertifikat belum tersedia</Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
                 <Accordion.Header>Sertifikat Hari ke 4</Accordion.Header>
@@ -402,14 +395,15 @@ export default function MainHall(props) {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Rekaman Hari ke 1</Accordion.Header>
                 <Accordion.Body>
-                  {showRecord ? (
+                  {/* {showRecord ? (
                     <Video
                       videoSrc={`https://iframe.mediadelivery.net/embed/20390/0c423cce-4162-42f7-bd7d-685b498d4e07?autoplay=false`}
                       // videoSrc="videos/pkbkulit-intro.mp4"
                     />
                   ) : (
                     ""
-                  )}
+                  )} */}
+                  Rekaman belum tersedia
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
