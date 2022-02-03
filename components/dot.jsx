@@ -31,7 +31,7 @@ const Dot = (props) => {
     <>
       <a
         onClick={(e) => visitCount(props.sponsorcode, props.nourut)}
-        href={props.type === "List Kontak/WA" ? `${'sales?kontak=' + popup}` : props.type === "Gambar" ? `${'gambar?src=' + popup}` : popup}
+        href={props.type === "List Kontak/WA" ? `${'sales?kontak=' + popup}` : props.type === "Gambar" ? `${'gambar?sos=' + popup}` : popup}
         className={popup ? "iframe-popup dot" : "dot"}
         style={{ top: top, bottom: bottom, right: right, left: left }}
       >
