@@ -73,7 +73,7 @@ function BoothGalderma(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth/galaderma_in.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth/galderma_in.mp4`} type="video/mp4" />
       </video>
 
       <div id="sikuen2" className="hide">

@@ -129,7 +129,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth/galaderma_out.mp4`}
+          src={`${props.base}/booth/galderma_out.mp4`}
           type="video/mp4"
         />
       </video>

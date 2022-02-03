@@ -23,7 +23,7 @@ function BoothLaroche(props) {
     router.replace(
       {
         pathname: "/main-hall",
-        query: { fromB: "bioderma" },
+        query: { fromB: "laroche" },
       },
       "/main-hall"
     );
