@@ -78,94 +78,97 @@ function BoothBioderma(props) {
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
-          <source src={`${props.base}/booth/bioderma_loop.mp4`} type="video/mp4" />
+          <source
+            src={`${props.base}/booth/bioderma_loop.mp4`}
+            type="video/mp4"
+          />
         </video>
         <div id="hotspots">
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[0].Nourut}
+            nourut={filesponsor[0] === undefined ? "xxx" : filesponsor[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-record-circle"
-            top="62%"
-            left="25.3%"
+            top="64%"
+            left="17.6%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[1].Nourut}
+            nourut={filesponsor[1] === undefined ? "xxx" : filesponsor[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-play-circle"
             top="47%"
-            left="28%"
+            left="23%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[2].Nourut}
+            nourut={filesponsor[2] === undefined ? "xxx" : filesponsor[2].Nourut}
             popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
             iconName="bi-record-circle"
             top="50%"
-            left="35%"
+            left="30%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[3].Nourut}
+            nourut={filesponsor[3] === undefined ? "xxx" : filesponsor[3].Nourut}
             popup={filesponsor[3] === undefined ? "" : filesponsor[3].File}
             iconName="bi-record-circle"
             top="43%"
-            left="42.7%"
+            left="37.7%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[4].Nourut}
+            nourut={filesponsor[4] === undefined ? "xxx" : filesponsor[4].Nourut}
             popup={filesponsor[4] === undefined ? "" : filesponsor[4].File}
             iconName="bi-record-circle"
             top="53%"
-            left="40.8%"
+            left="36.8%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[5].Nourut}
+            nourut={filesponsor[5] === undefined ? "xxx" : filesponsor[5].Nourut}
             popup={filesponsor[5] === undefined ? "" : filesponsor[5].File}
             iconName="bi-record-circle"
             top="43%"
-            left="48%"
+            left="44%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[6].Nourut}
+            nourut={filesponsor[6] === undefined ? "xxx" : filesponsor[6].Nourut}
             popup={filesponsor[6] === undefined ? "" : filesponsor[6].File}
             iconName="bi-record-circle"
             top="53%"
-            left="47.3%"
+            left="44%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[7].Nourut}
+            nourut={filesponsor[7] === undefined ? "xxx" : filesponsor[7].Nourut}
             popup={filesponsor[7] === undefined ? "" : filesponsor[7].File}
             iconName="bi-record-circle"
             top="43%"
-            left="53.5%"
+            left="50%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[8].Nourut}
+            nourut={filesponsor[8] === undefined ? "xxx" : filesponsor[8].Nourut}
             popup={filesponsor[8] === undefined ? "" : filesponsor[8].File}
             iconName="bi-record-circle"
             top="53%"
-            left="53.2%"
+            left="50.8%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[9].Nourut}
+            nourut={filesponsor[9] === undefined ? "xxx" : filesponsor[9].Nourut}
             popup={filesponsor[9] === undefined ? "" : filesponsor[9].File}
             iconName="bi-play-circle"
             top="49%"
@@ -174,7 +177,7 @@ function BoothBioderma(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[10].Nourut}
+            nourut={filesponsor[10] === undefined ? "xxx" : filesponsor[10].Nourut}
             popup={filesponsor[10] === undefined ? "" : filesponsor[10].File}
             iconName="bi-record-circle"
             top="56%"
@@ -192,7 +195,7 @@ function BoothBioderma(props) {
 }
 
 export const getServerSideProps = async (ctx) => {
-  const sponsorcode="SP-4";
+  const sponsorcode = "SP-4";
   const token = cookies(ctx).token;
   if (token) {
     try {
@@ -200,7 +203,7 @@ export const getServerSideProps = async (ctx) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       const datasponsor = await axios.get(
-        process.env.BASE_URL + "/get-by-sponsorid/"+sponsorcode,
+        process.env.BASE_URL + "/get-by-sponsorid/" + sponsorcode,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -210,7 +213,7 @@ export const getServerSideProps = async (ctx) => {
           token,
           name: res.data.data.name,
           sponsorfile: datasponsor.data.data,
-          sponsorcode
+          sponsorcode,
         },
       };
     } catch (err) {

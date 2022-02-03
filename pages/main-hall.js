@@ -25,6 +25,7 @@ export default function MainHall(props) {
   const [errorMsg, setErrorMsg] = useState("");
   const [zoomStatus, setZoomStatus] = useState(false);
   const [Urlzoom, setUrlzoom] = useState("");
+  const [noser, setNoser] = useState("");
 
   const popupCloseHandler = () => {
     setShowSertif(false);
@@ -187,19 +188,25 @@ export default function MainHall(props) {
   }
 
   async function generatePdf(e, h) {
-    const noser = "";
+    // const noser = "";
     if (h == 1) {
-      noser = "No. 930/PKB/IDI-WJ/2021";
+      // noser = "No. 930/PKB/IDI-WJ/2021";
+      setNoser("No. 930/PKB/IDI-WJ/2021");
     } else if (h == 2) {
-      noser = "No. 931/PKB/IDI-WJ/2021";
+      // noser = "No. 931/PKB/IDI-WJ/2021";
+      setNoser("No. 931/PKB/IDI-WJ/2021");
     } else if (h == 3) {
-      noser = "No. 932/PKB/IDI-WJ/2021";
+      // noser = "No. 932/PKB/IDI-WJ/2021";
+      setNoser("No. 932/PKB/IDI-WJ/2021");
     } else if (h == 4) {
-      noser = "No. 933/PKB/IDI-WJ/2021";
+      // noser = "No. 933/PKB/IDI-WJ/2021";
+      setNoser("No. 933/PKB/IDI-WJ/2021");
     } else if (h == 5) {
-      noser = "No. 934/PKB/IDI-WJ/2021";
+      // noser = "No. 934/PKB/IDI-WJ/2021";
+      setNoser("No. 934/PKB/IDI-WJ/2021");
     } else if (h == 6) {
-      noser = "No. 930/PKB/IDI-WJ/2021";
+      // noser = "No. 930/PKB/IDI-WJ/2021";
+      setNoser("No. 930/PKB/IDI-WJ/2021");
     }
 
     const doc = new jsPDF("l");

@@ -81,35 +81,29 @@ function BoothIkapharmindo(props) {
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
-          <source src={`${props.base}/booth/ikapharmindo_loop.mp4`} type="video/mp4" />
+          <source
+            src={`${props.base}/booth/ikapharmindo_loop.mp4`}
+            type="video/mp4"
+          />
         </video>
         <div id="hotspots">
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[0].Nourut}
+            nourut={filesponsor[0] === undefined ? "xxx" : filesponsor[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-record-circle"
             top="42%"
-            left="41.5%"
+            left="46%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[1].Nourut}
+            nourut={filesponsor[1] === undefined ? "xxx" : filesponsor[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-record-circle"
             top="42%"
-            left="49.5%"
-          />
-          <Dot
-            sponsorcode={sponsorcode}
-            token={props.token}
-            nourut={props.sponsorfile[2].Nourut}
-            popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
-            iconName="bi-record-circle"
-            top="42%"
-            left="58%"
+            left="54%"
           />
           <div style={{ position: "absolute", bottom: "0", left: "0" }}>
             <a className="btn-hall" onClick={(e) => toMainHall(true)}>
@@ -123,7 +117,7 @@ function BoothIkapharmindo(props) {
 }
 
 export const getServerSideProps = async (ctx) => {
-  const sponsorcode="SP-11";
+  const sponsorcode = "SP-11";
 
   const token = cookies(ctx).token;
   if (token) {
@@ -142,7 +136,7 @@ export const getServerSideProps = async (ctx) => {
           token,
           name: res.data.data.name,
           sponsorfile: datasponsor.data.data,
-          sponsorcode
+          sponsorcode,
         },
       };
     } catch (err) {

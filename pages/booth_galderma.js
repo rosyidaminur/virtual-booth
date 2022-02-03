@@ -78,13 +78,16 @@ function BoothGalderma(props) {
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
-          <source src={`${props.base}/booth/galderma_loop.mp4`} type="video/mp4" />
+          <source
+            src={`${props.base}/booth/galderma_loop.mp4`}
+            type="video/mp4"
+          />
         </video>
         <div id="hotspots">
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[0].Nourut}
+            nourut={filesponsor[0] === undefined ? "xxx" : filesponsor[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-play-circle"
             top="42%"
@@ -93,7 +96,7 @@ function BoothGalderma(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[1].Nourut}
+            nourut={filesponsor[1] === undefined ? "xxx" : filesponsor[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-record-circle"
             top="42%"
@@ -102,34 +105,34 @@ function BoothGalderma(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[2].Nourut}
+            nourut={filesponsor[2] === undefined ? "xxx" : filesponsor[2].Nourut}
             popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
             iconName="bi-record-circle"
-            top="46%"
-            left="35.3%"
+            top="42%"
+            left="36.8%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[3].Nourut}
+            nourut={filesponsor[3] === undefined ? "xxx" : filesponsor[3].Nourut}
             popup={filesponsor[3] === undefined ? "" : filesponsor[3].File}
             iconName="bi-record-circle"
             top="42%"
-            left="41.8%"
+            left="42%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[4].Nourut}
+            nourut={filesponsor[4] === undefined ? "xxx" : filesponsor[4].Nourut}
             popup={filesponsor[4] === undefined ? "" : filesponsor[4].File}
             iconName="bi-record-circle"
-            top="46%"
-            left="47.8%"
+            top="42%"
+            left="47.5%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[5].Nourut}
+            nourut={filesponsor[5] === undefined ? "xxx" : filesponsor[5].Nourut}
             popup={filesponsor[5] === undefined ? "" : filesponsor[5].File}
             iconName="bi-record-circle"
             top="44%"
@@ -138,7 +141,7 @@ function BoothGalderma(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[6].Nourut}
+            nourut={filesponsor[6] === undefined ? "xxx" : filesponsor[6].Nourut}
             popup={filesponsor[6] === undefined ? "" : filesponsor[6].File}
             iconName="bi-record-circle"
             top="46%"
@@ -147,7 +150,7 @@ function BoothGalderma(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[7].Nourut}
+            nourut={filesponsor[7] === undefined ? "xxx" : filesponsor[7].Nourut}
             popup={filesponsor[7] === undefined ? "" : filesponsor[7].File}
             iconName="bi-record-circle"
             top="45%"
@@ -166,14 +169,14 @@ function BoothGalderma(props) {
 
 export const getServerSideProps = async (ctx) => {
   const token = cookies(ctx).token;
-  const sponsorcode="SP-3";
+  const sponsorcode = "SP-3";
   if (token) {
     try {
       const res = await axios.get(process.env.BASE_URL + "/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const datasponsor = await axios.get(
-        process.env.BASE_URL + "/get-by-sponsorid/"+sponsorcode,
+        process.env.BASE_URL + "/get-by-sponsorid/" + sponsorcode,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -183,7 +186,7 @@ export const getServerSideProps = async (ctx) => {
           token,
           name: res.data.data.name,
           sponsorfile: datasponsor.data.data,
-          sponsorcode
+          sponsorcode,
         },
       };
     } catch (err) {

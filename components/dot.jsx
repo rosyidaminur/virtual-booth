@@ -13,18 +13,18 @@ const Dot = (props) => {
   const right = props.right !== undefined ? `${props.right}` : "unset";
   const left = props.left !== undefined ? `${props.left}` : "unset";
 
-  const visitCount = (code,urut) => {
+  const visitCount = (code, urut) => {
     onClick
-    if(code && urut){
-      const data ={ "sponsorid":code, "nourut": urut }
+    if (code && urut) {
+      const data = { "sponsorid": code, "nourut": urut }
       axios.post(
-        process.env.BASE_URL + "/view-file",data,
-      { headers: { Authorization: `Bearer ${props.token}` } }
+        process.env.BASE_URL + "/view-file", data,
+        { headers: { Authorization: `Bearer ${props.token}` } }
       ).then(function (response) {
       })
-      .catch(function (error) {
-        console.log(error);
-      })
+        .catch(function (error) {
+          console.log(error);
+        })
     }
   }
 
@@ -32,8 +32,8 @@ const Dot = (props) => {
     <>
       <a
         // onClick={onClick}
-        onClick={(e) => visitCount(props.sponsorcode,props.nourut)}
-        href={popup}
+        onClick={(e) => visitCount(props.sponsorcode, props.nourut)}
+        href={props.type === "List Kontak/WA" ? `${'sales?kontak=' + popup}` : popup}
         className={popup ? "iframe-popup dot" : "dot"}
         style={{ top: top, bottom: bottom, right: right, left: left }}
       >

@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
           content="width=device-width, initial-scale=1.0, user-scalable=0"
         />
       </Head>
-      {/* <Component {...pageProps} base={`https://cdn.fkuwks.com/booth`} /> */}
+      
       <NextNProgress
         color="#FFBD33"
         startPosition={0.08}
@@ -29,7 +29,8 @@ function MyApp({ Component, pageProps }) {
         showOnShallow={true}
       />
       {/* <PageTransition timeout={300} classNames="page-transition"> */}
-        <Component {...pageProps} base={publicRuntimeConfig.base} />
+        {/* <Component {...pageProps} base={publicRuntimeConfig.base} /> */}
+        <Component {...pageProps} base={`https://cdn.fkuwks.com/booth`} />
       {/* </PageTransition> */}
       {/* <style jsx global>{`
         .page-transition-exit {

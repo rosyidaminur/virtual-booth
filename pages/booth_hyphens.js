@@ -78,13 +78,16 @@ function BoothHyphens(props) {
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
-          <source src={`${props.base}/booth/hyphens_loop.mp4`} type="video/mp4" />
+          <source
+            src={`${props.base}/booth/hyphens_loop.mp4`}
+            type="video/mp4"
+          />
         </video>
         <div id="hotspots">
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[0].Nourut}
+            nourut={filesponsor[0] === undefined ? "xxx" : filesponsor[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-record-circle"
             top="42%"
@@ -93,7 +96,7 @@ function BoothHyphens(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[1].Nourut}
+            nourut={filesponsor[1] === undefined ? "xxx" : filesponsor[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-record-circle"
             top="42%"
@@ -102,7 +105,7 @@ function BoothHyphens(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[2].Nourut}
+            nourut={filesponsor[2] === undefined ? "xxx" : filesponsor[2].Nourut}
             popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
             iconName="bi-record-circle"
             top="42%"
@@ -111,7 +114,7 @@ function BoothHyphens(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[3].Nourut}
+            nourut={filesponsor[3] === undefined ? "xxx" : filesponsor[3].Nourut}
             popup={filesponsor[3] === undefined ? "" : filesponsor[3].File}
             iconName="bi-record-circle"
             top="42%"
@@ -120,7 +123,7 @@ function BoothHyphens(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[4].Nourut}
+            nourut={filesponsor[4] === undefined ? "xxx" : filesponsor[4].Nourut}
             popup={filesponsor[4] === undefined ? "" : filesponsor[4].File}
             iconName="bi-record-circle"
             top="42%"
@@ -129,7 +132,7 @@ function BoothHyphens(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[4].Nourut}
+            nourut={filesponsor[5] === undefined ? "xxx" : filesponsor[5].Nourut}
             popup={filesponsor[5] === undefined ? "" : filesponsor[5].File}
             iconName="bi-play-circle"
             top="42%"
@@ -147,7 +150,7 @@ function BoothHyphens(props) {
 }
 
 export const getServerSideProps = async (ctx) => {
-  const sponsorcode="SP-7";
+  const sponsorcode = "SP-7";
   const token = cookies(ctx).token;
   if (token) {
     try {
@@ -155,7 +158,7 @@ export const getServerSideProps = async (ctx) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       const datasponsor = await axios.get(
-        process.env.BASE_URL + "/get-by-sponsorid/"+sponsorcode,
+        process.env.BASE_URL + "/get-by-sponsorid/" + sponsorcode,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -165,7 +168,7 @@ export const getServerSideProps = async (ctx) => {
           token,
           name: res.data.data.name,
           sponsorfile: datasponsor.data.data,
-          sponsorcode
+          sponsorcode,
         },
       };
     } catch (err) {

@@ -84,16 +84,16 @@ function BoothSdm(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[0].Nourut}
+            nourut={filesponsor[0] === undefined ? "xxx" : filesponsor[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-record-circle"
             top="42%"
-            left="28%"
+            left="29%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[1].Nourut}
+            nourut={filesponsor[1] === undefined ? "xxx" : filesponsor[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-record-circle"
             top="42%"
@@ -102,7 +102,7 @@ function BoothSdm(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[2].Nourut}
+            nourut={filesponsor[2] === undefined ? "xxx" : filesponsor[2].Nourut}
             popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
             iconName="bi-record-circle"
             top="42%"
@@ -111,7 +111,7 @@ function BoothSdm(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[3].Nourut}
+            nourut={filesponsor[3] === undefined ? "xxx" : filesponsor[3].Nourut}
             popup={filesponsor[3] === undefined ? "" : filesponsor[3].File}
             iconName="bi-record-circle"
             top="42%"
@@ -120,11 +120,11 @@ function BoothSdm(props) {
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[4].Nourut}
+            nourut={filesponsor[4] === undefined ? "xxx" : filesponsor[4].Nourut}
             popup={filesponsor[4] === undefined ? "" : filesponsor[4].File}
             iconName="bi-play-circle"
-            top="40%"
-            left="62%"
+            top="43%"
+            left="64%"
           />
           <div style={{ position: "absolute", bottom: "0", left: "0" }}>
             <a className="btn-hall" onClick={(e) => toMainHall(true)}>
@@ -139,7 +139,7 @@ function BoothSdm(props) {
 
 export const getServerSideProps = async (ctx) => {
   const token = cookies(ctx).token;
-  const sponsorcode="SP-5";
+  const sponsorcode = "SP-5";
 
   if (token) {
     try {
@@ -147,7 +147,7 @@ export const getServerSideProps = async (ctx) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       const datasponsor = await axios.get(
-        process.env.BASE_URL + "/get-by-sponsorid/"+sponsorcode,
+        process.env.BASE_URL + "/get-by-sponsorid/" + sponsorcode,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

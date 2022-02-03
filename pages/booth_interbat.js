@@ -11,7 +11,6 @@ import Dot from "components/dot";
 const { publicRuntimeConfig } = getConfig();
 
 function BoothInterbat(props) {
-  
   // console.log();
   importScript(`${publicRuntimeConfig.base}/js/jquery.magnific-popup.min.js`);
   importScript(`${publicRuntimeConfig.base}/js/main.js`);
@@ -19,7 +18,6 @@ function BoothInterbat(props) {
   const sponsor = "Interbat";
   const filesponsor = props.sponsorfile;
   const sponsorcode = props.sponsorcode;
-  
 
   const router = useRouter();
   const toMainHall = (e) => {
@@ -84,35 +82,29 @@ function BoothInterbat(props) {
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
-          <source src={`${props.base}/booth/interbat_loop.mp4`} type="video/mp4" />
+          <source
+            src={`${props.base}/booth/interbat_loop.mp4`}
+            type="video/mp4"
+          />
         </video>
         <div id="hotspots">
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[0].Nourut}
+            nourut={filesponsor[0] === undefined ? "xxx" : filesponsor[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
             iconName="bi-record-circle"
             top="42%"
-            left="41.5%"
+            left="46%"
           />
           <Dot
             sponsorcode={sponsorcode}
             token={props.token}
-            nourut={props.sponsorfile[1].Nourut}
+            nourut={filesponsor[1] === undefined ? "xxx" : filesponsor[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
             iconName="bi-record-circle"
             top="42%"
-            left="49.5%"
-          />
-          <Dot
-            sponsorcode={sponsorcode}
-            token={props.token}
-            nourut={props.sponsorfile[2].Nourut}
-            popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
-            iconName="bi-record-circle"
-            top="42%"
-            left="58%"
+            left="54%"
           />
           <div style={{ position: "absolute", bottom: "0", left: "0" }}>
             <a className="btn-hall" onClick={(e) => toMainHall(true)}>
@@ -126,7 +118,7 @@ function BoothInterbat(props) {
 }
 
 export const getServerSideProps = async (ctx) => {
-  const sponsorcode="SP-8";
+  const sponsorcode = "SP-8";
   const token = cookies(ctx).token;
   if (token) {
     try {
