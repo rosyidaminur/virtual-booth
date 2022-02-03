@@ -92,7 +92,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth/bioderma_out.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth2/bioderma_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "laroche") {
@@ -104,7 +104,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth/laroche_out.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth2/laroche_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "dermaxp") {
@@ -116,7 +116,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth/dermaxp_out.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth2/dermaxp_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "galderma") {
@@ -129,7 +129,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth/galderma_out.mp4`}
+          src={`${props.base}/booth2/galderma_out.mp4`}
           type="video/mp4"
         />
       </video>
@@ -143,7 +143,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth/hyphens_out.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth2/hyphens_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "sdm") {
@@ -155,7 +155,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth/sdm_out.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth2/sdm_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "booth") {
@@ -168,7 +168,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth/booth_silver_out.mp4`}
+          src={`${props.base}/booth2/booth_silver_out.mp4`}
           type="video/mp4"
         />
       </video>
@@ -182,7 +182,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth/hall.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth2/hall.mp4`} type="video/mp4" />
       </video>
     );
   }
@@ -235,86 +235,86 @@ export default function MainHall(props) {
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
-          <source src={`${props.base}/booth/hall_loop.mp4`} type="video/mp4" />
+          <source src={`${props.base}/booth2/hall_loop.mp4`} type="video/mp4" />
         </video>
         <div id="hotspots">
           <HotspotImg
             onClick={(e) => clickBooth(e, "bernofarm", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-bernofarm.png"
-            top="8%"
-            right="27%"
+            top="9%"
+            right="28%"
             small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "ikapharmindo", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-ikapharma.png"
-            top="9%"
-            right="37%"
+            top="11%"
+            right="39%"
             small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "ferron", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-ferron.png"
-            top="11%"
-            right="46%"
+            top="13%"
+            right="48%"
             small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "interbat", "SP-8")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-interbat.png"
-            top="12%"
-            left="40.5%"
+            top="15%"
+            left="36.5%"
             small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "whoto", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-proderma.png"
-            top="14%"
-            left="31%"
+            top="16%"
+            left="26%"
             small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "roysurya", "SP-2")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-roi.png"
-            top="15%"
-            left="21%"
+            top="18%"
+            left="13%"
             small
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "sdm", "SP-5")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-sdm.png"
             top="36%"
-            right="11%"
+            right="4%"
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "hyphens", "SP-7")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-hyphens.png"
-            top="22%"
-            right="27%"
+            top="25%"
+            right="25%"
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "dermaxp", "SP-1")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-dermaxp.png"
-            top="30%"
-            left="24%"
+            top="33%"
+            left="17%"
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "galderma", "SP-3")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-galaderma.png"
             top="43%"
-            right="24%"
+            right="22%"
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "bioderma", "SP-4")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-bioderma.png"
-            top="25%"
+            top="32%"
             right="46%"
           />
           <HotspotImg
             onClick={(e) => clickBooth(e, "laroche", "SP-6")}
             imgSrc="https://cdn.fkuwks.com/images/sponsors/logo-laroche.png"
-            top="49%"
-            right="71%"
+            top="60%"
+            right="78%"
           />
           <HotspotImg
             onClick={(e) => toWebinar(e)}

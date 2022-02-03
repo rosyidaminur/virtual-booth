@@ -73,13 +73,13 @@ function BoothBioderma(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth/bioderma_in.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth2/bioderma_in.mp4`} type="video/mp4" />
       </video>
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
           <source
-            src={`${props.base}/booth/bioderma_loop.mp4`}
+            src={`${props.base}/booth2/bioderma_loop.mp4`}
             type="video/mp4"
           />
         </video>
@@ -89,6 +89,7 @@ function BoothBioderma(props) {
             token={props.token}
             nourut={filesponsor[0] === undefined ? "xxx" : filesponsor[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
+            type={filesponsor[0] === undefined ? "" : filesponsor[0].Jenis_file}
             iconName="bi-record-circle"
             top="64%"
             left="17.6%"
@@ -98,6 +99,7 @@ function BoothBioderma(props) {
             token={props.token}
             nourut={filesponsor[1] === undefined ? "xxx" : filesponsor[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
+            type={filesponsor[1] === undefined ? "" : filesponsor[1].Jenis_file}
             iconName="bi-play-circle"
             top="47%"
             left="23%"
@@ -107,6 +109,7 @@ function BoothBioderma(props) {
             token={props.token}
             nourut={filesponsor[2] === undefined ? "xxx" : filesponsor[2].Nourut}
             popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
+            type={filesponsor[2] === undefined ? "" : filesponsor[2].Jenis_file}
             iconName="bi-record-circle"
             top="50%"
             left="30%"
@@ -116,6 +119,7 @@ function BoothBioderma(props) {
             token={props.token}
             nourut={filesponsor[3] === undefined ? "xxx" : filesponsor[3].Nourut}
             popup={filesponsor[3] === undefined ? "" : filesponsor[3].File}
+            type={filesponsor[3] === undefined ? "" : filesponsor[3].Jenis_file}
             iconName="bi-record-circle"
             top="43%"
             left="37.7%"
@@ -125,6 +129,7 @@ function BoothBioderma(props) {
             token={props.token}
             nourut={filesponsor[4] === undefined ? "xxx" : filesponsor[4].Nourut}
             popup={filesponsor[4] === undefined ? "" : filesponsor[4].File}
+            type={filesponsor[4] === undefined ? "" : filesponsor[4].Jenis_file}
             iconName="bi-record-circle"
             top="53%"
             left="36.8%"
@@ -134,6 +139,7 @@ function BoothBioderma(props) {
             token={props.token}
             nourut={filesponsor[5] === undefined ? "xxx" : filesponsor[5].Nourut}
             popup={filesponsor[5] === undefined ? "" : filesponsor[5].File}
+            type={filesponsor[5] === undefined ? "" : filesponsor[5].Jenis_file}
             iconName="bi-record-circle"
             top="43%"
             left="44%"
@@ -143,6 +149,7 @@ function BoothBioderma(props) {
             token={props.token}
             nourut={filesponsor[6] === undefined ? "xxx" : filesponsor[6].Nourut}
             popup={filesponsor[6] === undefined ? "" : filesponsor[6].File}
+            type={filesponsor[6] === undefined ? "" : filesponsor[6].Jenis_file}
             iconName="bi-record-circle"
             top="53%"
             left="44%"
@@ -152,6 +159,7 @@ function BoothBioderma(props) {
             token={props.token}
             nourut={filesponsor[7] === undefined ? "xxx" : filesponsor[7].Nourut}
             popup={filesponsor[7] === undefined ? "" : filesponsor[7].File}
+            type={filesponsor[7] === undefined ? "" : filesponsor[7].Jenis_file}
             iconName="bi-record-circle"
             top="43%"
             left="50%"
@@ -161,6 +169,7 @@ function BoothBioderma(props) {
             token={props.token}
             nourut={filesponsor[8] === undefined ? "xxx" : filesponsor[8].Nourut}
             popup={filesponsor[8] === undefined ? "" : filesponsor[8].File}
+            type={filesponsor[8] === undefined ? "" : filesponsor[8].Jenis_file}
             iconName="bi-record-circle"
             top="53%"
             left="50.8%"
@@ -170,6 +179,7 @@ function BoothBioderma(props) {
             token={props.token}
             nourut={filesponsor[9] === undefined ? "xxx" : filesponsor[9].Nourut}
             popup={filesponsor[9] === undefined ? "" : filesponsor[9].File}
+            type={filesponsor[9] === undefined ? "" : filesponsor[9].Jenis_file}
             iconName="bi-play-circle"
             top="49%"
             right="34%"
@@ -179,6 +189,7 @@ function BoothBioderma(props) {
             token={props.token}
             nourut={filesponsor[10] === undefined ? "xxx" : filesponsor[10].Nourut}
             popup={filesponsor[10] === undefined ? "" : filesponsor[10].File}
+            type={filesponsor[10] === undefined ? "" : filesponsor[10].Jenis_file}
             iconName="bi-record-circle"
             top="56%"
             right="20.5%"
@@ -208,6 +219,7 @@ export const getServerSideProps = async (ctx) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
+      console.log(datasponsor.data.data);
       return {
         props: {
           token,

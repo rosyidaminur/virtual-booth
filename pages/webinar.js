@@ -53,7 +53,7 @@ export default function Webinar(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth/webinar_in.mp4`}
+          src={`${props.base}/booth2/webinar_in.mp4`}
           type="video/mp4"
         />
       </video>
@@ -62,7 +62,7 @@ export default function Webinar(props) {
         <img
           id="latar"
           className="latar"
-          src={`${props.base}/booth/webinar.jpg`}
+          src={`${props.base}/booth2/webinar.jpg`}
         />
         <div id="hotspots">
           <Hotspot

@@ -1,5 +1,5 @@
 var magnificPopup = null;
-$(document).ready(function () {
+jQuery(function () {
   $(".iframe-popup").magnificPopup({
     type: "iframe",
     closeOnContentClick: false,

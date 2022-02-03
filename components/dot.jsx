@@ -1,11 +1,10 @@
 import axios from "axios";
 /**
  * This component for marking the DOT hotspot.
- * property iconName, onClick, top, bottom, right, left
+ * property iconName, onClick, popup, type, top, bottom, right, left
  */
 const Dot = (props) => {
   const iconName = props.iconName; //use https://icons.getbootstrap.com/
-  // const token =
   const onClick = props.onClick;
   const popup = props.popup == "" ? 'notfound.png' : props.popup;
   const top = props.top !== undefined ? `${props.top}` : "unset";
@@ -31,9 +30,8 @@ const Dot = (props) => {
   return (
     <>
       <a
-        // onClick={onClick}
         onClick={(e) => visitCount(props.sponsorcode, props.nourut)}
-        href={props.type === "List Kontak/WA" ? `${'sales?kontak=' + popup}` : popup}
+        href={props.type === "List Kontak/WA" ? `${'sales?kontak=' + popup}` : props.type === "Gambar" ? `${'gambar?src=' + popup}` : popup}
         className={popup ? "iframe-popup dot" : "dot"}
         style={{ top: top, bottom: bottom, right: right, left: left }}
       >

@@ -74,14 +74,14 @@ function BoothWhoto(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth/booth_silver_in.mp4`}
+          src={`${props.base}/booth2/booth_silver_in.mp4`}
           type="video/mp4"
         />
       </video>
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
-          <source src={`${props.base}/booth/whoto_loop.mp4`} type="video/mp4" />
+          <source src={`${props.base}/booth2/whoto_loop.mp4`} type="video/mp4" />
         </video>
         <div id="hotspots">
           <Dot
@@ -89,6 +89,7 @@ function BoothWhoto(props) {
             token={props.token}
             nourut={filesponsor[0] === undefined ? "xxx" : filesponsor[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
+            type={filesponsor[0] === undefined ? "" : filesponsor[0].Jenis_file}
             iconName="bi-record-circle"
             top="42%"
             left="46%"
@@ -98,6 +99,7 @@ function BoothWhoto(props) {
             token={props.token}
             nourut={filesponsor[1] === undefined ? "xxx" : filesponsor[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
+            type={filesponsor[1] === undefined ? "" : filesponsor[1].Jenis_file}
             iconName="bi-record-circle"
             top="42%"
             left="54%"

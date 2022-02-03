@@ -73,13 +73,13 @@ function BoothHyphens(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth/hyphens_in.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth2/hyphens_in.mp4`} type="video/mp4" />
       </video>
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
           <source
-            src={`${props.base}/booth/hyphens_loop.mp4`}
+            src={`${props.base}/booth2/hyphens_loop.mp4`}
             type="video/mp4"
           />
         </video>
@@ -89,6 +89,7 @@ function BoothHyphens(props) {
             token={props.token}
             nourut={filesponsor[0] === undefined ? "xxx" : filesponsor[0].Nourut}
             popup={filesponsor[0] === undefined ? "" : filesponsor[0].File}
+            type={filesponsor[0] === undefined ? "" : filesponsor[0].Jenis_file}
             iconName="bi-record-circle"
             top="42%"
             left="26%"
@@ -98,6 +99,7 @@ function BoothHyphens(props) {
             token={props.token}
             nourut={filesponsor[1] === undefined ? "xxx" : filesponsor[1].Nourut}
             popup={filesponsor[1] === undefined ? "" : filesponsor[1].File}
+            type={filesponsor[1] === undefined ? "" : filesponsor[1].Jenis_file}
             iconName="bi-record-circle"
             top="42%"
             left="35%"
@@ -107,6 +109,7 @@ function BoothHyphens(props) {
             token={props.token}
             nourut={filesponsor[2] === undefined ? "xxx" : filesponsor[2].Nourut}
             popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
+            type={filesponsor[2] === undefined ? "" : filesponsor[2].Jenis_file}
             iconName="bi-record-circle"
             top="42%"
             left="43.8%"
@@ -116,6 +119,7 @@ function BoothHyphens(props) {
             token={props.token}
             nourut={filesponsor[3] === undefined ? "xxx" : filesponsor[3].Nourut}
             popup={filesponsor[3] === undefined ? "" : filesponsor[3].File}
+            type={filesponsor[3] === undefined ? "" : filesponsor[3].Jenis_file}
             iconName="bi-record-circle"
             top="42%"
             left="52.4%"
@@ -125,6 +129,7 @@ function BoothHyphens(props) {
             token={props.token}
             nourut={filesponsor[4] === undefined ? "xxx" : filesponsor[4].Nourut}
             popup={filesponsor[4] === undefined ? "" : filesponsor[4].File}
+            type={filesponsor[4] === undefined ? "" : filesponsor[4].Jenis_file}
             iconName="bi-record-circle"
             top="42%"
             left="61%"
@@ -134,6 +139,7 @@ function BoothHyphens(props) {
             token={props.token}
             nourut={filesponsor[5] === undefined ? "xxx" : filesponsor[5].Nourut}
             popup={filesponsor[5] === undefined ? "" : filesponsor[5].File}
+            type={filesponsor[5] === undefined ? "" : filesponsor[5].Jenis_file}
             iconName="bi-play-circle"
             top="42%"
             left="73.7%"

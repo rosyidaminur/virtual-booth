@@ -5,7 +5,6 @@ import { Button, Card, Col, Image, Row } from "react-bootstrap";
 
 export default function sales() {
   const router = useRouter();
-  const kontak = `[` + router.query.kontak + `]`;
   const [dataSales, setDataSales] = useState([]);
 
   useEffect(() => {
