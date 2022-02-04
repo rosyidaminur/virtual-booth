@@ -8,6 +8,7 @@ import Head from "next/head";
 import cookies from "next-cookies";
 import axios from "axios";
 import Dot from "components/dot";
+import Hotspot from "components/hotspot";
 const { publicRuntimeConfig } = getConfig();
 
 function BoothDermaXp(props) {
@@ -73,13 +74,13 @@ function BoothDermaXp(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth2/dermaxp_in.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth3/dermaxp_in.mp4`} type="video/mp4" />
       </video>
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
           <source
-            src={`${props.base}/booth2/dermaxp_loop.mp4`}
+            src={`${props.base}/booth3/dermaxp_loop.mp4`}
             type="video/mp4"
           />
         </video>
@@ -143,6 +144,16 @@ function BoothDermaXp(props) {
             iconName="bi-record-circle"
             top="42%"
             right="27%"
+          />
+          <Hotspot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={filesponsor[6] === undefined ? "xxx" : filesponsor[6].Nourut}
+            popup={filesponsor[6] === undefined ? "" : filesponsor[6].File}
+            type={filesponsor[6] === undefined ? "" : filesponsor[6].Jenis_file}
+            iconName="bi bi-whatsapp"
+            top="57%"
+            right="21.5%"
           />
           <div style={{ position: "absolute", bottom: "0", left: "0" }}>
             <a className="btn-hall" onClick={(e) => toMainHall(true)}>

@@ -75,14 +75,14 @@ function BoothWhoto(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth2/booth_silver_in.mp4`}
+          src={`${props.base}/booth3/booth_silver_in.mp4`}
           type="video/mp4"
         />
       </video>
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
-          <source src={`${props.base}/booth2/whoto_loop.mp4`} type="video/mp4" />
+          <source src={`${props.base}/booth3/whoto_loop.mp4`} type="video/mp4" />
         </video>
         <div id="hotspots">
           <Dot

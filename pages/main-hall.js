@@ -2,8 +2,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import axios from "axios";
-import Hotspot from "components/hotspot";
-import HotspotBtn from "components/hotspotBtn";
 import HotspotImg from "components/hotspotImg";
 import Popup from "components/Popup/popup";
 import Head from "next/head";
@@ -14,6 +12,7 @@ import { jsPDF, HTMLOptionImage } from "jspdf";
 import Cookie from "js-cookie";
 
 import Video from "components/Video";
+import QnaOne from "components/QnA/qnaOne";
 
 export const getServerSideProps = async (context) => protectPage(context);
 export default function MainHall(props) {
@@ -21,6 +20,8 @@ export default function MainHall(props) {
   const from = router.query.fromB;
   const [showSertif, setShowSertif] = useState(false);
   const [showRecord, setShowRecord] = useState(false);
+  const [showQnA, setShowQnA] = useState(false);
+  const [showWinners, setShowWinners] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [zoomStatus, setZoomStatus] = useState(false);
@@ -30,6 +31,8 @@ export default function MainHall(props) {
   const popupCloseHandler = () => {
     setShowSertif(false);
     setShowRecord(false);
+    setShowQnA(false);
+    setShowWinners(false);
     setShowLogout(false);
     setErrorMsg("");
   };
@@ -92,7 +95,10 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth2/bioderma_out.mp4`} type="video/mp4" />
+        <source
+          src={`${props.base}/booth3/bioderma_out.mp4`}
+          type="video/mp4"
+        />
       </video>
     );
   } else if (from === "laroche") {
@@ -104,7 +110,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth2/laroche_out.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth3/laroche_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "dermaxp") {
@@ -116,7 +122,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth2/dermaxp_out.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth3/dermaxp_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "galderma") {
@@ -129,7 +135,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth2/galderma_out.mp4`}
+          src={`${props.base}/booth3/galderma_out.mp4`}
           type="video/mp4"
         />
       </video>
@@ -143,7 +149,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth2/hyphens_out.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth3/hyphens_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "sdm") {
@@ -155,7 +161,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth2/sdm_out.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth3/sdm_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "booth") {
@@ -168,7 +174,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth2/booth_silver_out.mp4`}
+          src={`${props.base}/booth3/booth_silver_out.mp4`}
           type="video/mp4"
         />
       </video>
@@ -182,7 +188,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth2/hall.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth3/hall.mp4`} type="video/mp4" />
       </video>
     );
   }
@@ -235,7 +241,7 @@ export default function MainHall(props) {
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
-          <source src={`${props.base}/booth2/hall_loop.mp4`} type="video/mp4" />
+          <source src={`${props.base}/booth3/hall_loop.mp4`} type="video/mp4" />
         </video>
         <div id="hotspots">
           <HotspotImg
@@ -323,24 +329,16 @@ export default function MainHall(props) {
             left="45%"
           />
           <div style={{ position: "absolute", bottom: "0", right: "0" }}>
+            <a className="btn-hall" onClick={(e) => setShowWinners(true)}>
+              Pemenang Door Prize
+            </a>
             <a className="btn-hall" onClick={(e) => setShowSertif(true)}>
               Sertifikat
             </a>
             <a className="btn-hall" onClick={(e) => setShowRecord(true)}>
               Rekaman
             </a>
-            <a
-              className="btn-hall"
-              onClick={(e) =>
-                setErrorMsg("Informasi Pemenang Door Prize sedang disiapkan")
-              }
-            >
-              Pemenang Door Prize
-            </a>
-            <a
-              className="btn-hall"
-              onClick={(e) => setErrorMsg("Informasi Q & A sedang disiapkan")}
-            >
+            <a className="btn-hall" onClick={(e) => setShowQnA(true)}>
               Q &amp; A
             </a>
           </div>
@@ -349,6 +347,81 @@ export default function MainHall(props) {
               Keluar
             </a>
           </div>
+
+          <Popup
+            onClose={popupCloseHandler}
+            show={showWinners}
+            title="Daftar Pemenang Door Prize"
+          >
+            <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Pemenang Hari ke 1</Accordion.Header>
+                <Accordion.Body>
+                  <p>
+                    Pemenang:
+                    <br />
+                    1. Fesdia Sari
+                    <br />
+                    2. Erfin Dimas Fernanda
+                    <br />
+                    3. Ida Kurniawati
+                    <br />
+                    4. dr. Luh Putu Mahatya Valdini Putri, S.Ked
+                    <br />
+                    5. dr. Andi Anwar Arsyad, Sp.KK
+                  </p>
+
+                  {showWinners ? (
+                    <Video
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/c802b71e-6338-4bdb-aa92-ff0e23b12897?autoplay=false`}
+                    />
+                  ) : (
+                    ""
+                  )}
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="1">
+                <Accordion.Header>Pemenang Hari ke 2</Accordion.Header>
+                <Accordion.Body>Info pemenang belum tersedia</Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="2">
+                <Accordion.Header>Pemenang Hari ke 3</Accordion.Header>
+                <Accordion.Body>Info pemenang belum tersedia</Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="3">
+                <Accordion.Header>Pemenang Hari ke 4</Accordion.Header>
+                <Accordion.Body>Info pemenang belum tersedia</Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="4">
+                <Accordion.Header>Pemenang Hari ke 5</Accordion.Header>
+                <Accordion.Body>Info pemenang belum tersedia</Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="5">
+                <Accordion.Header>Pemenang Hari ke 6</Accordion.Header>
+                <Accordion.Body>Info pemenang belum tersedia</Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+            <br />
+            <center>
+              <p>
+                Selamat kepada pemenang, bagi yang namanya tertera di atas
+                dipersilahkan menghubungi panitia untuk klaim hadiah
+                <br />
+                Putri (WA:{" "}
+                <a
+                  className="link-info"
+                  href="https://wa.me/6285954135553"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  085954135553
+                </a>
+                )
+              </p>
+              <p>Terimakasih</p>
+            </center>
+          </Popup>
+
           <Popup
             onClose={popupCloseHandler}
             show={showSertif}
@@ -361,31 +434,32 @@ export default function MainHall(props) {
                   {/* <Button onClick={(e) => generatePdf(e, 1)}>
                     Unduh Sertifikat
                   </Button> */}
-                  Sertifikat belum tersedia
+                  <i>Sertifikat belum tersedia</i>
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Sertifikat Hari ke 2</Accordion.Header>
-                <Accordion.Body>Sertifikat belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Sertifikat belum tersedia</i></Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Sertifikat Hari ke 3</Accordion.Header>
-                <Accordion.Body>Sertifikat belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Sertifikat belum tersedia</i></Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
                 <Accordion.Header>Sertifikat Hari ke 4</Accordion.Header>
-                <Accordion.Body>Sertifikat belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Sertifikat belum tersedia</i></Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="4">
                 <Accordion.Header>Sertifikat Hari ke 5</Accordion.Header>
-                <Accordion.Body>Sertifikat belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Sertifikat belum tersedia</i></Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="5">
                 <Accordion.Header>Sertifikat Hari ke 6</Accordion.Header>
-                <Accordion.Body>Sertifikat belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Sertifikat belum tersedia</i></Accordion.Body>
               </Accordion.Item>
             </Accordion>
           </Popup>
+
           <Popup
             onClose={popupCloseHandler}
             show={showRecord}
@@ -395,39 +469,73 @@ export default function MainHall(props) {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Rekaman Hari ke 1</Accordion.Header>
                 <Accordion.Body>
-                  {/* {showRecord ? (
+                  {showRecord ? (
                     <Video
-                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/0c423cce-4162-42f7-bd7d-685b498d4e07?autoplay=false`}
-                      // videoSrc="videos/pkbkulit-intro.mp4"
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/feeb1531-5504-44f4-9a31-c590daef5302?autoplay=false`}
                     />
                   ) : (
                     ""
-                  )} */}
-                  Rekaman belum tersedia
+                  )}
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Rekaman Hari ke 2</Accordion.Header>
-                <Accordion.Body>Rekaman belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Rekaman belum tersedia</i></Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Rekaman Hari ke 3</Accordion.Header>
-                <Accordion.Body>Rekaman belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Rekaman belum tersedia</i></Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
                 <Accordion.Header>Rekaman Hari ke 4</Accordion.Header>
-                <Accordion.Body>Rekaman belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Rekaman belum tersedia</i></Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="4">
                 <Accordion.Header>Rekaman Hari ke 5</Accordion.Header>
-                <Accordion.Body>Rekaman belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Rekaman belum tersedia</i></Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="5">
                 <Accordion.Header>Rekaman Hari ke 6</Accordion.Header>
-                <Accordion.Body>Rekaman belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Rekaman belum tersedia</i></Accordion.Body>
               </Accordion.Item>
             </Accordion>
           </Popup>
+
+          <Popup
+            onClose={popupCloseHandler}
+            show={showQnA}
+            title="Daftar Q &amp; A"
+          >
+            <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Q &amp; A Hari ke 1</Accordion.Header>
+                <Accordion.Body>
+                  <QnaOne />
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="1">
+                <Accordion.Header>Q &amp; A Hari ke 2</Accordion.Header>
+                <Accordion.Body><i>Q &amp; A belum tersedia</i></Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="2">
+                <Accordion.Header>Q &amp; A Hari ke 3</Accordion.Header>
+                <Accordion.Body><i>Q &amp; A belum tersedia</i></Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="3">
+                <Accordion.Header>Q &amp; A Hari ke 4</Accordion.Header>
+                <Accordion.Body><i>Q &amp; A belum tersedia</i></Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="4">
+                <Accordion.Header>Q &amp; A Hari ke 5</Accordion.Header>
+                <Accordion.Body><i>Q &amp; A belum tersedia</i></Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="5">
+                <Accordion.Header>Q &amp; A Hari ke 6</Accordion.Header>
+                <Accordion.Body><i>Q &amp; A belum tersedia</i></Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          </Popup>
+
           <Popup
             onClose={popupCloseHandler}
             show={errorMsg !== ""}

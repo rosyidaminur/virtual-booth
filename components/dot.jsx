@@ -1,7 +1,7 @@
 import axios from "axios";
 /**
  * This component for marking the DOT hotspot.
- * property iconName, onClick, popup, type, top, bottom, right, left
+ * property iconName, popup, type, top, bottom, right, left, sponsorcode, nourut, token
  */
 const Dot = (props) => {
   const iconName = props.iconName; //use https://icons.getbootstrap.com/

@@ -73,13 +73,13 @@ function BoothGalderma(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth2/galderma_in.mp4`} type="video/mp4" />
+        <source src={`${props.base}/booth3/galderma_in.mp4`} type="video/mp4" />
       </video>
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
           <source
-            src={`${props.base}/booth2/galderma_loop.mp4`}
+            src={`${props.base}/booth3/galderma_loop.mp4`}
             type="video/mp4"
           />
         </video>
@@ -152,7 +152,7 @@ function BoothGalderma(props) {
             type={filesponsor[6] === undefined ? "" : filesponsor[6].Jenis_file}
             iconName="bi-record-circle"
             top="46%"
-            right="25.8%"
+            right="26%"
           />
           <Dot
             sponsorcode={sponsorcode}
@@ -160,6 +160,16 @@ function BoothGalderma(props) {
             nourut={filesponsor[7] === undefined ? "xxx" : filesponsor[7].Nourut}
             popup={filesponsor[7] === undefined ? "" : filesponsor[7].File}
             type={filesponsor[7] === undefined ? "" : filesponsor[7].Jenis_file}
+            iconName="bi-record-circle"
+            top="56%"
+            right="26%"
+          />
+          <Dot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={filesponsor[8] === undefined ? "xxx" : filesponsor[8].Nourut}
+            popup={filesponsor[8] === undefined ? "" : filesponsor[8].File}
+            type={filesponsor[8] === undefined ? "" : filesponsor[8].Jenis_file}
             iconName="bi-record-circle"
             top="45%"
             right="16.8%"

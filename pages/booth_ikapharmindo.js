@@ -75,7 +75,7 @@ function BoothIkapharmindo(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth2/booth_silver_in.mp4`}
+          src={`${props.base}/booth3/booth_silver_in.mp4`}
           type="video/mp4"
         />
       </video>
@@ -83,7 +83,7 @@ function BoothIkapharmindo(props) {
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
           <source
-            src={`${props.base}/booth2/ikapharmindo_loop.mp4`}
+            src={`${props.base}/booth3/ikapharmindo_loop.mp4`}
             type="video/mp4"
           />
         </video>

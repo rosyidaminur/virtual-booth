@@ -13,7 +13,6 @@ const Hotspot = (props) => {
   const left = props.left !== undefined ? `${props.left}` : "unset";
 
   const visitCount = (props) => {
-    onClick
     if (props.sponsorcode && props.nourut) {
       const data = { "sponsorid": props.sponsorcode, "nourut": props.nourut }
       axios.post(

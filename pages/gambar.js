@@ -13,7 +13,7 @@ export default function gambar() {
   }, [router]);
   
   return (
-    <div style={{ background: "black", padding: "1rem" }}>
+    <div style={{ background: "white", padding: "1rem" }}>
       <img src={src} width="100%" height="100%" alt=""/>
     </div>
   );
