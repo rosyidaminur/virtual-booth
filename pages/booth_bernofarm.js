@@ -75,7 +75,7 @@ function BoothBernofarm(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth3/booth_silver_in.mp4`}
+          src={`${props.base}/boothx/booth_silver_in.mp4`}
           type="video/mp4"
         />
       </video>
@@ -83,7 +83,7 @@ function BoothBernofarm(props) {
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
           <source
-            src={`${props.base}/booth3/bernofarm_loop.mp4`}
+            src={`${props.base}/boothx/bernofarm_loop.mp4`}
             type="video/mp4"
           />
         </video>

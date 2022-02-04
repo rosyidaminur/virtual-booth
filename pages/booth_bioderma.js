@@ -73,13 +73,13 @@ function BoothBioderma(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth3/bioderma_in.mp4`} type="video/mp4" />
+        <source src={`${props.base}/boothx/bioderma_in.mp4`} type="video/mp4" />
       </video>
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
           <source
-            src={`${props.base}/booth3/bioderma_loop.mp4`}
+            src={`${props.base}/boothx/bioderma_loop.mp4`}
             type="video/mp4"
           />
         </video>

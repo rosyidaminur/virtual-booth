@@ -74,13 +74,13 @@ function BoothHyphens(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth3/hyphens_in.mp4`} type="video/mp4" />
+        <source src={`${props.base}/boothx/hyphens_in.mp4`} type="video/mp4" />
       </video>
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
           <source
-            src={`${props.base}/booth3/hyphens_loop.mp4`}
+            src={`${props.base}/boothx/hyphens_loop.mp4`}
             type="video/mp4"
           />
         </video>

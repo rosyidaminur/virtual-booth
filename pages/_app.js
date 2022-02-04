@@ -29,8 +29,8 @@ function MyApp({ Component, pageProps }) {
         showOnShallow={true}
       />
       {/* <PageTransition timeout={300} classNames="page-transition"> */}
-        <Component {...pageProps} base={publicRuntimeConfig.base} />
-        {/* <Component {...pageProps} base={`https://cdn.fkuwks.com/booth`} /> */}
+        {/* <Component {...pageProps} base={publicRuntimeConfig.base} /> */}
+        <Component {...pageProps} base={`https://cdn.fkuwks.com/booth`} />
       {/* </PageTransition> */}
       {/* <style jsx global>{`
         .page-transition-exit {

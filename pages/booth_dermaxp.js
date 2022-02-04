@@ -74,13 +74,13 @@ function BoothDermaXp(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth3/dermaxp_in.mp4`} type="video/mp4" />
+        <source src={`${props.base}/boothx/dermaxp_in.mp4`} type="video/mp4" />
       </video>
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
           <source
-            src={`${props.base}/booth3/dermaxp_loop.mp4`}
+            src={`${props.base}/boothx/dermaxp_loop.mp4`}
             type="video/mp4"
           />
         </video>

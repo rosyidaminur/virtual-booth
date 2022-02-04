@@ -96,7 +96,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth3/bioderma_out.mp4`}
+          src={`${props.base}/boothx/bioderma_out.mp4`}
           type="video/mp4"
         />
       </video>
@@ -110,7 +110,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth3/laroche_out.mp4`} type="video/mp4" />
+        <source src={`${props.base}/boothx/laroche_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "dermaxp") {
@@ -122,7 +122,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth3/dermaxp_out.mp4`} type="video/mp4" />
+        <source src={`${props.base}/boothx/dermaxp_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "galderma") {
@@ -135,7 +135,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth3/galderma_out.mp4`}
+          src={`${props.base}/boothx/galderma_out.mp4`}
           type="video/mp4"
         />
       </video>
@@ -149,7 +149,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth3/hyphens_out.mp4`} type="video/mp4" />
+        <source src={`${props.base}/boothx/hyphens_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "sdm") {
@@ -161,7 +161,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth3/sdm_out.mp4`} type="video/mp4" />
+        <source src={`${props.base}/boothx/sdm_out.mp4`} type="video/mp4" />
       </video>
     );
   } else if (from === "booth") {
@@ -174,7 +174,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source
-          src={`${props.base}/booth3/booth_silver_out.mp4`}
+          src={`${props.base}/boothx/booth_silver_out.mp4`}
           type="video/mp4"
         />
       </video>
@@ -188,7 +188,7 @@ export default function MainHall(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth3/hall.mp4`} type="video/mp4" />
+        <source src={`${props.base}/boothx/hall.mp4`} type="video/mp4" />
       </video>
     );
   }
@@ -241,7 +241,7 @@ export default function MainHall(props) {
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
-          <source src={`${props.base}/booth3/hall_loop.mp4`} type="video/mp4" />
+          <source src={`${props.base}/boothx/hall_loop.mp4`} type="video/mp4" />
         </video>
         <div id="hotspots">
           <HotspotImg

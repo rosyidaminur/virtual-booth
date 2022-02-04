@@ -74,12 +74,12 @@ function BoothSdm(props) {
         muted
         onEnded={() => window.showHotspots()}
       >
-        <source src={`${props.base}/booth3/sdm_in.mp4`} type="video/mp4" />
+        <source src={`${props.base}/boothx/sdm_in.mp4`} type="video/mp4" />
       </video>
 
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
-          <source src={`${props.base}/booth3/sdm_loop.mp4`} type="video/mp4" />
+          <source src={`${props.base}/boothx/sdm_loop.mp4`} type="video/mp4" />
         </video>
         <div id="hotspots">
           <Dot
