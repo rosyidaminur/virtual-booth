@@ -318,7 +318,7 @@ export default function MainHall(props) {
           />
           <HotspotImg
             onClick={(e) => toWebinar(e)}
-            imgSrc="https://cdn.fkuwks.com/booth/asset/zoom-logo.png"
+            imgSrc="zoom-logo.png"
             top="60%"
             left="45%"
           />
