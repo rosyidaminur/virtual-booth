@@ -8,6 +8,7 @@ import Head from "next/head";
 import cookies from "next-cookies";
 import axios from "axios";
 import Dot from "components/dot";
+import Hotspot from "components/hotspot";
 const { publicRuntimeConfig } = getConfig();
 
 function BoothSdm(props) {
@@ -130,6 +131,16 @@ function BoothSdm(props) {
             iconName="bi-play-circle"
             top="43%"
             left="64%"
+          />
+          <Hotspot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={filesponsor[5] === undefined ? "xxx" : filesponsor[5].Nourut}
+            popup={filesponsor[5] === undefined ? "" : filesponsor[5].File}
+            type={filesponsor[5] === undefined ? "" : filesponsor[5].Jenis_file}
+            iconName="bi bi-whatsapp"
+            top="63%"
+            right="30%"
           />
           <div style={{ position: "absolute", bottom: "0", left: "0" }}>
             <a className="btn-hall" onClick={(e) => toMainHall(true)}>
