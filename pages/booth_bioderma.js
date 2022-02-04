@@ -219,7 +219,7 @@ export const getServerSideProps = async (ctx) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      console.log(datasponsor.data.data);
+      // console.log(datasponsor.data.data);
       return {
         props: {
           token,
