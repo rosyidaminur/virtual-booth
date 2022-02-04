@@ -382,23 +382,23 @@ export default function MainHall(props) {
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Pemenang Hari ke 2</Accordion.Header>
-                <Accordion.Body>Info pemenang belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Info pemenang belum tersedia</i></Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Pemenang Hari ke 3</Accordion.Header>
-                <Accordion.Body>Info pemenang belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Info pemenang belum tersedia</i></Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
                 <Accordion.Header>Pemenang Hari ke 4</Accordion.Header>
-                <Accordion.Body>Info pemenang belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Info pemenang belum tersedia</i></Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="4">
                 <Accordion.Header>Pemenang Hari ke 5</Accordion.Header>
-                <Accordion.Body>Info pemenang belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Info pemenang belum tersedia</i></Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="5">
                 <Accordion.Header>Pemenang Hari ke 6</Accordion.Header>
-                <Accordion.Body>Info pemenang belum tersedia</Accordion.Body>
+                <Accordion.Body><i>Info pemenang belum tersedia</i></Accordion.Body>
               </Accordion.Item>
             </Accordion>
             <br />
@@ -469,13 +469,14 @@ export default function MainHall(props) {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Rekaman Hari ke 1</Accordion.Header>
                 <Accordion.Body>
-                  {showRecord ? (
+                  {/* {showRecord ? (
                     <Video
                       videoSrc={`https://iframe.mediadelivery.net/embed/20390/feeb1531-5504-44f4-9a31-c590daef5302?autoplay=false`}
                     />
                   ) : (
                     ""
-                  )}
+                  )} */}
+                  <i>Rekaman belum tersedia</i>
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
