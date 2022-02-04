@@ -16,7 +16,7 @@ import Cookie from "js-cookie";
 import Video from "components/Video";
 
 export const getServerSideProps = async (context) => protectPage(context);
-export default function Home(props) {
+export default function MainHall(props) {
   const router = useRouter();
   const from = router.query.fromB;
   const [showSertif, setShowSertif] = useState(false);
