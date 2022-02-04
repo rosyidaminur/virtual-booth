@@ -8,6 +8,7 @@ import Head from "next/head";
 import cookies from "next-cookies";
 import axios from "axios";
 import Dot from "components/dot";
+import Hotspot from "components/hotspot";
 const { publicRuntimeConfig } = getConfig();
 
 function BoothInterbat(props) {
@@ -107,6 +108,16 @@ function BoothInterbat(props) {
             iconName="bi-record-circle"
             top="42%"
             left="54%"
+          />
+          <Hotspot
+            sponsorcode={sponsorcode}
+            token={props.token}
+            nourut={filesponsor[2] === undefined ? "xxx" : filesponsor[2].Nourut}
+            popup={filesponsor[2] === undefined ? "" : filesponsor[2].File}
+            type={filesponsor[2] === undefined ? "" : filesponsor[2].Jenis_file}
+            iconName="bi bi-whatsapp"
+            top="55%"
+            left="38%"
           />
           <div style={{ position: "absolute", bottom: "0", left: "0" }}>
             <a className="btn-hall" onClick={(e) => toMainHall(true)}>
