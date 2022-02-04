@@ -5,7 +5,6 @@ import axios from "axios";
  */
 const Dot = (props) => {
   const iconName = props.iconName; //use https://icons.getbootstrap.com/
-  const onClick = props.onClick;
   const popup = props.popup == "" ? 'notfound.png' : props.popup;
   const top = props.top !== undefined ? `${props.top}` : "unset";
   const bottom = props.bottom !== undefined ? `${props.bottom}` : "unset";
@@ -13,7 +12,6 @@ const Dot = (props) => {
   const left = props.left !== undefined ? `${props.left}` : "unset";
 
   const visitCount = (code, urut) => {
-    onClick
     if (code && urut) {
       const data = { "sponsorid": code, "nourut": urut }
       axios.post(
