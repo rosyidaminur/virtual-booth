@@ -17,7 +17,7 @@ export default function sales() {
       <Row xs={2} md={2} className="g-4">
         {dataSales.map((data) => {
           return (
-            <Col key={data.id}>
+            <Col key={data.Nama + data.Wa}>
               <Card style={{ width: "18rem" }}>
                 <Image rounded src={data.Foto} alt=''/>
                 <Card.Body>

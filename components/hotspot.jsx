@@ -12,25 +12,23 @@ const Hotspot = (props) => {
   const right = props.right !== undefined ? `${props.right}` : "unset";
   const left = props.left !== undefined ? `${props.left}` : "unset";
 
-  const visitCount = (code, urut) => {
+  const visitCount = (props) => {
     onClick
-    if (code && urut) {
-      const data = { "sponsorid": code, "nourut": urut }
+    if (props.sponsorcode && props.nourut) {
+      const data = { "sponsorid": props.sponsorcode, "nourut": props.nourut }
       axios.post(
         process.env.BASE_URL + "/view-file", data,
         { headers: { Authorization: `Bearer ${props.token}` } }
-      ).then(function (response) {
+      ).catch(function (error) {
+        console.log(error);
       })
-        .catch(function (error) {
-          console.log(error);
-        })
     }
   }
 
   return (
     <>
       <a
-        onClick={(e) => visitCount(props.sponsorcode, props.nourut)}
+        onClick={onClick ? onClick : (e) => visitCount(props)}
         href={props.type === "List Kontak/WA" ? `${'sales?kontak=' + popup}` : props.type === "Gambar" ? `${'gambar?sos=' + popup}` : popup}
         className={popup ? "iframe-popup hotspot" : "hotspot"}
         style={{ top: top, bottom: bottom, right: right, left: left }}
