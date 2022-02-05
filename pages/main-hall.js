@@ -390,7 +390,7 @@ export default function MainHall(props) {
 
                   {showWinners ? (
                     <Video
-                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/c802b71e-6338-4bdb-aa92-ff0e23b12897?autoPlay playsInline=false`}
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/c802b71e-6338-4bdb-aa92-ff0e23b12897?autoPlay=false`}
                     />
                   ) : (
                     ""
@@ -416,7 +416,7 @@ export default function MainHall(props) {
 
                   {showWinners ? (
                     <Video
-                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/c802b71e-6338-4bdb-aa92-ff0e23b12897?autoPlay playsInline=false`}
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/59db3866-a446-400b-ba9c-9974165d0f12?autoPlay=false`}
                     />
                   ) : (
                     ""
@@ -528,7 +528,7 @@ export default function MainHall(props) {
                 <Accordion.Body>
                   {/* {showRecord ? (
                     <Video
-                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/feeb1531-5504-44f4-9a31-c590daef5302?autoPlay playsInline=false`}
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/feeb1531-5504-44f4-9a31-c590daef5302?autoPlay=false`}
                     />
                   ) : (
                     ""
