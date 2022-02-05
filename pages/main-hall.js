@@ -3,6 +3,7 @@
 import { useState } from "react";
 import axios from "axios";
 import HotspotImg from "components/hotspotImg";
+import cookies from "next-cookies";
 import Popup from "components/Popup/popup";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -14,11 +15,13 @@ import Cookie from "js-cookie";
 import Video from "components/Video";
 import QnaOne from "components/QnA/qnaOne";
 
-export const getServerSideProps = async (context) => protectPage(context);
-export default function MainHall(props) {
+// export const getServerSideProps = async (context) => protectPage(context);
+function MainHall(props) {
+  
   const router = useRouter();
   const from = router.query.fromB;
   const [showSertif, setShowSertif] = useState(false);
+  const [recordps, setRecordps] = useState(props.datavideo1);
   const [showRecord, setShowRecord] = useState(false);
   const [showQnA, setShowQnA] = useState(false);
   const [showWinners, setShowWinners] = useState(false);
@@ -56,7 +59,6 @@ export default function MainHall(props) {
           localStorage.setItem("files", JSON.stringify(res.data.data));
           router.push("/booth_" + nama);
         } else {
-          // console.log(res.data);
           setErrorMsg(res.data.message);
         }
       })
@@ -526,14 +528,15 @@ export default function MainHall(props) {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Rekaman Hari ke 1</Accordion.Header>
                 <Accordion.Body>
-                  {/* {showRecord ? (
+
+                  {recordps ? (
                     <Video
-                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/feeb1531-5504-44f4-9a31-c590daef5302?autoPlay=false`}
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/feeb1531-5504-44f4-9a31-c590daef5302?autoplay=false`}
                     />
                   ) : (
-                    ""
-                  )} */}
-                  <i>Rekaman belum tersedia</i>
+                    "Rekaman belum tersedia"
+                  )}
+                  
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
@@ -650,3 +653,43 @@ export default function MainHall(props) {
     </>
   );
 }
+
+
+export const getServerSideProps = async (ctx) => {
+  const token = cookies(ctx).token;
+  if (token) {
+    try {
+      const res = await axios.get(process.env.BASE_URL + "/me", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      let datavideo1 = false;
+      if(res.data.data.reg_type==='Pameran dan Simposium' & res.data.data.paid== true){
+        datavideo1=true
+      } 
+      return {
+        props: {
+          token,
+          datavideo1,
+          name:res.data.data.name
+        },
+      };
+    } catch (err) {
+      console.log(err);
+      return {
+        redirect: {
+          destination: process.env.REDIRECT_LOGIN,
+          permanent: false,
+        },
+      };
+    }
+  } else {
+    return {
+      redirect: {
+        destination: process.env.REDIRECT_LOGIN,
+        permanent: false,
+      },
+    };
+  }
+};
+
+export default MainHall;
