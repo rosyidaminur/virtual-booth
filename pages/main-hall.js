@@ -92,6 +92,7 @@ export default function MainHall(props) {
         className="latar"
         id="sikuen"
         autoPlay
+        playsInline
         muted
         onEnded={() => window.showHotspots()}
       >
@@ -99,7 +100,7 @@ export default function MainHall(props) {
           src={`${props.base}/boothx/bioderma_out.mp4`}
           type="video/mp4"
         />
-      Your browser does not support to access Virtual Booth
+        Your browser does not support to access Virtual Booth
       </video>
     );
   } else if (from === "laroche") {
@@ -108,11 +109,12 @@ export default function MainHall(props) {
         className="latar"
         id="sikuen"
         autoPlay
+        playsInline
         muted
         onEnded={() => window.showHotspots()}
       >
         <source src={`${props.base}/boothx/laroche_out.mp4`} type="video/mp4" />
-      Your browser does not support to access Virtual Booth
+        Your browser does not support to access Virtual Booth
       </video>
     );
   } else if (from === "dermaxp") {
@@ -121,11 +123,12 @@ export default function MainHall(props) {
         className="latar"
         id="sikuen"
         autoPlay
+        playsInline
         muted
         onEnded={() => window.showHotspots()}
       >
         <source src={`${props.base}/boothx/dermaxp_out.mp4`} type="video/mp4" />
-      Your browser does not support to access Virtual Booth
+        Your browser does not support to access Virtual Booth
       </video>
     );
   } else if (from === "galderma") {
@@ -134,6 +137,7 @@ export default function MainHall(props) {
         className="latar"
         id="sikuen"
         autoPlay
+        playsInline
         muted
         onEnded={() => window.showHotspots()}
       >
@@ -141,7 +145,7 @@ export default function MainHall(props) {
           src={`${props.base}/boothx/galderma_out.mp4`}
           type="video/mp4"
         />
-      Your browser does not support to access Virtual Booth
+        Your browser does not support to access Virtual Booth
       </video>
     );
   } else if (from === "hyphens") {
@@ -150,11 +154,12 @@ export default function MainHall(props) {
         className="latar"
         id="sikuen"
         autoPlay
+        playsInline
         muted
         onEnded={() => window.showHotspots()}
       >
         <source src={`${props.base}/boothx/hyphens_out.mp4`} type="video/mp4" />
-      Your browser does not support to access Virtual Booth
+        Your browser does not support to access Virtual Booth
       </video>
     );
   } else if (from === "sdm") {
@@ -163,11 +168,12 @@ export default function MainHall(props) {
         className="latar"
         id="sikuen"
         autoPlay
+        playsInline
         muted
         onEnded={() => window.showHotspots()}
       >
         <source src={`${props.base}/boothx/sdm_out.mp4`} type="video/mp4" />
-      Your browser does not support to access Virtual Booth
+        Your browser does not support to access Virtual Booth
       </video>
     );
   } else if (from === "booth") {
@@ -176,6 +182,7 @@ export default function MainHall(props) {
         className="latar"
         id="sikuen"
         autoPlay
+        playsInline
         muted
         onEnded={() => window.showHotspots()}
       >
@@ -183,7 +190,7 @@ export default function MainHall(props) {
           src={`${props.base}/boothx/booth_silver_out.mp4`}
           type="video/mp4"
         />
-      Your browser does not support to access Virtual Booth
+        Your browser does not support to access Virtual Booth
       </video>
     );
   } else {
@@ -192,11 +199,12 @@ export default function MainHall(props) {
         className="latar"
         id="sikuen"
         autoPlay
+        playsInline
         muted
         onEnded={() => window.showHotspots()}
       >
         <source src={`${props.base}/boothx/hall.mp4`} type="video/mp4" />
-      Your browser does not support to access Virtual Booth
+        Your browser does not support to access Virtual Booth
       </video>
     );
   }
@@ -248,10 +256,10 @@ export default function MainHall(props) {
       {video}
 
       <div id="sikuen2" className="hide">
-        <video id="latar" className="latar" autoPlay muted loop>
+        <video id="latar" className="latar" autoPlay playsInline muted loop>
           <source src={`${props.base}/boothx/hall_loop.mp4`} type="video/mp4" />
-        Your browser does not support to access Virtual Booth
-      </video>
+          Your browser does not support to access Virtual Booth
+        </video>
         <div id="hotspots">
           <HotspotImg
             onClick={(e) => clickBooth(e, "bernofarm", "SP-2")}
@@ -382,7 +390,7 @@ export default function MainHall(props) {
 
                   {showWinners ? (
                     <Video
-                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/c802b71e-6338-4bdb-aa92-ff0e23b12897?autoplay=false`}
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/c802b71e-6338-4bdb-aa92-ff0e23b12897?autoPlay playsInline=false`}
                     />
                   ) : (
                     ""
@@ -392,7 +400,7 @@ export default function MainHall(props) {
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Pemenang Hari ke 2</Accordion.Header>
                 <Accordion.Body>
-                <p>
+                  <p>
                     Pemenang:
                     <br />
                     1. dr. Gede Agus Nusantara, SpKK, FINSDV
@@ -408,7 +416,7 @@ export default function MainHall(props) {
 
                   {showWinners ? (
                     <Video
-                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/c802b71e-6338-4bdb-aa92-ff0e23b12897?autoplay=false`}
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/c802b71e-6338-4bdb-aa92-ff0e23b12897?autoPlay playsInline=false`}
                     />
                   ) : (
                     ""
@@ -417,19 +425,27 @@ export default function MainHall(props) {
               </Accordion.Item>
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Pemenang Hari ke 3</Accordion.Header>
-                <Accordion.Body><i>Info pemenang belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Info pemenang belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
                 <Accordion.Header>Pemenang Hari ke 4</Accordion.Header>
-                <Accordion.Body><i>Info pemenang belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Info pemenang belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="4">
                 <Accordion.Header>Pemenang Hari ke 5</Accordion.Header>
-                <Accordion.Body><i>Info pemenang belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Info pemenang belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="5">
                 <Accordion.Header>Pemenang Hari ke 6</Accordion.Header>
-                <Accordion.Body><i>Info pemenang belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Info pemenang belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
             </Accordion>
             <br />
@@ -470,23 +486,33 @@ export default function MainHall(props) {
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Sertifikat Hari ke 2</Accordion.Header>
-                <Accordion.Body><i>Sertifikat belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Sertifikat belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Sertifikat Hari ke 3</Accordion.Header>
-                <Accordion.Body><i>Sertifikat belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Sertifikat belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
                 <Accordion.Header>Sertifikat Hari ke 4</Accordion.Header>
-                <Accordion.Body><i>Sertifikat belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Sertifikat belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="4">
                 <Accordion.Header>Sertifikat Hari ke 5</Accordion.Header>
-                <Accordion.Body><i>Sertifikat belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Sertifikat belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="5">
                 <Accordion.Header>Sertifikat Hari ke 6</Accordion.Header>
-                <Accordion.Body><i>Sertifikat belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Sertifikat belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
             </Accordion>
           </Popup>
@@ -502,7 +528,7 @@ export default function MainHall(props) {
                 <Accordion.Body>
                   {/* {showRecord ? (
                     <Video
-                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/feeb1531-5504-44f4-9a31-c590daef5302?autoplay=false`}
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/feeb1531-5504-44f4-9a31-c590daef5302?autoPlay playsInline=false`}
                     />
                   ) : (
                     ""
@@ -512,23 +538,33 @@ export default function MainHall(props) {
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Rekaman Hari ke 2</Accordion.Header>
-                <Accordion.Body><i>Rekaman belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Rekaman belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Rekaman Hari ke 3</Accordion.Header>
-                <Accordion.Body><i>Rekaman belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Rekaman belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
                 <Accordion.Header>Rekaman Hari ke 4</Accordion.Header>
-                <Accordion.Body><i>Rekaman belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Rekaman belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="4">
                 <Accordion.Header>Rekaman Hari ke 5</Accordion.Header>
-                <Accordion.Body><i>Rekaman belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Rekaman belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="5">
                 <Accordion.Header>Rekaman Hari ke 6</Accordion.Header>
-                <Accordion.Body><i>Rekaman belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Rekaman belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
             </Accordion>
           </Popup>
@@ -547,23 +583,33 @@ export default function MainHall(props) {
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Q &amp; A Hari ke 2</Accordion.Header>
-                <Accordion.Body><i>Q &amp; A belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Q &amp; A belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Q &amp; A Hari ke 3</Accordion.Header>
-                <Accordion.Body><i>Q &amp; A belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Q &amp; A belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
                 <Accordion.Header>Q &amp; A Hari ke 4</Accordion.Header>
-                <Accordion.Body><i>Q &amp; A belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Q &amp; A belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="4">
                 <Accordion.Header>Q &amp; A Hari ke 5</Accordion.Header>
-                <Accordion.Body><i>Q &amp; A belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Q &amp; A belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="5">
                 <Accordion.Header>Q &amp; A Hari ke 6</Accordion.Header>
-                <Accordion.Body><i>Q &amp; A belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                  <i>Q &amp; A belum tersedia</i>
+                </Accordion.Body>
               </Accordion.Item>
             </Accordion>
           </Popup>
