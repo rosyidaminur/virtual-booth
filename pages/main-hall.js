@@ -534,7 +534,7 @@ function MainHall(props) {
                       videoSrc={`https://iframe.mediadelivery.net/embed/20390/feeb1531-5504-44f4-9a31-c590daef5302?autoplay=false`}
                     />
                   ) : (
-                    "Rekaman belum tersedia"
+                    <i>Rekaman tidak tersedia</i>
                   )}
                   
                 </Accordion.Body>
