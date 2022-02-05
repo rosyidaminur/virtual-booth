@@ -17,7 +17,7 @@ import QnaOne from "components/QnA/qnaOne";
 
 // export const getServerSideProps = async (context) => protectPage(context);
 function MainHall(props) {
-  
+
   const router = useRouter();
   const from = router.query.fromB;
   const [showSertif, setShowSertif] = useState(false);
@@ -663,7 +663,7 @@ export const getServerSideProps = async (ctx) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       let datavideo1 = false;
-      if(res.data.data.reg_type==='Pameran dan Simposium' & res.data.data.paid== true){
+      if(res.data.data.reg_type==='Pameran dan Simposium' || res.data.data.reg_type==='Pameran, Simposium dan Workshop' && res.data.data.paid== true){
         datavideo1=true
       } 
       return {
