@@ -97,7 +97,7 @@ tab device
 
 @media(min-width: 768px) and (max-width: 991px) {
   .popup {
-    width: 40% !important;
-    height: 64% !important;
+    width: 78% !important;
+    height: 70% !important;
   }
 }
