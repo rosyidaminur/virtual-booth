@@ -176,6 +176,7 @@ export const getServerSideProps = async (ctx) => {
           token,
           name: res.data.data.name,
           sponsorfile: datasponsor.data.data,
+          sponsorcode,
         },
       };
     } catch (err) {
