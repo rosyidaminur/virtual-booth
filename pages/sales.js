@@ -19,7 +19,7 @@ export default function sales() {
           return (
             <Col key={data.Nama + data.Wa}>
               <Card style={{ width: "18rem" }}>
-                <Image rounded src={data.Foto === "" ? "noimage.jpeg" : data.Foto} alt=''/>
+                <Image rounded src={data.Foto === "" ? "noimage.png" : data.Foto} alt=''/>
                 <Card.Body>
                 <Card.Title>{data.Nama}</Card.Title>
                 {/* <Button variant="primary">{data.Wa}</Button> */}
