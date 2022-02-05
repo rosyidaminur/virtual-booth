@@ -71,18 +71,21 @@ function BoothGalderma(props) {
         className="latar"
         autoPlay
         muted
+        playsInline
         onEnded={() => window.showHotspots()}
       >
         <source src={`${props.base}/boothx/galderma_in.mp4`} type="video/mp4" />
+      Your browser does not support to access Virtual Booth
       </video>
 
       <div id="sikuen2" className="hide">
-        <video id="latar" className="latar" autoPlay muted loop>
+        <video id="latar" className="latar" autoPlay muted loop playsInline>
           <source
             src={`${props.base}/boothx/galderma_loop.mp4`}
             type="video/mp4"
           />
-        </video>
+        Your browser does not support to access Virtual Booth
+      </video>
         <div id="hotspots">
           <Dot
             sponsorcode={sponsorcode}

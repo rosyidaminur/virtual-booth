@@ -99,6 +99,7 @@ export default function MainHall(props) {
           src={`${props.base}/boothx/bioderma_out.mp4`}
           type="video/mp4"
         />
+      Your browser does not support to access Virtual Booth
       </video>
     );
   } else if (from === "laroche") {
@@ -111,6 +112,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source src={`${props.base}/boothx/laroche_out.mp4`} type="video/mp4" />
+      Your browser does not support to access Virtual Booth
       </video>
     );
   } else if (from === "dermaxp") {
@@ -123,6 +125,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source src={`${props.base}/boothx/dermaxp_out.mp4`} type="video/mp4" />
+      Your browser does not support to access Virtual Booth
       </video>
     );
   } else if (from === "galderma") {
@@ -138,6 +141,7 @@ export default function MainHall(props) {
           src={`${props.base}/boothx/galderma_out.mp4`}
           type="video/mp4"
         />
+      Your browser does not support to access Virtual Booth
       </video>
     );
   } else if (from === "hyphens") {
@@ -150,6 +154,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source src={`${props.base}/boothx/hyphens_out.mp4`} type="video/mp4" />
+      Your browser does not support to access Virtual Booth
       </video>
     );
   } else if (from === "sdm") {
@@ -162,6 +167,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source src={`${props.base}/boothx/sdm_out.mp4`} type="video/mp4" />
+      Your browser does not support to access Virtual Booth
       </video>
     );
   } else if (from === "booth") {
@@ -177,6 +183,7 @@ export default function MainHall(props) {
           src={`${props.base}/boothx/booth_silver_out.mp4`}
           type="video/mp4"
         />
+      Your browser does not support to access Virtual Booth
       </video>
     );
   } else {
@@ -189,6 +196,7 @@ export default function MainHall(props) {
         onEnded={() => window.showHotspots()}
       >
         <source src={`${props.base}/boothx/hall.mp4`} type="video/mp4" />
+      Your browser does not support to access Virtual Booth
       </video>
     );
   }
@@ -242,7 +250,8 @@ export default function MainHall(props) {
       <div id="sikuen2" className="hide">
         <video id="latar" className="latar" autoPlay muted loop>
           <source src={`${props.base}/boothx/hall_loop.mp4`} type="video/mp4" />
-        </video>
+        Your browser does not support to access Virtual Booth
+      </video>
         <div id="hotspots">
           <HotspotImg
             onClick={(e) => clickBooth(e, "bernofarm", "SP-2")}
@@ -382,7 +391,29 @@ export default function MainHall(props) {
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Pemenang Hari ke 2</Accordion.Header>
-                <Accordion.Body><i>Info pemenang belum tersedia</i></Accordion.Body>
+                <Accordion.Body>
+                <p>
+                    Pemenang:
+                    <br />
+                    1. dr. Gede Agus Nusantara, SpKK, FINSDV
+                    <br />
+                    2. dr. Frea Astrilia Tamarina, SpKK
+                    <br />
+                    3. dr. Agatha Anindhita, M.Ked.Klin, SpDV
+                    <br />
+                    4. Prasti Adhi Dharmasanti, dr., SpKK., FINSDV
+                    <br />
+                    5. Dr. dr. Nanda Earlia, SpKK, FINSDV, FAADV
+                  </p>
+
+                  {showWinners ? (
+                    <Video
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/c802b71e-6338-4bdb-aa92-ff0e23b12897?autoplay=false`}
+                    />
+                  ) : (
+                    ""
+                  )}
+                </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Pemenang Hari ke 3</Accordion.Header>

@@ -13,7 +13,6 @@ function Home(props) {
     setVisibility(false);
   };
 
-  
   const router = useRouter();
   const handleOnClick = (e) => {
     e.preventDefault();
@@ -32,17 +31,19 @@ function Home(props) {
         id="sikuen"
         autoPlay
         muted
+        playsInline
         onEnded={() => window.showHotspots()}
       >
-        <source
-          src={`${props.base}/boothx/lobby.mp4`}
-          type="video/mp4"
-        />
+        <source src={`${props.base}/boothx/lobby.mp4`} type="video/mp4" />
       </video>
 
       <div id="sikuen2" className="hide">
-        <video id="latar" className="latar" autoPlay muted loop>
-          <source src={`${props.base}/boothx/lobby_loop.mp4`} type="video/mp4" />
+        <video id="latar" className="latar" autoPlay muted loop playsInline>
+          <source
+            src={`${props.base}/boothx/lobby_loop.mp4`}
+            type="video/mp4"
+          />
+          Your browser does not support to access Virtual Booth
         </video>
         <div id="hotspots">
           <Hotspot
@@ -59,7 +60,10 @@ function Home(props) {
             title="Virtual Booth FKUWKS - PKB Kulit"
           >
             <p>{`Selamat datang di lobby, ${props.name}`}</p>
-            <p>Silahkan klik pintu sebelah kiri untuk masuk ke Hall Pameran, Simposium dan Workshop</p>
+            <p>
+              Silahkan klik pintu sebelah kiri untuk masuk ke Hall Pameran,
+              Simposium dan Workshop
+            </p>
             <a onClick={(e) => popupCloseHandler()} className="btn-ori">
               OK, Siap
             </a>
