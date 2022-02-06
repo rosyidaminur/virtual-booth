@@ -562,13 +562,25 @@ function MainHall(props) {
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Rekaman Hari ke 2</Accordion.Header>
                 <Accordion.Body>
-                  <i>Rekaman belum tersedia</i>
+                {recordps ? (
+                    <Video
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/a2082f37-face-4135-96ca-ad68ce425cb7?autoplay=false`}
+                    />
+                  ) : (
+                    <i>Rekaman tidak tersedia</i>
+                  )}
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Rekaman Hari ke 3</Accordion.Header>
                 <Accordion.Body>
-                  <i>Rekaman belum tersedia</i>
+                {recordps ? (
+                    <Video
+                      videoSrc={` https://iframe.mediadelivery.net/embed/20390/00d56c23-4e67-49c5-8371-351111cb8d5f?autoplay=false`}
+                    />
+                  ) : (
+                    <i>Rekaman tidak tersedia</i>
+                  )}
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
