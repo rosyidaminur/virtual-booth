@@ -428,7 +428,27 @@ function MainHall(props) {
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Pemenang Hari ke 3</Accordion.Header>
                 <Accordion.Body>
-                  <i>Info pemenang belum tersedia</i>
+                <p>
+                    Pemenang:
+                    <br />
+                    1. dr. Julia Melisa, SpKK
+                    <br />
+                    2. dr. Reika Ravenski Novsa
+                    <br />
+                    3. dr Wiwiek Andayani
+                    <br />
+                    4. dr. Lindayani H, Sp.KK
+                    <br />
+                    5. Reghina Salsabila Ayuantia Nainatika
+                  </p>
+
+                  {showWinners ? (
+                    <Video
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/33a6d0cb-58c9-46be-9c02-2ddc44c1a345?autoPlay=false`}
+                    />
+                  ) : (
+                    ""
+                  )}
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
