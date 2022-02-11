@@ -454,7 +454,27 @@ function MainHall(props) {
               <Accordion.Item eventKey="3">
                 <Accordion.Header>Pemenang Hari ke 4</Accordion.Header>
                 <Accordion.Body>
-                  <i>Info pemenang belum tersedia</i>
+                <p>
+                    Pemenang:
+                    <br />
+                    1. dr. Eva Aguswulandari Suwito
+                    <br />
+                    2. dr. Meily Rizkinta Putri
+                    <br />
+                    3. dr. Dyah Ratri Anggarini, SpDV
+                    <br />
+                    4. Liliani Labitta
+                    <br />
+                    5. dr. Hasrulliana Ningsih Wahyuli, SpKK, FINSDV
+                  </p>
+
+                  {showWinners ? (
+                    <Video
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/4aaf9a9c-ed33-4687-a419-362b43834736?autoPlay=false`}
+                    />
+                  ) : (
+                    ""
+                  )}
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="4">
