@@ -17,7 +17,6 @@ import QnaOne from "components/QnA/qnaOne";
 
 // export const getServerSideProps = async (context) => protectPage(context);
 function MainHall(props) {
-
   const router = useRouter();
   const from = router.query.fromB;
   const [showSertif, setShowSertif] = useState(false);
@@ -389,6 +388,22 @@ function MainHall(props) {
                     <br />
                     5. dr. Andi Anwar Arsyad, Sp.KK
                   </p>
+                  <p>
+                    Selamat kepada pemenang, bagi yang namanya tertera di atas
+                    dipersilahkan menghubungi panitia untuk klaim hadiah
+                    <br />
+                    Putri (WA:{" "}
+                    <a
+                      className="link-info"
+                      href="https://wa.me/6285954135553"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      085954135553
+                    </a>
+                    )
+                  </p>
+                  <p>Terimakasih</p>
 
                   {showWinners ? (
                     <Video
@@ -415,6 +430,22 @@ function MainHall(props) {
                     <br />
                     5. Dr. dr. Nanda Earlia, SpKK, FINSDV, FAADV
                   </p>
+                  <p>
+                    Selamat kepada pemenang, bagi yang namanya tertera di atas
+                    dipersilahkan menghubungi panitia untuk klaim hadiah
+                    <br />
+                    Putri (WA:{" "}
+                    <a
+                      className="link-info"
+                      href="https://wa.me/6285954135553"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      085954135553
+                    </a>
+                    )
+                  </p>
+                  <p>Terimakasih</p>
 
                   {showWinners ? (
                     <Video
@@ -428,7 +459,7 @@ function MainHall(props) {
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Pemenang Hari ke 3</Accordion.Header>
                 <Accordion.Body>
-                <p>
+                  <p>
                     Pemenang:
                     <br />
                     1. dr. Julia Melisa, SpKK
@@ -441,6 +472,22 @@ function MainHall(props) {
                     <br />
                     5. Reghina Salsabila Ayuantia Nainatika
                   </p>
+                  <p>
+                    Selamat kepada pemenang, bagi yang namanya tertera di atas
+                    dipersilahkan menghubungi panitia untuk klaim hadiah
+                    <br />
+                    Putri (WA:{" "}
+                    <a
+                      className="link-info"
+                      href="https://wa.me/6285954135553"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      085954135553
+                    </a>
+                    )
+                  </p>
+                  <p>Terimakasih</p>
 
                   {showWinners ? (
                     <Video
@@ -454,7 +501,7 @@ function MainHall(props) {
               <Accordion.Item eventKey="3">
                 <Accordion.Header>Pemenang Hari ke 4</Accordion.Header>
                 <Accordion.Body>
-                <p>
+                  <p>
                     Pemenang:
                     <br />
                     1. dr. Eva Aguswulandari Suwito
@@ -467,6 +514,22 @@ function MainHall(props) {
                     <br />
                     5. dr. Hasrulliana Ningsih Wahyuli, SpKK, FINSDV
                   </p>
+                  <p>
+                    Selamat kepada pemenang, bagi yang namanya tertera di atas
+                    dipersilahkan menghubungi panitia untuk klaim hadiah
+                    <br />
+                    Roosi (WA:{" "}
+                    <a
+                      className="link-info"
+                      href="https://wa.me/6285755952199"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      085755952199
+                    </a>
+                    )
+                  </p>
+                  <p>Terimakasih</p>
 
                   {showWinners ? (
                     <Video
@@ -480,7 +543,43 @@ function MainHall(props) {
               <Accordion.Item eventKey="4">
                 <Accordion.Header>Pemenang Hari ke 5</Accordion.Header>
                 <Accordion.Body>
-                  <i>Info pemenang belum tersedia</i>
+                  <p>
+                    Pemenang:
+                    <br />
+                    1. dr. Rudy Wartono, SpKK
+                    <br />
+                    2. Galuh Dyah Puspitasari
+                    <br />
+                    3. dr. Jasmin Thalib, SpKK, FINSDV
+                    <br />
+                    4. dr. Sri Agustina S., SpKK
+                    <br />
+                    5. dr. Bertha Susanna Syah, SpKK
+                  </p>
+                  <p>
+                    Selamat kepada pemenang, bagi yang namanya tertera di atas
+                    dipersilahkan menghubungi panitia untuk klaim hadiah
+                    <br />
+                    Farizah (WA:{" "}
+                    <a
+                      className="link-info"
+                      href="https://wa.me/62895396120289"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      0895396120289
+                    </a>
+                    )
+                  </p>
+                  <p>Terimakasih</p>
+
+                  {showWinners ? (
+                    <Video
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/e8c208d2-d4fc-4fc7-a277-26d51f1174b3?autoPlay=false`}
+                    />
+                  ) : (
+                    ""
+                  )}
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="5">
@@ -489,26 +588,66 @@ function MainHall(props) {
                   <i>Info pemenang belum tersedia</i>
                 </Accordion.Body>
               </Accordion.Item>
+              <Accordion.Item eventKey="6">
+                <Accordion.Header>
+                  Pemenang Lomba TikTok Edukasi PKB 2 FK UWKS
+                </Accordion.Header>
+                <Accordion.Body>
+                  <p>
+                    Juara I - dr. Rizki Hapsari Nugraha
+                    <br />
+                    Juara II - dr. Linda Purwasih
+                    <br />
+                    Juara III - dr. Dwi Intan
+                    <br />
+                    Juara Favorit - dr. Najwa Amalia
+                    <br />
+                  </p>
+                  <p>
+                    Silahkan menghubungi contact person
+                    <br />
+                    Farizah (WA:{" "}
+                    <a
+                      className="link-info"
+                      href="https://wa.me/62895396120289"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      0895396120289
+                    </a>
+                    )
+                  </p>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="7">
+                <Accordion.Header>Pemenang Posttest</Accordion.Header>
+                <Accordion.Body>
+                  <p>
+                    Juara I - dr. Desiana Widityaning Sari, Sp.DV, M.Ked.Klin
+                    <br />
+                    Juara II - dr. Alfadea Irbah Allizaputri, AIFO-K
+                    <br />
+                    Juara III - dr. Dinar Chieko Triesayuningtyas
+                    <br />
+                  </p>
+                  <p>
+                    Silahkan menghubungi contact person
+                    <br />
+                    Farizah (WA:{" "}
+                    <a
+                      className="link-info"
+                      href="https://wa.me/62895396120289"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      0895396120289
+                    </a>
+                    )
+                  </p>
+                </Accordion.Body>
+              </Accordion.Item>
             </Accordion>
             <br />
-            <center>
-              <p>
-                Selamat kepada pemenang, bagi yang namanya tertera di atas
-                dipersilahkan menghubungi panitia untuk klaim hadiah
-                <br />
-                Putri (WA:{" "}
-                <a
-                  className="link-info"
-                  href="https://wa.me/6285954135553"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  085954135553
-                </a>
-                )
-              </p>
-              <p>Terimakasih</p>
-            </center>
           </Popup>
 
           <Popup
@@ -568,7 +707,6 @@ function MainHall(props) {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Rekaman Hari ke 1</Accordion.Header>
                 <Accordion.Body>
-
                   {recordps ? (
                     <Video
                       videoSrc={`https://iframe.mediadelivery.net/embed/20390/feeb1531-5504-44f4-9a31-c590daef5302?autoplay=false`}
@@ -576,13 +714,12 @@ function MainHall(props) {
                   ) : (
                     <i>Rekaman tidak tersedia</i>
                   )}
-                  
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Rekaman Hari ke 2</Accordion.Header>
                 <Accordion.Body>
-                {recordps ? (
+                  {recordps ? (
                     <Video
                       videoSrc={`https://iframe.mediadelivery.net/embed/20390/a2082f37-face-4135-96ca-ad68ce425cb7?autoplay=false`}
                     />
@@ -594,7 +731,7 @@ function MainHall(props) {
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Rekaman Hari ke 3</Accordion.Header>
                 <Accordion.Body>
-                {recordps ? (
+                  {recordps ? (
                     <Video
                       videoSrc={`https://iframe.mediadelivery.net/embed/20390/00d56c23-4e67-49c5-8371-351111cb8d5f?autoplay=false`}
                     />
@@ -712,7 +849,6 @@ function MainHall(props) {
   );
 }
 
-
 export const getServerSideProps = async (ctx) => {
   const token = cookies(ctx).token;
   if (token) {
@@ -721,14 +857,18 @@ export const getServerSideProps = async (ctx) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       let datavideo1 = false;
-      if(res.data.data.reg_type==='Pameran dan Simposium' || res.data.data.reg_type==='Pameran, Simposium dan Workshop' && res.data.data.paid== true){
-        datavideo1=true
-      } 
+      if (
+        res.data.data.reg_type === "Pameran dan Simposium" ||
+        (res.data.data.reg_type === "Pameran, Simposium dan Workshop" &&
+          res.data.data.paid == true)
+      ) {
+        datavideo1 = true;
+      }
       return {
         props: {
           token,
           datavideo1,
-          name:res.data.data.name
+          name: res.data.data.name,
         },
       };
     } catch (err) {
