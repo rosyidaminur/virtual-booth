@@ -596,7 +596,7 @@ function MainHall(props) {
                 <Accordion.Body>
                 {recordps ? (
                     <Video
-                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/55ce6c5a-f2db-4ef6-a426-94744e35ecdc?autoplay=false`}
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/00d56c23-4e67-49c5-8371-351111cb8d5f?autoplay=false`}
                     />
                   ) : (
                     <i>Rekaman tidak tersedia</i>
