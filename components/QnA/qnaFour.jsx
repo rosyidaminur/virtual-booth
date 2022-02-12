@@ -1,7 +1,7 @@
 const QnaFour = () => {
     return (
         <div>
-            <p><strong>(Pertanyaan Dr. dr. Erny, SpA (K))</strong></p>
+            <h3>(Pertanyaan Dr. dr. Erny, SpA (K))</h3>
             <p><strong>AA</strong></p>
             <p>Selamat pagi dr. Erny, terimakasih untuk presentasinya yang memberikan banyak pengetahuan baru, izin bertanya dokter apakah probiotik dalam penelitian saat ini bagi penyakit DA hanya baik diberikkan melalui asupan per oral atau juga bisa diberikkan dengan cara topikal seperti lactobacillus ferment topikal yang sekarang sudah mulai dijual di pasaran? Terimakasih</p>
             <p><span style={{ color: '#ff6600' }}>saat ini memang sudah banyak penelitian tentang pemberian probiotik pada dermatitis atopic dengan beberapa cara antara lain dengan oral dan topical. Hasil penelitian masih sangat beragam ada yang menunjukkan kegunaan ada juga yang tidak jadi hingga saat ini penggunaan probiotik dalam bentuk apapun masih dikembangkan dalam skala penelitian yang multisenter dan jumlah populasi besar. Sebagai dokter tentunya peresepan untuk pasien menganut asas evidence base medicine jika dalam hal ini belum ada EBM nya tentunya probiotik belum dapat dimasukkan dalam protap tatalaksana dermatitis atopic.</span></p>
