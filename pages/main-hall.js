@@ -14,6 +14,8 @@ import Cookie from "js-cookie";
 
 import Video from "components/Video";
 import QnaOne from "components/QnA/qnaOne";
+import QnaThree from "components/QnA/qnaThree";
+import QnaFour from "components/QnA/qnaFour";
 
 // export const getServerSideProps = async (context) => protectPage(context);
 function MainHall(props) {
@@ -348,7 +350,7 @@ function MainHall(props) {
           />
           <div style={{ position: "absolute", bottom: "0", right: "0" }}>
             <a className="btn-hall" onClick={(e) => setShowWinners(true)}>
-              Pemenang Door Prize
+              Informasi Pemenang
             </a>
             <a className="btn-hall" onClick={(e) => setShowSertif(true)}>
               Sertifikat
@@ -755,7 +757,13 @@ function MainHall(props) {
               <Accordion.Item eventKey="4">
                 <Accordion.Header>Rekaman Hari ke 5</Accordion.Header>
                 <Accordion.Body>
-                  <i>Rekaman belum tersedia</i>
+                {recordps ? (
+                    <Video
+                      videoSrc={`https://iframe.mediadelivery.net/embed/20390/6c12d842-63d7-4849-a5a0-0308565ff470?autoplay=false`}
+                    />
+                  ) : (
+                    <i>Rekaman tidak tersedia</i>
+                  )}
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="5">
@@ -788,13 +796,13 @@ function MainHall(props) {
               <Accordion.Item eventKey="2">
                 <Accordion.Header>Q &amp; A Hari ke 3</Accordion.Header>
                 <Accordion.Body>
-                  <i>Q &amp; A belum tersedia</i>
+                  <QnaThree />
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
                 <Accordion.Header>Q &amp; A Hari ke 4</Accordion.Header>
                 <Accordion.Body>
-                  <i>Q &amp; A belum tersedia</i>
+                  <QnaFour />
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="4">
