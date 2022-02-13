@@ -17,6 +17,7 @@ import QnaOne from "components/QnA/qnaOne";
 
 // export const getServerSideProps = async (context) => protectPage(context);
 function MainHall(props) {
+  console.log(props);
   const router = useRouter();
   const from = router.query.fromB;
   const [showSertif, setShowSertif] = useState(false);
@@ -29,7 +30,9 @@ function MainHall(props) {
   const [zoomStatus, setZoomStatus] = useState(false);
   const [Urlzoom, setUrlzoom] = useState("");
   const [noser, setNoser] = useState("");
+  const [jpeserta, setJpeserta] = useState(props.jenis_peserta);
 
+  
   const popupCloseHandler = () => {
     setShowSertif(false);
     setShowRecord(false);
@@ -236,7 +239,17 @@ function MainHall(props) {
     var width = doc.internal.pageSize.getWidth();
     var height = doc.internal.pageSize.getHeight();
     doc.setFontSize(40);
-    const imgData = props.base + "/sertifikat/sertifikat.jpeg";
+    const Simposium = props.base + "/sertifikat/simposium.jpg";
+    const imgData = jpeserta==='Pameran, Simposium dan Workshop'? props.base + "/sertifikat/workshop.jpg":props.base + "/sertifikat/simposium.jpg";
+    
+console.log(imgData);
+
+
+    // if(){
+
+    // }
+    // res.data.data.reg_type === "Pameran dan Simposium" ||
+    // (res.data.data.reg_type === "Pameran, Simposium dan Workshop" &&
     doc.addImage(imgData, "JPEG", 0, 0, width, height);
     doc.setFont("Time-Roman", "italic");
     doc.setFontSize(35);
@@ -659,9 +672,9 @@ function MainHall(props) {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Sertifikat Hari ke 1</Accordion.Header>
                 <Accordion.Body>
-                  {/* <Button onClick={(e) => generatePdf(e, 1)}>
+                  <Button onClick={(e) => generatePdf(e, 1)}>
                     Unduh Sertifikat
-                  </Button> */}
+                  </Button>
                   <i>Sertifikat belum tersedia</i>
                 </Accordion.Body>
               </Accordion.Item>
@@ -868,6 +881,7 @@ export const getServerSideProps = async (ctx) => {
         props: {
           token,
           datavideo1,
+          jenis_peserta:res.data.data.reg_type,
           name: res.data.data.name,
         },
       };
