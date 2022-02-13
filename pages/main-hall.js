@@ -16,14 +16,16 @@ import PopupRecords from "components/PopupRecords";
 import PopupQnA from "components/PopupQnA";
 import PopupLogout from "components/PopupLogout";
 import PopupMsg from "components/PopupMsg";
-import getConfig from "next/config";
-const { publicRuntimeConfig } = getConfig();
+
+import PopupSertif from "components/PopupSertif";
+
 
 export const getServerSideProps = async (context) => protectMainHall(context);
 export default function MainHall(props) {
   const router = useRouter();
   const from = router.query.fromB;
   const recordps = props.datavideo1;
+  const jenisPeserta = props.jenis_peserta;
   const [showSertif, setShowSertif] = useState(false);
   const [showRecord, setShowRecord] = useState(false);
   const [showQnA, setShowQnA] = useState(false);
@@ -32,10 +34,9 @@ export default function MainHall(props) {
   const [errorMsg, setErrorMsg] = useState("");
   const [zoomStatus, setZoomStatus] = useState(false);
   const [Urlzoom, setUrlzoom] = useState("");
-  const [noser, setNoser] = useState("");
-  const [jpeserta, setJpeserta] = useState(props.jenis_peserta);
+  // const [noser, setNoser] = useState("");
+  // const [jpeserta, setJpeserta] = useState(props.jenis_peserta);
 
-  
   const popupCloseHandler = () => {
     setShowSertif(false);
     setShowRecord(false);
@@ -216,25 +217,22 @@ export default function MainHall(props) {
     );
   }
 
-  async function generatePdf(e, h) {
-    let noser='';
+  // async function generatePdf(j, d) {
+  //   const doc = new jsPDF("l");
+  //   var width = doc.internal.pageSize.getWidth();
+  //   var height = doc.internal.pageSize.getHeight();
+  //   doc.setFontSize(40);
+  //   doc.addImage(d, "JPEG", 0, 0, width, height);
+  //   doc.setFont("Time-Roman", "italic");
+  //   doc.setFontSize(30);
+  //   doc.setTextColor("#474745");
+  //   doc.text(props.name, 153, 90, "center");
 
-    const doc = new jsPDF("l");
-    var width = doc.internal.pageSize.getWidth();
-    var height = doc.internal.pageSize.getHeight();
-    doc.setFontSize(40);
-    const Simposium = publicRuntimeConfig.base + "/sertifikat/simposium.jpg";
-    const Workshop =  publicRuntimeConfig.base + "/sertifikat/workshop.jpg"; 
-
-    console.log(Simposium,Workshop,noser);
-    doc.addImage(Simposium, "JPEG", 0, 0, width, height);
-    doc.setFont("Time-Roman", "italic");
-    doc.setFontSize(30);
-    doc.setTextColor("#474745");
-    doc.text(props.name, 153, 90, "center");
- 
-    doc.output("save", "Sertifikat " + props.name+".pdf");
-  }
+  //   doc.output(
+  //     "save",
+  //     "Sertifikat_" + j + "_FKUWKS_PKBKULIT_" + props.name + "_2022.pdf"
+  //   );
+  // }
 
   return (
     <>
@@ -339,9 +337,13 @@ export default function MainHall(props) {
             <a className="btn-hall" onClick={(e) => setShowWinners(true)}>
               Informasi Pemenang
             </a>
-            <a className="btn-hall" onClick={(e) => setShowSertif(true)}>
-              Sertifikat
-            </a>
+            {jenisPeserta.includes("Simposium") ? (
+              <a className="btn-hall" onClick={(e) => setShowSertif(true)}>
+                Sertifikat
+              </a>
+            ) : (
+              ""
+            )}
             <a className="btn-hall" onClick={(e) => setShowRecord(true)}>
               Rekaman
             </a>
@@ -356,54 +358,41 @@ export default function MainHall(props) {
           </div>
 
           <PopupWinners onClose={popupCloseHandler} show={showWinners} />
-
-          <Popup
+          <PopupSertif onClose={popupCloseHandler} show={showSertif} jp={jenisPeserta} name={props.name} />
+          {/* <Popup
             onClose={popupCloseHandler}
             show={showSertif}
-            title="Daftar Sertifikat Simposium"
+            title="Daftar Sertifikat"
           >
-            <Accordion>
-              <Accordion.Item eventKey="0">
-                <Accordion.Header>Sertifikat Hari ke 1</Accordion.Header>
-                <Accordion.Body>
-                  <Button onClick={(e) => generatePdf(e, 1)}>
-                    Unduh Sertifikat
-                  </Button>
-                  <i>Sertifikat belum tersedia</i>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="1">
-                <Accordion.Header>Sertifikat Hari ke 2</Accordion.Header>
-                <Accordion.Body>
-                  <i>Sertifikat belum tersedia</i>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="2">
-                <Accordion.Header>Sertifikat Hari ke 3</Accordion.Header>
-                <Accordion.Body>
-                  <i>Sertifikat belum tersedia</i>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="3">
-                <Accordion.Header>Sertifikat Hari ke 4</Accordion.Header>
-                <Accordion.Body>
-                  <i>Sertifikat belum tersedia</i>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="4">
-                <Accordion.Header>Sertifikat Hari ke 5</Accordion.Header>
-                <Accordion.Body>
-                  <i>Sertifikat belum tersedia</i>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="5">
-                <Accordion.Header>Sertifikat Hari ke 6</Accordion.Header>
-                <Accordion.Body>
-                  <i>Sertifikat belum tersedia</i>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
-          </Popup>
+            <p>
+              Sertifikat Simposium FKUWKS - PKBKULIT 2022
+              <br />
+              <Button
+                onClick={(e) =>
+                  generatePdf(
+                    "Simposium",
+                    publicRuntimeConfig.base + "/sertifikat/simposium.jpg"
+                  )
+                }
+              >
+                Unduh Sertifikat
+              </Button>
+            </p>
+            {jenisPeserta === "Pameran, Simposium dan Workshop" ? <p>
+              Sertifikat Workshop FKUWKS - PKBKULIT 2022
+              <br />
+              <Button
+                onClick={(e) =>
+                  generatePdf(
+                    "Workshop",
+                    publicRuntimeConfig.base + "/sertifikat/workshop.jpg"
+                  )
+                }
+              >
+                Unduh Sertifikat
+              </Button>
+            </p> : ''}
+          </Popup> */}
 
           <PopupRecords
             onClose={popupCloseHandler}

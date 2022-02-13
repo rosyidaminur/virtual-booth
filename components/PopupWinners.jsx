@@ -272,7 +272,7 @@ const PopupWinners = (props) => {
                 <br />
                 Juara II - dr. Alfadea Irbah Allizaputri, AIFO-K
                 <br />
-                Juara III - dr. Dinar Chieko Triesayuningtyas
+                Juara III - dr. Dinar Witasari, Sp.DV
                 <br />
               </p>
               <p>
