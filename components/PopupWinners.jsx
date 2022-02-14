@@ -265,7 +265,7 @@ const PopupWinners = (props) => {
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="7">
-            <Accordion.Header>Pemenang Posttest</Accordion.Header>
+            <Accordion.Header>Pemenang Post Test Simposium</Accordion.Header>
             <Accordion.Body>
               <p>
                 Juara I - dr. Desiana Widityaning Sari, Sp.DV, M.Ked.Klin
@@ -291,8 +291,61 @@ const PopupWinners = (props) => {
               </p>
             </Accordion.Body>
           </Accordion.Item>
+          <Accordion.Item eventKey="8">
+            <Accordion.Header>Pemenang Post Test Workshop Dermatitis Atopik</Accordion.Header>
+            <Accordion.Body>
+              <p>
+                Juara I - dr Pretty Clarresa
+                <br />
+                Juara II - dr. Dinar Witasari, Sp. KK
+                <br />
+                Juara III - dr. Felicia Emiliana Hosea
+                <br />
+              </p>
+              <p>
+                Silahkan menghubungi contact person
+                <br />
+                Farizah (WA:{" "}
+                <a
+                  className="link-info"
+                  href="https://wa.me/62895396120289"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  0895396120289
+                </a>
+                )
+              </p>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="7">
+            <Accordion.Header>Pemenang Post Test Workshop Akne</Accordion.Header>
+            <Accordion.Body>
+              <p>
+                Juara I - dr. Istiana Fiatiningsih, Sp. KK
+                <br />
+                Juara II - dr. Nathasia Ayunda Pardina, Sp. DV
+                <br />
+                Juara III - dr. Dyah Ratri Anggarini, Sp. DV
+                <br />
+              </p>
+              <p>
+                Silahkan menghubungi contact person
+                <br />
+                Farizah (WA:{" "}
+                <a
+                  className="link-info"
+                  href="https://wa.me/62895396120289"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  0895396120289
+                </a>
+                )
+              </p>
+            </Accordion.Body>
+          </Accordion.Item>
         </Accordion>
-        <br />
       </Popup>
     </>
   );

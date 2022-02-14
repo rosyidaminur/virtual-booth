@@ -32,8 +32,9 @@ const QnaFour = () => {
             <p><span style={{ color: '#ff6600' }}>Terima kasih dr. Izzah Faidah, iya bisa, sehingga ibu melakukan diet eliminasi tetapi hanya pada makanan yang memang terbukti mencetuskan kambuhnya DA pada bayi.</span></p>
             <p><span style={{ color: '#ff6600' }}>Selanjutnya bisa&nbsp; dilakukan evaluasi, untuk menentukan kapan ibu menyusui tsb sudah bisa kembali ke diet normal.</span></p>
             <p><strong>dr. Tenny</strong></p>
-            <p>siang dokter. sy dr. Tenny dr Surabaya. mohon izin bertanya ttg diet pada DA. susu kambing dapat diberikan kepada anak dg DA sejak usia berapa Dok? apakah 1 thn Terima kasih dr. Tenny, tentunya untuk bayi/anak dengan DA, untuk 2 tahun pertama susu terbaik adalah ASI, sedangkan utk pemberian susu kambing&nbsp; tidak ada patokan pasti umur berapa boleh diberikan, tergantung kebutuhan &amp; kondisi kesehatan lainnya.</p>
-            <p><span style={{ color: '#ff6600' }}>Yang jelas, terdapat reaksi silang antara susu sapi dan susu kambing, sehingga bila ada riwayat DA kambuh karena konsumsi susu sapi, maka pemberian susu kambing harus ditunda &amp; perlu evaluasi lanjut. boleh?</span></p>
+            <p>siang dokter. sy dr. Tenny dr Surabaya. mohon izin bertanya ttg diet pada DA. susu kambing dapat diberikan kepada anak dg DA sejak usia berapa Dok? apakah 1 thn</p>
+            <p><span style={{ color: '#ff6600' }}>Terima kasih dr. Tenny, tentunya untuk bayi/anak dengan DA, untuk 2 tahun pertama susu terbaik adalah ASI, sedangkan utk pemberian susu kambing&nbsp; tidak ada patokan pasti umur berapa boleh diberikan, tergantung kebutuhan &amp; kondisi kesehatan lainnya.</span></p>
+            <p><span style={{ color: '#ff6600' }}>Yang jelas, terdapat reaksi silang antara susu sapi dan susu kambing, sehingga bila ada riwayat DA kambuh karena konsumsi susu sapi, maka pemberian susu kambing harus ditunda &amp; perlu evaluasi lanjut.</span></p>
             <p>&nbsp;</p>
             <h3>(Pertanyaan dr. Febrian Renatasari, SpKK)</h3>
             <p><strong>AA</strong></p>
