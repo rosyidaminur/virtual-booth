@@ -58,6 +58,7 @@ export async function protectMainHall(ctx) {
           jenis_peserta: res.data.data.reg_type,
           token,
           datavideo1,
+          datavideo2,
           name: res.data.data.name,
         },
       };
