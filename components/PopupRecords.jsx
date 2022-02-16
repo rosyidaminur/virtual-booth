@@ -9,6 +9,7 @@ const PopupRecords = (props) => {
   const onClose = props.onClose;
   const show = props.show;
   const recordps = props.recordps;
+  const recordps2 = props.recordps2;
 
   return (
     <>
@@ -81,7 +82,13 @@ const PopupRecords = (props) => {
           <Accordion.Item eventKey="5">
             <Accordion.Header>Rekaman Hari ke 6</Accordion.Header>
             <Accordion.Body>
-              <i>Rekaman belum tersedia</i>
+            {recordps2 ? (
+                <Video
+                  videoSrc={`https://iframe.mediadelivery.net/embed/20390/3695d14c-f9e5-4f93-8776-f23a91d9f06a?autoplay=false`}
+                />
+              ) : (
+                <i>Rekaman tidak tersedia</i>
+              )}
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>

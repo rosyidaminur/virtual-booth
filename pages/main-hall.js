@@ -25,6 +25,7 @@ export default function MainHall(props) {
   const router = useRouter();
   const from = router.query.fromB;
   const recordps = props.datavideo1;
+  const recordps2 = props.datavideo2;
   const jenisPeserta = props.jenis_peserta;
   const [showSertif, setShowSertif] = useState(false);
   const [showRecord, setShowRecord] = useState(false);
@@ -398,6 +399,7 @@ export default function MainHall(props) {
             onClose={popupCloseHandler}
             show={showRecord}
             recordps={recordps}
+            recordps2={recordps2}
           />
 
           <PopupQnA onClose={popupCloseHandler} show={showQnA} />

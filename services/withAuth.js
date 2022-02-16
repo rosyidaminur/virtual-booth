@@ -4,7 +4,6 @@ import axios from "axios";
 export async function protectPage(ctx) {
   const token = cookies(ctx).token;
   if (token) {
- 
     try {
       const res = await axios.get(process.env.BASE_URL + "/me", {
         headers: { Authorization: `Bearer ${token}` },
@@ -40,12 +39,19 @@ export async function protectMainHall(ctx) {
         headers: { Authorization: `Bearer ${token}` },
       });
       let datavideo1 = false;
+      let datavideo2 = false;
       if (
-        res.data.data.reg_type === "Pameran dan Simposium" ||
-        (res.data.data.reg_type === "Pameran, Simposium dan Workshop" &&
-          res.data.data.paid == true)
+        (res.data.data.reg_type === "Pameran dan Simposium" ||
+          res.data.data.reg_type === "Pameran, Simposium dan Workshop") &&
+        res.data.data.paid == true
       ) {
         datavideo1 = true;
+      }
+      if (
+        res.data.data.reg_type === "Pameran, Simposium dan Workshop" &&
+        res.data.data.paid == true
+      ) {
+        datavideo2 = true;
       }
       return {
         props: {
